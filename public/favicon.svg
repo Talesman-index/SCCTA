@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- Dark Rounded Square Container -->
+  <rect width="64" height="64" rx="16" fill="#090A0E"/>
+  
+  <!-- 3 Dynamic Slanted Athletic Bars (SCCTA Logo Signature) -->
+  <g transform="translate(14, 18)">
+    <!-- Bar 1 (White) -->
+    <path d="M6 0 L12 0 L6 28 L0 28 Z" fill="#FFFFFF"/>
+    <!-- Bar 2 (White) -->
+    <path d="M16 0 L22 0 L16 28 L10 28 Z" fill="#FFFFFF"/>
+    <!-- Bar 3 (Electric Volt / Lime) -->
+    <path d="M26 0 L32 0 L26 28 L20 28 Z" fill="#D4F826"/>
+  </g>
+</svg>

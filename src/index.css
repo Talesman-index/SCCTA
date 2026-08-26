@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased text-slate-800 bg-white;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Custom Angular Polygon for Feature Banner (Image 6 reference) */
+.clip-diagonal {
+  clip-path: polygon(8% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+@media (max-width: 768px) {
+  .clip-diagonal {
+    clip-path: none;
+  }
+}
+
+/* Marquee / Ticker Animation */
+@keyframes marqueeScroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 18s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Red / Coral Action Button (from reference) */
+.btn-coral {
+  @apply inline-flex items-center justify-center px-6 py-2.5 rounded-sm font-bold text-white uppercase tracking-wider text-xs transition-all duration-200;
+  background-color: #E04F34;
+}
+
+.btn-coral:hover {
+  background-color: #CA3C22;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(224, 79, 52, 0.3);
+}
+
+.btn-coral:active {
+  transform: scale(0.98);
+}
+
+/* Blue Action Button */
+.btn-electric-blue {
+  @apply inline-flex items-center justify-center px-6 py-2.5 rounded-sm font-bold text-white uppercase tracking-wider text-xs transition-all duration-200;
+  background-color: #3B82F6;
+}
+
+.btn-electric-blue:hover {
+  background-color: #2563EB;
+}
+
+/* Clean Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
