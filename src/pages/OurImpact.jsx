@@ -30,18 +30,18 @@ export default function OurImpact({ setActivePage, onSelectStory, onOpenDonate }
         {/* Photographic Background Image Layer */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/champion-trophy.jpg" 
-            alt="Tennis athlete with trophy" 
-            className="w-full h-full object-cover opacity-25 object-center" 
+            src="/images/sccta-the-mill-group.jpg" 
+            alt="SCCTA youth players and coaches" 
+            className="w-full h-full object-cover opacity-25 object-[center_35%]" 
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/50" />
         </div>
 
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#0059A6]/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#8cb0bf]/20 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 relative z-10">
-          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-wider text-[#38BDF8] shadow-lg">
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-wider text-[#8cb0bf] shadow-lg">
             <div className="w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow-sm">
               <img src="/logo.png" alt="SCCTA" className="w-full h-full object-contain" />
             </div>
@@ -50,7 +50,7 @@ export default function OurImpact({ setActivePage, onSelectStory, onOpenDonate }
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold font-display tracking-tight text-white leading-[1.08]">
             Bigger than <br />
-            <span className="text-[#38BDF8]">the scoreboard.</span>
+            <span className="text-[#8cb0bf]">the scoreboard.</span>
           </h1>
 
           <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
@@ -59,27 +59,27 @@ export default function OurImpact({ setActivePage, onSelectStory, onOpenDonate }
         </div>
       </section>
 
-      {/* 02. FEATURED RECOGNITION (GEORGIA ESSAY WINNER) */}
+      {/* 02. FEATURED RECOGNITION (SCCTA SCHOLARSHIP WINNERS) */}
       <section className="py-24 bg-[#FAF9F5] border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal className="bg-[#061326] text-white rounded-3xl p-8 sm:p-14 shadow-2xl border border-white/10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               
               <div className="lg:col-span-7 space-y-6">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider bg-[#0059A6] text-white shadow-sm border border-blue-400/30">
-                  <Award className="w-4 h-4 text-[#38BDF8]" /> CELEBRATING EXCELLENCE
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider bg-[#8cb0bf] text-[#061326] shadow-sm border border-blue-400/30">
+                  <Award className="w-4 h-4 text-white" /> CELEBRATING EXCELLENCE
                 </div>
 
                 <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-white leading-tight">
-                  Georgia's USTA Southern Essay Contest Winner
+                  SCCTA NJTL College Scholarship Awards
                 </h2>
 
-                <div className="text-lg font-bold text-[#38BDF8]">
-                  {essayWinner.name} · Sectional First Place Champion
+                <div className="text-lg font-bold text-[#8cb0bf]">
+                  {essayWinner.name} · Academic & Athletic Honorees
                 </div>
 
                 <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-                  Through SCCTA's Beyond the Baseline writing workshops, Makayla reflected on how Arthur Ashe's vision shaped her perspective on perseverance and equality. Her essay earned 1st place across the state of Georgia.
+                  Through SCCTA's Beyond the Baseline educational mentoring and junior development programs, Ashley and Isaiah earned $500 collegiate scholarships recognizing their leadership, sportsmanship, and outstanding dedication.
                 </p>
 
                 <div className="p-5 rounded-2xl bg-white/5 border border-white/10 italic text-xs sm:text-sm text-slate-200 leading-relaxed">
@@ -89,7 +89,7 @@ export default function OurImpact({ setActivePage, onSelectStory, onOpenDonate }
                 <div className="pt-2 flex items-center gap-4">
                   <button
                     onClick={() => onSelectStory(essayWinner)}
-                    className="px-6 py-3.5 rounded-xl bg-[#0059A6] hover:bg-[#004785] text-white font-bold text-xs sm:text-sm shadow-[0_4px_14px_rgba(0,89,166,0.35)] transition-all active:scale-95 flex items-center gap-2"
+                    className="px-6 py-3.5 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs sm:text-sm shadow-[0_4px_14px_rgba(140, 176, 191,0.35)] transition-all active:scale-95 flex items-center gap-2"
                   >
                     <span>Read Full Story & Essay</span>
                     <ArrowRight className="w-4 h-4" />
@@ -118,7 +118,7 @@ export default function OurImpact({ setActivePage, onSelectStory, onOpenDonate }
           
           <ScrollReveal className="max-w-3xl space-y-3">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
-              <span className="w-3.5 h-3.5 rounded-sm border border-[#0059A6] text-[#0059A6] flex items-center justify-center text-[9px]">⬡</span>
+              <span className="w-3.5 h-3.5 rounded-sm border border-[#8cb0bf] text-[#8cb0bf] flex items-center justify-center text-[9px]">⬡</span>
               <span>Pillars of Transformation</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-slate-950 tracking-tight">
@@ -132,7 +132,7 @@ export default function OurImpact({ setActivePage, onSelectStory, onOpenDonate }
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             
             <ScrollReveal delay={100} className="p-8 rounded-3xl bg-[#FAF9F5] border border-slate-200 space-y-4 hover:shadow-xl hover:border-blue-300 transition-all">
-              <div className="w-12 h-12 rounded-2xl bg-[#0059A6] text-white flex items-center justify-center font-bold shadow-md shadow-blue-900/20">
+              <div className="w-12 h-12 rounded-2xl bg-[#8cb0bf] text-[#061326] flex items-center justify-center font-bold shadow-md shadow-blue-900/20">
                 <Trophy className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-xl font-extrabold font-display text-slate-950">On the Court</h3>
@@ -142,7 +142,7 @@ export default function OurImpact({ setActivePage, onSelectStory, onOpenDonate }
             </ScrollReveal>
 
             <ScrollReveal delay={150} className="p-8 rounded-3xl bg-[#FAF9F5] border border-slate-200 space-y-4 hover:shadow-xl hover:border-blue-300 transition-all">
-              <div className="w-12 h-12 rounded-2xl bg-[#0059A6] text-white flex items-center justify-center font-bold shadow-md shadow-blue-900/20">
+              <div className="w-12 h-12 rounded-2xl bg-[#8cb0bf] text-[#061326] flex items-center justify-center font-bold shadow-md shadow-blue-900/20">
                 <BookOpen className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-xl font-extrabold font-display text-slate-950">In the Classroom</h3>
@@ -152,7 +152,7 @@ export default function OurImpact({ setActivePage, onSelectStory, onOpenDonate }
             </ScrollReveal>
 
             <ScrollReveal delay={200} className="p-8 rounded-3xl bg-[#FAF9F5] border border-slate-200 space-y-4 hover:shadow-xl hover:border-blue-300 transition-all">
-              <div className="w-12 h-12 rounded-2xl bg-[#0059A6] text-white flex items-center justify-center font-bold shadow-md shadow-blue-900/20">
+              <div className="w-12 h-12 rounded-2xl bg-[#8cb0bf] text-[#061326] flex items-center justify-center font-bold shadow-md shadow-blue-900/20">
                 <Users className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-xl font-extrabold font-display text-slate-950">In the Community</h3>
@@ -162,7 +162,7 @@ export default function OurImpact({ setActivePage, onSelectStory, onOpenDonate }
             </ScrollReveal>
 
             <ScrollReveal delay={250} className="p-8 rounded-3xl bg-[#FAF9F5] border border-slate-200 space-y-4 hover:shadow-xl hover:border-blue-300 transition-all">
-              <div className="w-12 h-12 rounded-2xl bg-[#0059A6] text-white flex items-center justify-center font-bold shadow-md shadow-blue-900/20">
+              <div className="w-12 h-12 rounded-2xl bg-[#8cb0bf] text-[#061326] flex items-center justify-center font-bold shadow-md shadow-blue-900/20">
                 <GraduationCap className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-xl font-extrabold font-display text-slate-950">For the Future</h3>
@@ -183,7 +183,7 @@ export default function OurImpact({ setActivePage, onSelectStory, onOpenDonate }
           <ScrollReveal className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div>
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
-                <span className="w-3.5 h-3.5 rounded-sm border border-[#0059A6] text-[#0059A6] flex items-center justify-center text-[9px]">⬡</span>
+                <span className="w-3.5 h-3.5 rounded-sm border border-[#8cb0bf] text-[#8cb0bf] flex items-center justify-center text-[9px]">⬡</span>
                 <span>Individual Profiles</span>
               </div>
               <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-slate-950 tracking-tight mt-1">
@@ -202,7 +202,7 @@ export default function OurImpact({ setActivePage, onSelectStory, onOpenDonate }
                   onClick={() => setSelectedFilter(f)}
                   className={`px-3.5 py-1.5 rounded-xl text-xs font-bold capitalize transition-all ${
                     selectedFilter === f
-                      ? 'bg-[#0059A6] text-white shadow-sm'
+                      ? 'bg-[#8cb0bf] text-[#061326] shadow-sm'
                       : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
                   }`}
                 >
@@ -226,14 +226,14 @@ export default function OurImpact({ setActivePage, onSelectStory, onOpenDonate }
                       alt={story.name} 
                       className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 opacity-90"
                     />
-                    <div className="absolute top-4 left-4 bg-[#061326]/85 backdrop-blur-md text-[#38BDF8] text-[10px] font-extrabold uppercase px-3 py-1.5 rounded-full border border-white/15 shadow">
+                    <div className="absolute top-4 left-4 bg-[#061326]/85 backdrop-blur-md text-[#8cb0bf] text-[10px] font-extrabold uppercase px-3 py-1.5 rounded-full border border-white/15 shadow">
                       {story.category}
                     </div>
                   </div>
 
                   <div className="p-6 sm:p-8 space-y-3">
                     <h3 className="text-2xl font-extrabold font-display text-slate-950">{story.name}</h3>
-                    <p className="text-xs font-bold text-[#0059A6]">{story.achievement}</p>
+                    <p className="text-xs font-bold text-[#8cb0bf]">{story.achievement}</p>
                     <p className="text-xs text-slate-600 leading-relaxed pt-1">
                       {story.excerpt}
                     </p>
@@ -243,7 +243,7 @@ export default function OurImpact({ setActivePage, onSelectStory, onOpenDonate }
                 <div className="p-6 sm:p-8 pt-0">
                   <button
                     onClick={() => onSelectStory(story)}
-                    className="w-full py-3 rounded-xl bg-slate-100 hover:bg-[#0059A6] hover:text-white text-xs font-bold text-slate-800 transition-all flex items-center justify-center gap-2"
+                    className="w-full py-3 rounded-xl bg-slate-100 hover:bg-[#8cb0bf] hover:text-[#061326] text-xs font-bold text-slate-800 transition-all flex items-center justify-center gap-2"
                   >
                     <span>Read Story & Reflections</span>
                     <ArrowRight className="w-3.5 h-3.5" />

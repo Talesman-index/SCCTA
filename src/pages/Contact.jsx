@@ -34,18 +34,18 @@ export default function Contact() {
         {/* Photographic Background Image Layer */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/aerial-court.jpg" 
-            alt="Tennis courts overview" 
-            className="w-full h-full object-cover opacity-25 object-center" 
+            src="/images/sccta-clayton-team.jpg" 
+            alt="South Clayton Community Tennis Association" 
+            className="w-full h-full object-cover opacity-25 object-[center_35%]" 
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/50" />
         </div>
 
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#0059A6]/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#8cb0bf]/20 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 relative z-10">
-          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-wider text-[#38BDF8] shadow-lg">
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-wider text-[#8cb0bf] shadow-lg">
             <div className="w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow-sm">
               <img src="/logo.png" alt="SCCTA" className="w-full h-full object-contain" />
             </div>
@@ -53,7 +53,7 @@ export default function Contact() {
           </div>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold font-display tracking-tight text-white leading-[1.08]">
-            Let's <span className="text-[#38BDF8]">connect.</span>
+            Let's <span className="text-[#8cb0bf]">connect.</span>
           </h1>
 
           <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
@@ -73,7 +73,7 @@ export default function Contact() {
               {/* General Inquiries */}
               <ScrollReveal delay={100} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4 hover:shadow-md hover:border-blue-200 transition-all">
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-2xl bg-[#0059A6] text-white flex items-center justify-center font-bold shadow-md shadow-blue-900/20">
+                  <div className="w-11 h-11 rounded-2xl bg-[#8cb0bf] text-[#061326] flex items-center justify-center font-bold shadow-md shadow-blue-900/20">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
@@ -84,18 +84,18 @@ export default function Contact() {
 
                 <div className="space-y-3 text-xs text-slate-600 border-t border-slate-100 pt-4">
                   <div className="flex items-start gap-2.5">
-                    <MapPin className="w-4 h-4 text-[#0059A6] shrink-0 mt-0.5" />
+                    <MapPin className="w-4 h-4 text-[#8cb0bf] shrink-0 mt-0.5" />
                     <span>Clayton County, Georgia</span>
                   </div>
                   <div className="flex items-center gap-2.5">
-                    <Mail className="w-4 h-4 text-[#0059A6] shrink-0" />
-                    <a href="mailto:scccta1@gmail.com" className="text-slate-900 font-bold hover:text-[#0059A6] transition-colors">
+                    <Mail className="w-4 h-4 text-[#8cb0bf] shrink-0" />
+                    <a href="mailto:scccta1@gmail.com" className="text-slate-900 font-bold hover:text-[#8cb0bf] transition-colors">
                       scccta1@gmail.com
                     </a>
                   </div>
                   <div className="flex items-center gap-2.5">
-                    <Phone className="w-4 h-4 text-[#0059A6] shrink-0" />
-                    <a href="tel:770-872-0921" className="text-slate-900 font-bold hover:text-[#0059A6] transition-colors">
+                    <Phone className="w-4 h-4 text-[#8cb0bf] shrink-0" />
+                    <a href="tel:770-872-0921" className="text-slate-900 font-bold hover:text-[#8cb0bf] transition-colors">
                       770-872-0921
                     </a>
                   </div>
@@ -105,7 +105,7 @@ export default function Contact() {
               {/* Tournament Inquiries */}
               <ScrollReveal delay={200} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4 hover:shadow-md hover:border-blue-200 transition-all">
                 <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-2xl bg-[#0059A6] text-white flex items-center justify-center font-bold shadow-md shadow-blue-900/20">
+                  <div className="w-11 h-11 rounded-2xl bg-[#8cb0bf] text-[#061326] flex items-center justify-center font-bold shadow-md shadow-blue-900/20">
                     <Trophy className="w-5 h-5" />
                   </div>
                   <div>
@@ -120,14 +120,14 @@ export default function Contact() {
 
                 <div className="space-y-3 text-xs text-slate-600 border-t border-slate-100 pt-4">
                   <div className="flex items-center gap-2.5">
-                    <Mail className="w-4 h-4 text-[#0059A6] shrink-0" />
-                    <a href="mailto:sccta.jr.tournament@gmail.com" className="text-slate-900 font-bold hover:text-[#0059A6] transition-colors">
+                    <Mail className="w-4 h-4 text-[#8cb0bf] shrink-0" />
+                    <a href="mailto:sccta.jr.tournament@gmail.com" className="text-slate-900 font-bold hover:text-[#8cb0bf] transition-colors">
                       sccta.jr.tournament@gmail.com
                     </a>
                   </div>
                   <div className="flex items-center gap-2.5">
-                    <Phone className="w-4 h-4 text-[#0059A6] shrink-0" />
-                    <a href="tel:404-386-4009" className="text-slate-900 font-bold hover:text-[#0059A6] transition-colors">
+                    <Phone className="w-4 h-4 text-[#8cb0bf] shrink-0" />
+                    <a href="tel:404-386-4009" className="text-slate-900 font-bold hover:text-[#8cb0bf] transition-colors">
                       404-386-4009
                     </a>
                   </div>
@@ -136,7 +136,7 @@ export default function Contact() {
 
               {/* Facilities Note */}
               <ScrollReveal delay={300} className="bg-[#061326] text-white p-7 rounded-3xl space-y-2 text-xs shadow-lg border border-white/10">
-                <div className="font-extrabold text-[#38BDF8] uppercase tracking-wider text-[10px]">
+                <div className="font-extrabold text-[#8cb0bf] uppercase tracking-wider text-[10px]">
                   Host Facilities
                 </div>
                 <div className="font-extrabold text-sm font-display">Clayton County International Park Tennis Center</div>
@@ -160,7 +160,7 @@ export default function Contact() {
 
                 {submitted ? (
                   <div className="py-12 text-center space-y-4">
-                    <div className="w-16 h-16 bg-[#0059A6] text-white rounded-full flex items-center justify-center mx-auto shadow-md">
+                    <div className="w-16 h-16 bg-[#8cb0bf] text-[#061326] rounded-full flex items-center justify-center mx-auto shadow-md">
                       <Check className="w-8 h-8 stroke-[3]" />
                     </div>
                     <h4 className="text-2xl font-black text-slate-900 font-display">Message Sent!</h4>
@@ -180,7 +180,7 @@ export default function Contact() {
                           message: ''
                         });
                       }}
-                      className="px-6 py-3 rounded-xl bg-slate-100 text-slate-800 text-xs font-bold hover:bg-[#0059A6] hover:text-white transition-all"
+                      className="px-6 py-3 rounded-xl bg-slate-100 text-slate-800 text-xs font-bold hover:bg-[#8cb0bf] hover:text-[#061326] transition-all"
                     >
                       Send Another Message
                     </button>
@@ -196,7 +196,7 @@ export default function Contact() {
                           required
                           value={formData.firstName}
                           onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs bg-white focus:ring-2 focus:ring-[#0059A6] shadow-xs"
+                          className="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs bg-white focus:ring-2 focus:ring-[#8cb0bf] shadow-xs"
                         />
                       </div>
                       <div>
@@ -206,7 +206,7 @@ export default function Contact() {
                           required
                           value={formData.lastName}
                           onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs bg-white focus:ring-2 focus:ring-[#0059A6] shadow-xs"
+                          className="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs bg-white focus:ring-2 focus:ring-[#8cb0bf] shadow-xs"
                         />
                       </div>
                     </div>
@@ -219,7 +219,7 @@ export default function Contact() {
                           required
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs bg-white focus:ring-2 focus:ring-[#0059A6] shadow-xs"
+                          className="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs bg-white focus:ring-2 focus:ring-[#8cb0bf] shadow-xs"
                         />
                       </div>
                       <div>
@@ -228,7 +228,7 @@ export default function Contact() {
                           type="tel"
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs bg-white focus:ring-2 focus:ring-[#0059A6] shadow-xs"
+                          className="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs bg-white focus:ring-2 focus:ring-[#8cb0bf] shadow-xs"
                         />
                       </div>
                     </div>
@@ -238,7 +238,7 @@ export default function Contact() {
                       <select
                         value={formData.interest}
                         onChange={(e) => setFormData({ ...formData, interest: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs font-medium bg-white focus:ring-2 focus:ring-[#0059A6] shadow-xs"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs font-medium bg-white focus:ring-2 focus:ring-[#8cb0bf] shadow-xs"
                       >
                         <option value="Programs">Youth or Adult Tennis Programs</option>
                         <option value="Tournaments">Tournament Registration & Draws</option>
@@ -257,13 +257,13 @@ export default function Contact() {
                         placeholder="How can we assist you or your family?"
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs bg-white focus:ring-2 focus:ring-[#0059A6] shadow-xs"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-300 text-xs bg-white focus:ring-2 focus:ring-[#8cb0bf] shadow-xs"
                       ></textarea>
                     </div>
 
                     <button
                       type="submit"
-                      className="w-full py-4 rounded-xl bg-[#0059A6] hover:bg-[#004785] text-white font-bold text-xs uppercase tracking-wider shadow-[0_4px_14px_rgba(0,89,166,0.35)] transition-all active:scale-95 flex items-center justify-center gap-2"
+                      className="w-full py-4 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs uppercase tracking-wider shadow-[0_4px_14px_rgba(140, 176, 191,0.35)] transition-all active:scale-95 flex items-center justify-center gap-2"
                     >
                       <Send className="w-3.5 h-3.5" />
                       <span>Send Message</span>

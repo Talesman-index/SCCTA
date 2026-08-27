@@ -8,17 +8,17 @@ export default {
     extend: {
       colors: {
         tennis: {
-          blue: '#0059A6',
-          bluelight: '#007CE8',
-          bluedark: '#003E75',
+          blue: '#8cb0bf',
+          bluelight: '#a2c4d2',
+          bluedark: '#6f94a4',
           navy: '#061326',
           dark: '#08111D',
           hero: '#0B1728',
           court: '#0F392B',
           emerald: '#165B45',
           mint: '#2DD4BF',
-          sky: '#38BDF8',
-          volt: '#0059A6',
+          sky: '#8cb0bf',
+          volt: '#8cb0bf',
           lime: '#D4F826',
           clay: '#C85A32',
           claylight: '#F4A261',

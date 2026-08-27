@@ -86,13 +86,13 @@ export default function Header({ activePage, setActivePage, onOpenDonate, onOpen
                     onClick={() => handleNavClick(item.id)}
                     className={`text-xs font-semibold tracking-wide transition-colors duration-200 py-1 relative ${
                       isActive 
-                        ? 'text-[#38BDF8] font-bold' 
-                        : 'text-slate-200 hover:text-[#38BDF8]'
+                        ? 'text-[#8cb0bf] font-bold' 
+                        : 'text-slate-200 hover:text-[#8cb0bf]'
                     }`}
                   >
                     {item.label}
                     {isActive && (
-                      <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#38BDF8] rounded-full shadow-[0_0_8px_#38BDF8]" />
+                      <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#8cb0bf] rounded-full shadow-[0_0_8px_#8cb0bf]" />
                     )}
                   </button>
                 );
@@ -103,7 +103,7 @@ export default function Header({ activePage, setActivePage, onOpenDonate, onOpen
             <div className="flex items-center gap-2 sm:gap-3">
               <button
                 onClick={() => handleNavClick('contact')}
-                className="hidden sm:inline-flex px-4 py-2 rounded-xl bg-[#0059A6] hover:bg-[#007CE8] text-white font-bold text-xs transition-all shadow-[0_2px_12px_rgba(0,89,166,0.4)] hover:shadow-[0_4px_16px_rgba(0,124,232,0.6)] active:scale-95 whitespace-nowrap"
+                className="hidden sm:inline-flex px-4 py-2 rounded-xl bg-[#8cb0bf] hover:bg-[#9ec0cf] text-white font-bold text-xs transition-all shadow-[0_2px_12px_rgba(140, 176, 191,0.4)] hover:shadow-[0_4px_16px_rgba(0,124,232,0.6)] active:scale-95 whitespace-nowrap"
               >
                 Contact Us
               </button>
@@ -142,7 +142,7 @@ export default function Header({ activePage, setActivePage, onOpenDonate, onOpen
                 <span className="font-extrabold text-xl tracking-tight text-white font-display block">
                   SCCTA
                 </span>
-                <span className="text-[10px] text-[#38BDF8] font-bold uppercase tracking-wider">
+                <span className="text-[10px] text-[#8cb0bf] font-bold uppercase tracking-wider">
                   South Clayton Tennis
                 </span>
               </div>
@@ -153,13 +153,13 @@ export default function Header({ activePage, setActivePage, onOpenDonate, onOpen
               className="p-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors active:scale-95"
               aria-label="Close menu"
             >
-              <X className="w-5 h-5 text-[#38BDF8]" />
+              <X className="w-5 h-5 text-[#8cb0bf]" />
             </button>
           </div>
 
           {/* Navigation Links List */}
           <div className="py-6 space-y-1.5 flex-1">
-            <div className="text-[10px] font-extrabold uppercase tracking-widest text-[#38BDF8] px-3 pb-2">
+            <div className="text-[10px] font-extrabold uppercase tracking-widest text-[#8cb0bf] px-3 pb-2">
               Menu Navigation
             </div>
 
@@ -171,7 +171,7 @@ export default function Header({ activePage, setActivePage, onOpenDonate, onOpen
                   onClick={() => handleNavClick(item.id)}
                   className={`w-full flex items-center justify-between py-3 px-4 rounded-2xl font-display font-bold text-lg transition-all ${
                     isActive 
-                      ? 'bg-[#0059A6] text-white shadow-md' 
+                      ? 'bg-[#8cb0bf] text-[#061326] shadow-md' 
                       : 'text-slate-200 hover:bg-white/10 hover:text-white'
                   }`}
                 >
@@ -189,9 +189,9 @@ export default function Header({ activePage, setActivePage, onOpenDonate, onOpen
                 setMobileMenuOpen(false);
                 onOpenProgramFinder();
               }}
-              className="w-full py-3.5 rounded-xl bg-[#0059A6] hover:bg-[#004785] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg active:scale-95"
+              className="w-full py-3.5 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg active:scale-95"
             >
-              <Activity className="w-4 h-4 text-[#38BDF8]" />
+              <Activity className="w-4 h-4 text-[#8cb0bf]" />
               <span>Interactive Program Matcher</span>
             </button>
 
@@ -202,7 +202,7 @@ export default function Header({ activePage, setActivePage, onOpenDonate, onOpen
               }}
               className="w-full py-3.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/20 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 active:scale-95"
             >
-              <Heart className="w-4 h-4 text-[#38BDF8]" />
+              <Heart className="w-4 h-4 text-[#8cb0bf]" />
               <span>Sponsor a Player / Donate</span>
             </button>
           </div>

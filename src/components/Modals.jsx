@@ -32,7 +32,7 @@ export function DonationModal({ isOpen, onClose }) {
             <X className="w-5 h-5" />
           </button>
           
-          <div className="flex items-center gap-2 text-[#38BDF8] text-xs font-bold uppercase tracking-wider mb-1">
+          <div className="flex items-center gap-2 text-[#8cb0bf] text-xs font-bold uppercase tracking-wider mb-1">
             <img src="/logo.png" alt="SCCTA" className="w-4 h-4 object-contain" />
             <span>501(c)(3) Community Support</span>
           </div>
@@ -54,7 +54,7 @@ export function DonationModal({ isOpen, onClose }) {
                   type="button"
                   onClick={() => setIsRecurring(false)}
                   className={`py-2.5 text-xs font-bold rounded-lg transition-all ${
-                    !isRecurring ? 'bg-[#0059A6] text-white shadow-sm' : 'text-slate-600'
+                    !isRecurring ? 'bg-[#8cb0bf] text-[#061326] shadow-sm' : 'text-slate-600'
                   }`}
                 >
                   One-Time Gift
@@ -63,7 +63,7 @@ export function DonationModal({ isOpen, onClose }) {
                   type="button"
                   onClick={() => setIsRecurring(true)}
                   className={`py-2.5 text-xs font-bold rounded-lg transition-all ${
-                    isRecurring ? 'bg-[#0059A6] text-white shadow-sm' : 'text-slate-600'
+                    isRecurring ? 'bg-[#8cb0bf] text-[#061326] shadow-sm' : 'text-slate-600'
                   }`}
                 >
                   Monthly Supporter
@@ -82,14 +82,14 @@ export function DonationModal({ isOpen, onClose }) {
                     }}
                     className={`p-4 rounded-2xl border text-left transition-all ${
                       selectedTier === tier.amount && !customAmount
-                        ? 'border-[#0059A6] bg-blue-50/60 ring-2 ring-[#0059A6]'
+                        ? 'border-[#8cb0bf] bg-blue-50/60 ring-2 ring-[#8cb0bf]'
                         : 'border-slate-200 hover:border-blue-300 bg-white'
                     }`}
                   >
                     <div className="flex items-center justify-between mb-1">
-                      <span className="font-black font-display text-xl text-[#0059A6]">${tier.amount}</span>
+                      <span className="font-black font-display text-xl text-[#8cb0bf]">${tier.amount}</span>
                       {tier.popular && (
-                        <span className="text-[10px] uppercase font-bold bg-[#0059A6] text-white px-2 py-0.5 rounded-full shadow-xs">
+                        <span className="text-[10px] uppercase font-bold bg-[#8cb0bf] text-[#061326] px-2 py-0.5 rounded-full shadow-xs">
                           Popular
                         </span>
                       )}
@@ -112,7 +112,7 @@ export function DonationModal({ isOpen, onClose }) {
                     placeholder="Other Amount"
                     value={customAmount}
                     onChange={(e) => setCustomAmount(e.target.value)}
-                    className="w-full pl-8 pr-4 py-3 rounded-xl border border-slate-300 text-xs font-bold focus:ring-2 focus:ring-[#0059A6]"
+                    className="w-full pl-8 pr-4 py-3 rounded-xl border border-slate-300 text-xs font-bold focus:ring-2 focus:ring-[#8cb0bf]"
                   />
                 </div>
               </div>
@@ -121,7 +121,7 @@ export function DonationModal({ isOpen, onClose }) {
               <button
                 type="button"
                 onClick={() => setStep('details')}
-                className="w-full py-3.5 rounded-xl bg-[#0059A6] hover:bg-[#004785] text-white font-bold text-xs shadow-[0_4px_14px_rgba(0,89,166,0.35)] transition-all active:scale-95 flex items-center justify-center gap-2"
+                className="w-full py-3.5 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs shadow-[0_4px_14px_rgba(140, 176, 191,0.35)] transition-all active:scale-95 flex items-center justify-center gap-2"
               >
                 <span>Continue (${currentAmount})</span>
                 <ArrowRight className="w-4 h-4" />
@@ -133,13 +133,13 @@ export function DonationModal({ isOpen, onClose }) {
             <form onSubmit={handleDonateSubmit} className="space-y-4">
               <div className="p-3.5 bg-blue-50 border border-blue-200 rounded-xl flex items-center justify-between text-xs">
                 <div>
-                  <span className="font-bold text-[#0059A6]">${currentAmount} {isRecurring ? '/ month' : 'One-Time'}</span>
+                  <span className="font-bold text-[#8cb0bf]">${currentAmount} {isRecurring ? '/ month' : 'One-Time'}</span>
                   <p className="text-[11px] text-slate-500">Tax-deductible contribution</p>
                 </div>
                 <button
                   type="button"
                   onClick={() => setStep('select')}
-                  className="text-xs text-[#0059A6] font-bold hover:underline"
+                  className="text-xs text-[#8cb0bf] font-bold hover:underline"
                 >
                   Change
                 </button>
@@ -153,7 +153,7 @@ export function DonationModal({ isOpen, onClose }) {
                   placeholder="Your Name"
                   value={donorData.name}
                   onChange={(e) => setDonorData({ ...donorData, name: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-[#0059A6]"
+                  className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-[#8cb0bf]"
                 />
               </div>
 
@@ -165,7 +165,7 @@ export function DonationModal({ isOpen, onClose }) {
                   placeholder="your.email@example.com"
                   value={donorData.email}
                   onChange={(e) => setDonorData({ ...donorData, email: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-[#0059A6]"
+                  className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-[#8cb0bf]"
                 />
               </div>
 
@@ -176,7 +176,7 @@ export function DonationModal({ isOpen, onClose }) {
                   placeholder="In honor of... or general scholarship"
                   value={donorData.dedication}
                   onChange={(e) => setDonorData({ ...donorData, dedication: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-[#0059A6]"
+                  className="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-xs focus:ring-2 focus:ring-[#8cb0bf]"
                 />
               </div>
 
@@ -190,7 +190,7 @@ export function DonationModal({ isOpen, onClose }) {
                 </button>
                 <button
                   type="submit"
-                  className="w-2/3 py-3 rounded-xl bg-[#0059A6] hover:bg-[#004785] text-white text-xs font-bold shadow-[0_4px_14px_rgba(0,89,166,0.35)] transition-all active:scale-95"
+                  className="w-2/3 py-3 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] text-xs font-bold shadow-[0_4px_14px_rgba(140, 176, 191,0.35)] transition-all active:scale-95"
                 >
                   Complete Donation
                 </button>
@@ -200,7 +200,7 @@ export function DonationModal({ isOpen, onClose }) {
 
           {step === 'success' && (
             <div className="py-8 text-center space-y-4">
-              <div className="w-16 h-16 bg-[#0059A6] text-white rounded-full flex items-center justify-center mx-auto shadow-md">
+              <div className="w-16 h-16 bg-[#8cb0bf] text-[#061326] rounded-full flex items-center justify-center mx-auto shadow-md">
                 <Check className="w-8 h-8 stroke-[3]" />
               </div>
               <h4 className="text-2xl font-extrabold font-display text-slate-950">Thank You, {donorData.name || 'Generous Donor'}!</h4>
@@ -210,7 +210,7 @@ export function DonationModal({ isOpen, onClose }) {
               <button
                 type="button"
                 onClick={onClose}
-                className="px-6 py-2.5 rounded-xl bg-[#0059A6] hover:bg-[#004785] text-white text-xs font-bold shadow transition-all active:scale-95"
+                className="px-6 py-2.5 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] text-xs font-bold shadow transition-all active:scale-95"
               >
                 Close Window
               </button>
@@ -256,7 +256,7 @@ export function ProgramFinderModal({ isOpen, onClose, onSelectProgram }) {
             <X className="w-4 h-4" />
           </button>
           
-          <div className="flex items-center gap-2 text-[#38BDF8] text-[10px] font-extrabold uppercase tracking-widest mb-1.5">
+          <div className="flex items-center gap-2 text-[#8cb0bf] text-[10px] font-extrabold uppercase tracking-widest mb-1.5">
             <img src="/logo.png" alt="SCCTA" className="w-4 h-4 object-contain" />
             <span>SCCTA Interactive Matcher · Step {step} of 3</span>
           </div>
@@ -271,7 +271,7 @@ export function ProgramFinderModal({ isOpen, onClose, onSelectProgram }) {
           {/* Progress Indicator Bar */}
           <div className="w-full bg-white/10 h-1.5 rounded-full mt-4 overflow-hidden">
             <div 
-              className="bg-[#38BDF8] h-full transition-all duration-300 rounded-full"
+              className="bg-[#8cb0bf] h-full transition-all duration-300 rounded-full"
               style={{ width: `${(step / 3) * 100}%` }}
             />
           </div>
@@ -294,7 +294,7 @@ export function ProgramFinderModal({ isOpen, onClose, onSelectProgram }) {
                   { id: 'orange', label: 'Ages 8–10', tag: 'Orange Ball', desc: '60-ft court with rally shapes', color: '#F97316' },
                   { id: 'green', label: 'Ages 10–12', tag: 'Green Ball', desc: 'Full court stroke preparation', color: '#22C55E' },
                   { id: 'yellow', label: 'Ages 12–18', tag: 'Yellow Ball', desc: 'Full regulation & junior competition', color: '#EAB308' },
-                  { id: 'adult', label: 'Adults (18+)', tag: 'Clinics & Leagues', desc: 'Beginners, cardio & doubles', color: '#0059A6', fullWidth: true },
+                  { id: 'adult', label: 'Adults (18+)', tag: 'Clinics & Leagues', desc: 'Beginners, cardio & doubles', color: '#8cb0bf', fullWidth: true },
                 ].map((item) => {
                   const isSelected = ageGroup === item.id;
                   return (
@@ -304,7 +304,7 @@ export function ProgramFinderModal({ isOpen, onClose, onSelectProgram }) {
                       onClick={() => setAgeGroup(item.id)}
                       className={`p-4 rounded-2xl border text-left transition-all duration-200 ${item.fullWidth ? 'sm:col-span-2' : ''} ${
                         isSelected 
-                          ? 'border-[#0059A6] bg-[#0059A6] text-white shadow-lg scale-[1.01]' 
+                          ? 'border-[#8cb0bf] bg-[#8cb0bf] text-[#061326] shadow-lg scale-[1.01]' 
                           : 'border-slate-200 hover:border-blue-300 bg-[#FAF9F5]'
                       }`}
                     >
@@ -313,11 +313,11 @@ export function ProgramFinderModal({ isOpen, onClose, onSelectProgram }) {
                           <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: item.color }} />
                           <span className="font-extrabold text-sm">{item.label}</span>
                         </div>
-                        <span className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded-full ${isSelected ? 'bg-white/20 text-[#38BDF8]' : 'bg-white border border-slate-200 text-slate-700'}`}>
+                        <span className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded-full ${isSelected ? 'bg-white/20 text-[#8cb0bf]' : 'bg-white border border-slate-200 text-slate-700'}`}>
                           {item.tag}
                         </span>
                       </div>
-                      <div className={`text-xs ${isSelected ? 'text-blue-100' : 'text-slate-500'}`}>
+                      <div className={`text-xs ${isSelected ? 'text-slate-700' : 'text-slate-500'}`}>
                         {item.desc}
                       </div>
                     </button>
@@ -329,7 +329,7 @@ export function ProgramFinderModal({ isOpen, onClose, onSelectProgram }) {
                 type="button"
                 disabled={!ageGroup}
                 onClick={() => setStep(2)}
-                className="w-full mt-4 py-4 rounded-xl bg-[#0059A6] hover:bg-[#004785] text-white font-bold text-xs uppercase tracking-wider shadow-[0_4px_14px_rgba(0,89,166,0.35)] disabled:opacity-30 disabled:pointer-events-none transition-all flex items-center justify-center gap-2"
+                className="w-full mt-4 py-4 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs uppercase tracking-wider shadow-[0_4px_14px_rgba(140, 176, 191,0.35)] disabled:opacity-30 disabled:pointer-events-none transition-all flex items-center justify-center gap-2"
               >
                 <span>Continue to Experience</span>
                 <ArrowRight className="w-4 h-4" />
@@ -360,12 +360,12 @@ export function ProgramFinderModal({ isOpen, onClose, onSelectProgram }) {
                       onClick={() => setExperience(item.id)}
                       className={`p-4 rounded-2xl border text-left transition-all ${
                         isSelected 
-                          ? 'border-[#0059A6] bg-[#0059A6] text-white shadow-lg' 
+                          ? 'border-[#8cb0bf] bg-[#8cb0bf] text-[#061326] shadow-lg' 
                           : 'border-slate-200 hover:border-blue-300 bg-[#FAF9F5]'
                       }`}
                     >
                       <div className="font-extrabold text-sm mb-0.5">{item.label}</div>
-                      <div className={`text-xs ${isSelected ? 'text-blue-100' : 'text-slate-500'}`}>
+                      <div className={`text-xs ${isSelected ? 'text-slate-700' : 'text-slate-500'}`}>
                         {item.desc}
                       </div>
                     </button>
@@ -385,7 +385,7 @@ export function ProgramFinderModal({ isOpen, onClose, onSelectProgram }) {
                   type="button"
                   disabled={!experience}
                   onClick={() => setStep(3)}
-                  className="w-2/3 py-3.5 rounded-xl bg-[#0059A6] hover:bg-[#004785] text-white font-bold text-xs uppercase tracking-wider shadow-[0_4px_14px_rgba(0,89,166,0.35)] disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center gap-2"
+                  className="w-2/3 py-3.5 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs uppercase tracking-wider shadow-[0_4px_14px_rgba(140, 176, 191,0.35)] disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center gap-2"
                 >
                   <span>Next Step</span>
                   <ArrowRight className="w-4 h-4" />
@@ -417,12 +417,12 @@ export function ProgramFinderModal({ isOpen, onClose, onSelectProgram }) {
                       onClick={() => setGoal(item.id)}
                       className={`p-4 rounded-2xl border text-left transition-all ${
                         isSelected 
-                          ? 'border-[#0059A6] bg-[#0059A6] text-white shadow-lg' 
+                          ? 'border-[#8cb0bf] bg-[#8cb0bf] text-[#061326] shadow-lg' 
                           : 'border-slate-200 hover:border-blue-300 bg-[#FAF9F5]'
                       }`}
                     >
                       <div className="font-extrabold text-sm mb-0.5">{item.label}</div>
-                      <div className={`text-xs ${isSelected ? 'text-blue-100' : 'text-slate-500'}`}>
+                      <div className={`text-xs ${isSelected ? 'text-slate-700' : 'text-slate-500'}`}>
                         {item.desc}
                       </div>
                     </button>
@@ -442,7 +442,7 @@ export function ProgramFinderModal({ isOpen, onClose, onSelectProgram }) {
                   type="button"
                   disabled={!goal}
                   onClick={handleFinish}
-                  className="w-2/3 py-3.5 rounded-xl bg-[#0059A6] hover:bg-[#004785] text-white font-bold text-xs uppercase tracking-wider shadow-[0_4px_14px_rgba(0,89,166,0.35)] disabled:opacity-30 flex items-center justify-center gap-2"
+                  className="w-2/3 py-3.5 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs uppercase tracking-wider shadow-[0_4px_14px_rgba(140, 176, 191,0.35)] disabled:opacity-30 flex items-center justify-center gap-2"
                 >
                   <span>View Recommended Program</span>
                   <ArrowRight className="w-4 h-4" />
@@ -478,7 +478,7 @@ export function StoryModal({ story, onClose }) {
           </button>
 
           <div className="absolute bottom-5 left-6 right-6 text-white space-y-1">
-            <span className="text-[10px] font-extrabold uppercase bg-[#0059A6] text-white px-2.5 py-1 rounded-full shadow border border-blue-400/30">
+            <span className="text-[10px] font-extrabold uppercase bg-[#8cb0bf] text-[#061326] px-2.5 py-1 rounded-full shadow border border-blue-400/30">
               {story.category}
             </span>
             <h3 className="text-2xl sm:text-3xl font-extrabold font-display text-white">{story.name}</h3>
@@ -489,7 +489,7 @@ export function StoryModal({ story, onClose }) {
         {/* Scrollable Story Content */}
         <div className="p-6 sm:p-8 space-y-5 overflow-y-auto">
           {story.quote && (
-            <blockquote className="p-5 rounded-2xl bg-blue-50/60 border-l-4 border-[#0059A6] text-xs sm:text-sm italic text-slate-800 leading-relaxed font-medium">
+            <blockquote className="p-5 rounded-2xl bg-blue-50/60 border-l-4 border-[#8cb0bf] text-xs sm:text-sm italic text-slate-800 leading-relaxed font-medium">
               “{story.quote}”
             </blockquote>
           )}
@@ -505,7 +505,7 @@ export function StoryModal({ story, onClose }) {
             </div>
             <button
               onClick={onClose}
-              className="px-5 py-2.5 rounded-xl bg-[#0059A6] hover:bg-[#004785] text-white font-bold text-xs shadow transition-all active:scale-95"
+              className="px-5 py-2.5 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs shadow transition-all active:scale-95"
             >
               Close Story
             </button>

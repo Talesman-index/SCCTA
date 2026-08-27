@@ -118,7 +118,7 @@ export const UPCOMING_TOURNAMENTS = [
     surface: "Hard Court (Outdoor)",
     entryFee: "$45.00 Singles / $25.00 Doubles",
     status: "Registration Open",
-    image: "/doubles-ready-stance.jpg",
+    image: "/images/sccta-the-mill-group.jpg",
     featured: true
   },
   {
@@ -132,7 +132,7 @@ export const UPCOMING_TOURNAMENTS = [
     surface: "Hard Court (Outdoor)",
     entryFee: "$35.00 per player (Includes T-Shirt & Medals)",
     status: "Registration Open",
-    image: "/blue-court-player.jpg",
+    image: "/images/sccta-the-mill-juniors.jpg",
     featured: true
   },
   {
@@ -146,7 +146,7 @@ export const UPCOMING_TOURNAMENTS = [
     surface: "Hard Court (Outdoor)",
     entryFee: "$50.00",
     status: "Upcoming",
-    image: "/junior-girl.jpg",
+    image: "/images/sccta-clayton-clinic.png",
     featured: false
   },
   {
@@ -160,7 +160,7 @@ export const UPCOMING_TOURNAMENTS = [
     surface: "Hard Court",
     entryFee: "$30.00 per player",
     status: "Upcoming",
-    image: "/team-high-five.jpg",
+    image: "/images/sccta-clayton-team.jpg",
     featured: false
   }
 ];
@@ -168,90 +168,90 @@ export const UPCOMING_TOURNAMENTS = [
 export const IMPACT_STORIES = [
   {
     id: "essay-contest-winner",
-    name: "Makayla Harris",
-    category: "Recognition & Writing",
-    tag: "Georgia's USTA Southern Essay Contest Winner",
-    image: "/blue-court-player.jpg",
-    achievement: "USTA Southern Sectional Winner · College Scholarship Recipient",
-    excerpt: "Through SCCTA's NJTL essay workshops, Makayla reflected on Arthur Ashe's legacy of character and education, taking 1st place in Georgia.",
-    fullStory: "Makayla joined SCCTA at age 8 with zero tennis experience. Over 6 years in our youth clinics and academic enrichment labs, she not only became a top junior competitor in Clayton County but also discovered her passion for writing. Her winning essay on 'How Tennis Builds Leadership Beyond the Court' was awarded 1st Place across Georgia by USTA Southern. Today, she mentors younger students every Saturday.",
-    quote: "Tennis taught me how to stay calm under pressure, but SCCTA showed me that my voice can change the world around me."
+    name: "Ashley B. Cooke & Isaiah Kendrick",
+    category: "NJTL Scholarship Recipients",
+    tag: "SCCTA NJTL College Scholarship Awardees",
+    image: "/images/sccta-scholarship-awards.jpg",
+    achievement: "SCCTA College Scholarship · Academic & Athletic Excellence",
+    excerpt: "Awarded $500 NJTL collegiate academic scholarships for leadership, sportsmanship, and outstanding dedication on and off the court.",
+    fullStory: "During the annual SCCTA ceremony, Ashley B. Cooke and Isaiah Kendrick were officially presented with South Clayton Community Tennis Association scholarships. Both athletes progressed through Clayton County junior development programs, demonstrating exceptional character, academic diligence, and community leadership.",
+    quote: "SCCTA gave us the foundation to excel in our studies and compete with integrity on court."
   },
   {
     id: "player-spotlight-marcus",
     name: "Marcus Johnson",
     category: "Player Spotlight",
     tag: "Junior Circuit Champion",
-    image: "/doubles-ready-stance.jpg",
+    image: "/images/sccta-the-mill-juniors.jpg",
     achievement: "From Red Ball Beginner to State Ranked Junior",
-    excerpt: "Marcus climbed through SCCTA's 4-stage player pathway and now competes in USTA Level 5 sectionals while maintaining a 3.9 GPA.",
-    fullStory: "Marcus started on the 36-foot red ball court at Lovejoy Regional Park. With guidance from coach Conrad Cooke and dedicated matchplay in Junior Team Tennis, Marcus developed a formidable all-court game. In 2025, he earned his first sectional singles title and received an academic-athletic mentorship grant.",
+    excerpt: "Marcus climbed through SCCTA's 4-stage player pathway and now competes in sectionals while maintaining high academic honors.",
+    fullStory: "Marcus started on the youth courts at Clayton County Parks. With guidance from certified SCCTA coaches and dedicated matchplay in Junior Circuit events, Marcus developed a formidable all-court game and confidence.",
     quote: "The coaches at SCCTA believed in me before I even knew how to hold a racquet properly."
   },
   {
     id: "scholarship-brianna",
-    name: "Brianna Taylor",
-    category: "Scholarship Recipient",
-    tag: "HBCU Tennis Scholar",
-    image: "/clay-player-portrait.png",
-    achievement: "Full Collegiate Tennis & Academic Grantee",
-    excerpt: "Brianna leveraged SCCTA's college readiness workshops to secure a collegiate roster spot and full academic funding.",
-    fullStory: "Through SCCTA's 'Beyond the Baseline' college prep program, Brianna received SAT tutoring, resume prep, and match footage portfolio reviews. She is now entering her sophomore season as team co-captain while studying Computer Science.",
-    quote: "SCCTA is family. They don't just care about your forehand; they care about your diploma."
+    name: "Brianna Taylor & Clinic Team",
+    category: "Youth Tennis Clinics",
+    tag: "Clayton Connected Youth Clinic",
+    image: "/images/sccta-clayton-clinic.png",
+    achievement: "Comprehensive Coaching & Racquet Distribution",
+    excerpt: "Providing Clayton County youth with free equipment, structured coaching, and competitive tournament pathways.",
+    fullStory: "Through SCCTA's partnership with Clayton County Parks & Recreation, youth athletes receive racquets, uniforms, and progressive coaching designed to build both tennis mastery and teamwork.",
+    quote: "SCCTA is family. They don't just care about your forehand; they care about your character and education."
   },
   {
     id: "academic-terrence",
-    name: "Terrence Vance",
-    category: "Academic Achievement",
-    tag: "Valedictorian & Team Captain",
-    image: "/team-high-five.jpg",
-    achievement: "Clayton High Honor Roll · 4.0 GPA",
-    excerpt: "Balancing varsity tennis and AP courses, Terrence credits SCCTA's disciplined practice culture for his academic drive.",
-    fullStory: "Terrence utilized SCCTA's after-school study halls before stepping onto the court. The discipline learned through competitive drills directly translated to his academic success, earning him top honors in Clayton County schools.",
-    quote: "Every match is a problem-solving puzzle, just like calculus or physics."
+    name: "Clayton County Community Team",
+    category: "Community Impact",
+    tag: "Clayton Connected Junior Tennis",
+    image: "/images/sccta-clayton-team.jpg",
+    achievement: "Over 100+ Clayton County Juniors Empowered",
+    excerpt: "Connecting youth across Clayton County through accessible tennis, academic workshops, and positive peer mentorship.",
+    fullStory: "SCCTA clinics bring kids together from across Clayton County. Every junior participant receives equipment bags, racquets, structured drills, and educational support.",
+    quote: "Every practice is a chance to grow, learn discipline, and build friendships that last a lifetime."
   }
 ];
 
 export const GALLERY_ITEMS = [
   {
     id: 1,
-    title: "Community Doubles & Training",
-    location: "Clayton County International Park",
-    category: "Matchplay",
+    title: "Clayton County Connected Junior Team",
+    location: "Clayton County Parks & Rec Courts",
+    category: "Youth Clinics",
     span: "col-span-1 md:col-span-2 row-span-2",
-    image: "/doubles-ready-stance.jpg"
+    image: "/images/sccta-clayton-team.jpg"
   },
   {
     id: 2,
-    title: "Junior Pathway & Mentorship",
-    location: "Jonesboro, GA",
-    category: "Youth Tennis",
+    title: "Junior Clinic Pathway at The Mill",
+    location: "The Mill Tennis Facility",
+    category: "Junior Circuit",
     span: "col-span-1 md:col-span-1 row-span-1",
-    image: "/blue-court-player.jpg"
+    image: "/images/sccta-the-mill-juniors.jpg"
   },
   {
     id: 3,
-    title: "Teamwork & Court Sportsmanship",
-    location: "SCCTA Tennis Center",
-    category: "Community",
+    title: "SCCTA NJTL Scholarship Awards Ceremony",
+    location: "Jonesboro, GA",
+    category: "Scholarships",
     span: "col-span-1 md:col-span-1 row-span-1",
-    image: "/team-high-five.jpg"
+    image: "/images/sccta-scholarship-awards.jpg"
   },
   {
     id: 4,
-    title: "Clay Court Skills & Clinic",
-    location: "Lovejoy Regional Park",
+    title: "Clayton Connected Coaching & Drills",
+    location: "Clayton County, GA",
     category: "Clinics",
     span: "col-span-1 md:col-span-1 row-span-1",
-    image: "/clay-player-portrait.png"
+    image: "/images/sccta-clayton-clinic.png"
   },
   {
     id: 5,
-    title: "Match Standard Courts",
-    location: "Clayton County, GA",
-    category: "Facilities",
+    title: "The Mill Championship Clinic Group",
+    location: "The Mill Tennis Center",
+    category: "Community",
     span: "col-span-1 md:col-span-2 row-span-1",
-    image: "/aerial-court.jpg"
+    image: "/images/sccta-the-mill-group.jpg"
   }
 ];
 

@@ -26,7 +26,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FBFBFA] text-slate-900 selection:bg-[#0059A6] selection:text-white">
+    <div className="min-h-screen flex flex-col bg-[#FBFBFA] text-slate-900 selection:bg-[#8cb0bf] selection:text-white">
       
       {/* Scroll Reading Progress Bar */}
       <ScrollProgressBar />
