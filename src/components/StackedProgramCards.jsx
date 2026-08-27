@@ -72,7 +72,7 @@ export default function StackedProgramCards({ programs, onOpenProgramFinder, set
                       alt={prog.title} 
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-95"
                     />
-                    <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-slate-950/85 backdrop-blur-md text-[#D4F826] text-[10px] sm:text-[11px] font-extrabold uppercase px-3 py-1.5 rounded-full border border-white/15 shadow">
+                    <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-[#061326]/90 backdrop-blur-md text-[#38BDF8] text-[10px] sm:text-[11px] font-extrabold uppercase px-3 py-1.5 rounded-full border border-white/15 shadow">
                       {prog.badge}
                     </div>
 
@@ -88,7 +88,7 @@ export default function StackedProgramCards({ programs, onOpenProgramFinder, set
                     <div className="flex items-center gap-2 text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">
                       <span>Program 0{index + 1}</span>
                       <span>•</span>
-                      <span className="text-[#3B82F6]">SCCTA Pathway</span>
+                      <span className="text-[#0059A6]">SCCTA Pathway</span>
                     </div>
 
                     <h3 className="text-xl sm:text-3xl lg:text-4xl font-extrabold font-display text-slate-950 leading-tight">
@@ -106,8 +106,8 @@ export default function StackedProgramCards({ programs, onOpenProgramFinder, set
                       const IconComponent = feat.icon;
                       return (
                         <div key={fIdx} className="flex items-start sm:items-center gap-2.5 sm:gap-3">
-                          <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-slate-100 flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
-                            <IconComponent className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-900" />
+                          <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-blue-50 text-[#0059A6] flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
+                            <IconComponent className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                           </div>
                           <span className="leading-snug">{feat.label}</span>
                         </div>
@@ -118,14 +118,14 @@ export default function StackedProgramCards({ programs, onOpenProgramFinder, set
                   <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
                     <button
                       onClick={onOpenProgramFinder}
-                      className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#D4F826] hover:bg-[#c6ec15] text-slate-950 font-bold text-xs sm:text-sm transition-all shadow-sm active:scale-95 text-center"
+                      className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#0059A6] hover:bg-[#004785] text-white font-bold text-xs sm:text-sm transition-all shadow-[0_4px_14px_rgba(0,89,166,0.35)] hover:shadow-[0_6px_20px_rgba(0,89,166,0.5)] active:scale-95 text-center"
                     >
                       {prog.ctaText}
                     </button>
 
                     <button
                       onClick={() => setActivePage('programs')}
-                      className="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-slate-600 hover:text-slate-950 transition-colors py-2 text-center"
+                      className="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-slate-600 hover:text-[#0059A6] transition-colors py-2 text-center"
                     >
                       <span>View Full Curriculum</span>
                       <ArrowRight className="w-3.5 h-3.5" />

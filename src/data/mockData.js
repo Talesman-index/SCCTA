@@ -97,7 +97,7 @@ export const BALL_STAGES = [
     name: "YELLOW BALL",
     ages: "Age 11+",
     tagline: "Play the full game.",
-    color: "#D4F826",
+    color: "#EAB308",
     courtSize: "78' x 27' / 36' (Full Regulation)",
     ballSpeed: "Standard regulation 100% speed",
     racquet: "26\" – 27\"+ (Standard)",

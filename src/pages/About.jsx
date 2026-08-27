@@ -41,11 +41,13 @@ export default function About({ setActivePage, onOpenProgramFinder }) {
         </div>
 
         {/* Subtle background glow */}
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#D4F826]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#0059A6]/20 rounded-full blur-3xl pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 relative z-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs font-bold uppercase tracking-wider text-[#D4F826]">
-            <Activity className="w-3.5 h-3.5 text-[#D4F826]" />
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-wider text-[#38BDF8] shadow-lg">
+            <div className="w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow-sm">
+              <img src="/logo.png" alt="SCCTA" className="w-full h-full object-contain" />
+            </div>
             <span>About SCCTA</span>
           </div>
 
@@ -67,7 +69,7 @@ export default function About({ setActivePage, onOpenProgramFinder }) {
             
             <ScrollReveal className="lg:col-span-5 space-y-4" direction="right">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
-                <span className="w-3.5 h-3.5 rounded-sm border border-slate-400 flex items-center justify-center text-[9px]">⬡</span>
+                <span className="w-3.5 h-3.5 rounded-sm border border-[#0059A6] text-[#0059A6] flex items-center justify-center text-[9px]">⬡</span>
                 <span>Our Mission & Vision</span>
               </div>
               
@@ -86,7 +88,7 @@ export default function About({ setActivePage, onOpenProgramFinder }) {
               {/* Mission stats grid */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 border-t border-slate-100">
                 <div className="space-y-1">
-                  <div className="text-3xl sm:text-4xl font-black font-display text-slate-950">
+                  <div className="text-3xl sm:text-4xl font-black font-display text-[#0059A6]">
                     <AnimatedCounter end="15" suffix="+" />
                   </div>
                   <div className="text-xs font-bold text-slate-900">Years in Clayton County</div>
@@ -94,7 +96,7 @@ export default function About({ setActivePage, onOpenProgramFinder }) {
                 </div>
 
                 <div className="space-y-1">
-                  <div className="text-3xl sm:text-4xl font-black font-display text-slate-950">
+                  <div className="text-3xl sm:text-4xl font-black font-display text-[#0059A6]">
                     <AnimatedCounter end="100" suffix="%" />
                   </div>
                   <div className="text-xs font-bold text-slate-900">Non-Profit Giving</div>
@@ -102,7 +104,7 @@ export default function About({ setActivePage, onOpenProgramFinder }) {
                 </div>
 
                 <div className="space-y-1">
-                  <div className="text-3xl sm:text-4xl font-black font-display text-slate-950">
+                  <div className="text-3xl sm:text-4xl font-black font-display text-[#0059A6]">
                     <AnimatedCounter end="250" suffix="+" />
                   </div>
                   <div className="text-xs font-bold text-slate-900">Youth Impacted</div>
@@ -121,7 +123,7 @@ export default function About({ setActivePage, onOpenProgramFinder }) {
           
           <ScrollReveal className="max-w-3xl space-y-3">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
-              <span className="w-3.5 h-3.5 rounded-sm border border-slate-400 flex items-center justify-center text-[9px]">⬡</span>
+              <span className="w-3.5 h-3.5 rounded-sm border border-[#0059A6] text-[#0059A6] flex items-center justify-center text-[9px]">⬡</span>
               <span>Our Methodology</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-slate-950 tracking-tight">
@@ -135,59 +137,59 @@ export default function About({ setActivePage, onOpenProgramFinder }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             
             {/* Tennis */}
-            <ScrollReveal delay={100} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-5 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all">
+            <ScrollReveal delay={100} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-5 flex flex-col justify-between hover:shadow-xl hover:border-blue-300 transition-all">
               <div className="space-y-3">
-                <div className="w-12 h-12 rounded-2xl bg-slate-950 text-[#D4F826] flex items-center justify-center font-bold shadow">
-                  <Trophy className="w-6 h-6" />
+                <div className="w-12 h-12 rounded-2xl bg-[#0059A6] text-white flex items-center justify-center font-bold shadow-md shadow-blue-900/20">
+                  <Trophy className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-2xl font-extrabold font-display text-slate-950">Tennis</h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
                   Create accessible opportunities to discover, learn, and compete in the sport through age-appropriate ball stages and sanctioned events.
                 </p>
               </div>
-              <div className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider">Pillar 01</div>
+              <div className="text-[10px] font-extrabold text-[#0059A6] uppercase tracking-wider">Pillar 01</div>
             </ScrollReveal>
 
             {/* Education */}
-            <ScrollReveal delay={150} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-5 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all">
+            <ScrollReveal delay={150} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-5 flex flex-col justify-between hover:shadow-xl hover:border-blue-300 transition-all">
               <div className="space-y-3">
-                <div className="w-12 h-12 rounded-2xl bg-slate-950 text-[#D4F826] flex items-center justify-center font-bold shadow">
-                  <BookOpen className="w-6 h-6" />
+                <div className="w-12 h-12 rounded-2xl bg-[#0059A6] text-white flex items-center justify-center font-bold shadow-md shadow-blue-900/20">
+                  <BookOpen className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-2xl font-extrabold font-display text-slate-950">Education</h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
                   Encourage academic achievement, study hall habits, and college readiness guidance to open collegiate pathways.
                 </p>
               </div>
-              <div className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider">Pillar 02</div>
+              <div className="text-[10px] font-extrabold text-[#0059A6] uppercase tracking-wider">Pillar 02</div>
             </ScrollReveal>
 
             {/* Mentorship */}
-            <ScrollReveal delay={200} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-5 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all">
+            <ScrollReveal delay={200} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-5 flex flex-col justify-between hover:shadow-xl hover:border-blue-300 transition-all">
               <div className="space-y-3">
-                <div className="w-12 h-12 rounded-2xl bg-slate-950 text-[#D4F826] flex items-center justify-center font-bold shadow">
-                  <Heart className="w-6 h-6" />
+                <div className="w-12 h-12 rounded-2xl bg-[#0059A6] text-white flex items-center justify-center font-bold shadow-md shadow-blue-900/20">
+                  <Heart className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-2xl font-extrabold font-display text-slate-950">Mentorship</h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
                   Provide positive adult guidance, peer models, and emotional support during vital stages of adolescent growth.
                 </p>
               </div>
-              <div className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider">Pillar 03</div>
+              <div className="text-[10px] font-extrabold text-[#0059A6] uppercase tracking-wider">Pillar 03</div>
             </ScrollReveal>
 
             {/* Leadership */}
-            <ScrollReveal delay={250} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-5 flex flex-col justify-between hover:shadow-xl hover:border-slate-300 transition-all">
+            <ScrollReveal delay={250} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-5 flex flex-col justify-between hover:shadow-xl hover:border-blue-300 transition-all">
               <div className="space-y-3">
-                <div className="w-12 h-12 rounded-2xl bg-slate-950 text-[#D4F826] flex items-center justify-center font-bold shadow">
-                  <Award className="w-6 h-6" />
+                <div className="w-12 h-12 rounded-2xl bg-[#0059A6] text-white flex items-center justify-center font-bold shadow-md shadow-blue-900/20">
+                  <Award className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-2xl font-extrabold font-display text-slate-950">Leadership</h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
                   Use matchplay pressure to teach accountability, emotional regulation, teamwork, resilience, and character.
                 </p>
               </div>
-              <div className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider">Pillar 04</div>
+              <div className="text-[10px] font-extrabold text-[#0059A6] uppercase tracking-wider">Pillar 04</div>
             </ScrollReveal>
 
           </div>
@@ -196,10 +198,10 @@ export default function About({ setActivePage, onOpenProgramFinder }) {
       </section>
 
       {/* 04. NJTL ARTHUR ASHE LEGACY */}
-      <section className="py-24 bg-slate-950 text-white relative overflow-hidden">
+      <section className="py-24 bg-[#061326] text-white relative overflow-hidden">
         
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 relative z-10">
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-[#D4F826] bg-white/10 border border-white/15">
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-[#38BDF8] bg-white/10 border border-white/15">
             PART OF SOMETHING BIGGER
           </span>
 
@@ -213,15 +215,15 @@ export default function About({ setActivePage, onOpenProgramFinder }) {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-6 text-left text-xs">
             <div className="p-6 rounded-2xl bg-white/5 border border-white/10 space-y-2">
-              <div className="font-bold text-sm text-[#D4F826]">Arthur Ashe Legacy</div>
+              <div className="font-bold text-sm text-[#38BDF8]">Arthur Ashe Legacy</div>
               <p className="text-slate-300 leading-relaxed">Instilling values of character, academic discipline, and social responsibility on and off the court.</p>
             </div>
             <div className="p-6 rounded-2xl bg-white/5 border border-white/10 space-y-2">
-              <div className="font-bold text-sm text-[#D4F826]">USTA Foundation Resources</div>
+              <div className="font-bold text-sm text-[#38BDF8]">USTA Foundation Resources</div>
               <p className="text-slate-300 leading-relaxed">College scholarships, essay contest grants, and national player pathways for Clayton County youth.</p>
             </div>
             <div className="p-6 rounded-2xl bg-white/5 border border-white/10 space-y-2">
-              <div className="font-bold text-sm text-[#D4F826]">Clayton County Outreach</div>
+              <div className="font-bold text-sm text-[#38BDF8]">Clayton County Outreach</div>
               <p className="text-slate-300 leading-relaxed">Bringing certified tennis instruction to local parks, public courts, and public schools.</p>
             </div>
           </div>
@@ -234,7 +236,7 @@ export default function About({ setActivePage, onOpenProgramFinder }) {
           
           <ScrollReveal className="text-center max-w-2xl mx-auto space-y-3">
             <div className="flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
-              <span className="w-3.5 h-3.5 rounded-sm border border-slate-400 flex items-center justify-center text-[9px]">⬡</span>
+              <span className="w-3.5 h-3.5 rounded-sm border border-[#0059A6] text-[#0059A6] flex items-center justify-center text-[9px]">⬡</span>
               <span>Rooted in Clayton County</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-slate-950 tracking-tight">
@@ -308,13 +310,13 @@ export default function About({ setActivePage, onOpenProgramFinder }) {
                 <ScrollReveal 
                   key={idx}
                   delay={idx * 60}
-                  className="bg-[#FAF9F5] rounded-3xl p-7 border border-slate-200 shadow-sm hover:shadow-xl hover:border-slate-400 transition-all duration-300 flex flex-col justify-between space-y-6 group"
+                  className="bg-[#FAF9F5] rounded-3xl p-7 border border-slate-200 shadow-sm hover:shadow-xl hover:border-blue-300 transition-all duration-300 flex flex-col justify-between space-y-6 group"
                 >
                   <div className="space-y-4">
                     
                     <div className="flex items-start justify-between gap-3">
-                      <div className="w-12 h-12 rounded-2xl bg-slate-950 text-[#D4F826] flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
-                        <IconComp className="w-6 h-6" />
+                      <div className="w-12 h-12 rounded-2xl bg-[#0059A6] text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+                        <IconComp className="w-6 h-6 text-white" />
                       </div>
 
                       <span className="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wide bg-white border border-slate-200 text-slate-700 shadow-xs">
@@ -323,11 +325,11 @@ export default function About({ setActivePage, onOpenProgramFinder }) {
                     </div>
 
                     <div>
-                      <h3 className="text-xl font-extrabold font-display text-slate-950 group-hover:text-[#3B82F6] transition-colors leading-snug">
+                      <h3 className="text-xl font-extrabold font-display text-slate-950 group-hover:text-[#0059A6] transition-colors leading-snug">
                         {pillar.title}
                       </h3>
                       <div className="text-xs font-bold text-slate-600 mt-1">
-                        {pillar.lead} · <span className="text-[#3B82F6]">{pillar.role}</span>
+                        {pillar.lead} · <span className="text-[#0059A6]">{pillar.role}</span>
                       </div>
                     </div>
 
@@ -339,7 +341,7 @@ export default function About({ setActivePage, onOpenProgramFinder }) {
                   <div className="pt-4 border-t border-slate-200/80">
                     <a 
                       href={`mailto:${pillar.contact}`}
-                      className="inline-flex items-center gap-2 text-xs font-bold text-slate-800 hover:text-[#3B82F6] transition-colors py-1"
+                      className="inline-flex items-center gap-2 text-xs font-bold text-slate-800 hover:text-[#0059A6] transition-colors py-1"
                     >
                       <Mail className="w-3.5 h-3.5 text-slate-400" />
                       <span>{pillar.contact}</span>
@@ -354,16 +356,22 @@ export default function About({ setActivePage, onOpenProgramFinder }) {
       </section>
 
       {/* 06. CTA */}
-      <section className="py-24 bg-slate-950 text-white text-center">
-        <ScrollReveal className="max-w-3xl mx-auto px-4 space-y-6">
+      <section className="py-24 bg-[#061326] text-white text-center relative overflow-hidden">
+        <div className="absolute top-0 right-1/3 w-96 h-96 bg-[#0059A6]/20 rounded-full blur-3xl pointer-events-none" />
+        <ScrollReveal className="max-w-3xl mx-auto px-4 space-y-6 relative z-10">
+          <div className="flex justify-center mb-2">
+            <div className="p-3 rounded-2xl bg-white shadow-2xl ring-4 ring-white/20 inline-flex items-center justify-center">
+              <img src="/logo.png" alt="SCCTA" className="w-12 h-12 object-contain" />
+            </div>
+          </div>
           <h2 className="text-3xl sm:text-5xl font-black font-display text-white">
             One community. One mission. <br />
-            <span className="text-[#D4F826]">More opportunities.</span>
+            <span className="text-[#38BDF8]">More opportunities.</span>
           </h2>
           <div className="pt-2">
             <button
               onClick={() => setActivePage('programs')}
-              className="px-8 py-3.5 rounded-xl bg-[#D4F826] hover:bg-[#c6ec15] text-slate-950 font-bold text-xs sm:text-sm shadow-md transition-all active:scale-95"
+              className="px-8 py-3.5 rounded-xl bg-[#0059A6] hover:bg-[#004785] text-white font-bold text-xs sm:text-sm shadow-[0_4px_20px_rgba(0,89,166,0.4)] transition-all active:scale-95"
             >
               Explore Our Programs →
             </button>

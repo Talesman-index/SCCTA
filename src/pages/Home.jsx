@@ -86,7 +86,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
         { icon: Activity, label: "Coach-led sessions & live-ball competitive drills" }
       ],
       ctaText: "Enroll in Junior Clinic",
-      colorAccent: "#D4F826"
+      colorAccent: "#0059A6"
     },
     {
       id: "competitive-circuit",
@@ -101,7 +101,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
         { icon: Activity, label: "State ranking point optimization with certified coaches" }
       ],
       ctaText: "Join Competitive Circuit",
-      colorAccent: "#3B82F6"
+      colorAccent: "#0059A6"
     },
     {
       id: "beyond-baseline",
@@ -116,7 +116,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
         { icon: Users, label: "1-on-1 mentorship with certified educators & senior referees" }
       ],
       ctaText: "Explore Academic Labs",
-      colorAccent: "#D4F826"
+      colorAccent: "#0059A6"
     },
     {
       id: "adult-tennis",
@@ -170,6 +170,14 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-2xl space-y-6">
             
+            {/* Official SCCTA Badge */}
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-wider text-[#38BDF8] shadow-lg">
+              <div className="w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow-sm">
+                <img src="/logo.png" alt="SCCTA Logo" className="w-full h-full object-contain" />
+              </div>
+              <span>Official USTA / NJTL Chapter</span>
+            </div>
+
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold font-display text-white tracking-tight leading-[1.08]">
               Structured training <br />
               for serious players.
@@ -182,7 +190,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <button
                 onClick={onOpenProgramFinder}
-                className="px-6 py-3 rounded-xl bg-[#D4F826] hover:bg-[#c6ec15] text-slate-950 font-bold text-xs sm:text-sm transition-all shadow-md active:scale-95 flex items-center gap-2"
+                className="px-6 py-3 rounded-xl bg-[#0059A6] hover:bg-[#004785] text-white font-bold text-xs sm:text-sm transition-all shadow-[0_4px_20px_rgba(0,89,166,0.45)] hover:shadow-[0_6px_25px_rgba(0,89,166,0.6)] active:scale-95 flex items-center gap-2"
               >
                 <span>Find a Program</span>
                 <ArrowRight className="w-4 h-4" />
@@ -190,7 +198,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
 
               <button
                 onClick={() => setActivePage('tournaments')}
-                className="inline-flex items-center gap-2 text-white hover:text-[#D4F826] text-xs sm:text-sm font-semibold transition-colors py-3 px-2"
+                className="inline-flex items-center gap-2 text-white hover:text-[#38BDF8] text-xs sm:text-sm font-semibold transition-colors py-3 px-2"
               >
                 <span>View Tournaments</span>
                 <ArrowRight className="w-4 h-4" />
@@ -200,9 +208,11 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
         </div>
 
         {/* Floating Badge */}
-        <div className="absolute bottom-6 right-6 z-10 hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white text-slate-950 text-xs font-bold shadow-lg">
-          <Activity className="w-3.5 h-3.5 text-[#3B82F6]" />
-          <span>Made for SCCTA</span>
+        <div className="absolute bottom-6 right-6 z-10 hidden sm:flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-white/95 backdrop-blur-md text-slate-950 text-xs font-bold shadow-xl border border-slate-200">
+          <div className="w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow-xs">
+            <img src="/logo.png" alt="SCCTA" className="w-full h-full object-contain" />
+          </div>
+          <span className="text-[#0059A6] font-extrabold">SCCTA Tennis Academy</span>
         </div>
       </section>
 
@@ -214,7 +224,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 flex justify-end">
           <button
             onClick={() => setActivePage('contact')}
-            className="px-4 py-1.5 rounded-lg bg-[#D4F826] text-slate-950 text-xs font-bold hover:bg-[#c6ec15] transition-all shadow-xs"
+            className="px-4 py-2 rounded-xl bg-[#0059A6] text-white text-xs font-bold hover:bg-[#004785] transition-all shadow-sm active:scale-95"
           >
             Contact Us
           </button>
@@ -225,7 +235,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
             
             <ScrollReveal className="lg:col-span-5 space-y-4" direction="right">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
-                <span className="w-4 h-4 rounded-full bg-slate-900 text-[#D4F826] flex items-center justify-center">
+                <span className="w-4 h-4 rounded-full bg-blue-100 text-[#0059A6] flex items-center justify-center">
                   <Activity className="w-2.5 h-2.5" />
                 </span>
                 <span>About SCCTA</span>
@@ -246,7 +256,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
               {/* 3 Animated Metric Counters */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-6 border-t border-slate-100">
                 <div className="space-y-1.5">
-                  <div className="text-4xl sm:text-5xl font-black font-display text-slate-950">
+                  <div className="text-4xl sm:text-5xl font-black font-display text-[#0059A6]">
                     <AnimatedCounter end="120" suffix="+" />
                   </div>
                   <div className="font-extrabold text-xs text-slate-900">Active Players</div>
@@ -254,7 +264,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
                 </div>
 
                 <div className="space-y-1.5">
-                  <div className="text-4xl sm:text-5xl font-black font-display text-slate-950">
+                  <div className="text-4xl sm:text-5xl font-black font-display text-[#0059A6]">
                     <AnimatedCounter end="6" suffix="+" />
                   </div>
                   <div className="font-extrabold text-xs text-slate-900">Certified Coaches</div>
@@ -262,7 +272,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
                 </div>
 
                 <div className="space-y-1.5">
-                  <div className="text-4xl sm:text-5xl font-black font-display text-slate-950">
+                  <div className="text-4xl sm:text-5xl font-black font-display text-[#0059A6]">
                     <AnimatedCounter end="85" suffix="%" />
                   </div>
                   <div className="font-extrabold text-xs text-slate-900">Player Retention Rate</div>
@@ -284,7 +294,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
           <ScrollReveal className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
             <div className="lg:col-span-7 space-y-3">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
-                <span className="w-3.5 h-3.5 rounded-sm border border-slate-400 flex items-center justify-center text-[9px]">⬡</span>
+                <span className="w-3.5 h-3.5 rounded-sm border border-[#0059A6] text-[#0059A6] flex items-center justify-center text-[9px]">⬡</span>
                 <span>Our Programs</span>
               </div>
               <h2 className="text-3xl sm:text-5xl font-extrabold font-display tracking-tight text-slate-950 leading-[1.08]">
@@ -317,7 +327,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
           
           <ScrollReveal className="max-w-3xl space-y-3">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
-              <span className="w-3.5 h-3.5 rounded-sm border border-slate-400 flex items-center justify-center text-[9px]">⬡</span>
+              <span className="w-3.5 h-3.5 rounded-sm border border-[#0059A6] text-[#0059A6] flex items-center justify-center text-[9px]">⬡</span>
               <span>Benefits</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold font-display tracking-tight text-slate-950 leading-tight">
@@ -337,7 +347,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 
                 <div className="absolute top-6 left-6 w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-md text-white flex items-center justify-center">
-                  <Shield className="w-5 h-5" />
+                  <Shield className="w-5 h-5 text-[#38BDF8]" />
                 </div>
 
                 <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">
@@ -352,16 +362,16 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
             </ScrollReveal>
 
             <ScrollReveal className="lg:col-span-4" delay={200}>
-              <div className="bg-[#D4F826] rounded-3xl p-8 flex flex-col justify-between space-y-8 shadow-sm h-full">
-                <div className="w-10 h-10 rounded-2xl bg-slate-950 text-[#D4F826] flex items-center justify-center">
-                  <TrendingUp className="w-5 h-5" />
+              <div className="bg-gradient-to-br from-[#0059A6] to-[#003E75] text-white rounded-3xl p-8 flex flex-col justify-between space-y-8 shadow-md h-full">
+                <div className="w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-md text-white flex items-center justify-center">
+                  <TrendingUp className="w-5 h-5 text-[#38BDF8]" />
                 </div>
 
                 <div className="space-y-2">
-                  <h3 className="text-xl sm:text-2xl font-bold font-display text-slate-950">
+                  <h3 className="text-xl sm:text-2xl font-bold font-display text-white">
                     Structured training
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-medium">
+                  <p className="text-xs sm:text-sm text-blue-100 leading-relaxed font-normal">
                     Every session follows a defined progression, building the right technical skills.
                   </p>
                 </div>
@@ -369,16 +379,16 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
             </ScrollReveal>
 
             <ScrollReveal className="lg:col-span-4" delay={250}>
-              <div className="bg-[#D4F826] rounded-3xl p-8 flex flex-col justify-between space-y-8 shadow-sm h-full">
-                <div className="w-10 h-10 rounded-2xl bg-slate-950 text-[#D4F826] flex items-center justify-center">
+              <div className="bg-gradient-to-br from-[#061326] to-[#0B254D] text-white rounded-3xl p-8 flex flex-col justify-between space-y-8 shadow-md h-full border border-blue-900/30">
+                <div className="w-10 h-10 rounded-2xl bg-white/10 backdrop-blur-md text-[#38BDF8] flex items-center justify-center">
                   <Users className="w-5 h-5" />
                 </div>
 
                 <div className="space-y-2">
-                  <h3 className="text-xl sm:text-2xl font-bold font-display text-slate-950">
+                  <h3 className="text-xl sm:text-2xl font-bold font-display text-white">
                     Mentorship beyond the court
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-medium">
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
                     Academic study halls, Arthur Ashe writing workshops, and college readiness mentorship.
                   </p>
                 </div>
@@ -395,7 +405,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 
                 <div className="absolute top-6 left-6 w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-md text-white flex items-center justify-center">
-                  <Zap className="w-5 h-5 text-[#D4F826]" />
+                  <Zap className="w-5 h-5 text-[#38BDF8]" />
                 </div>
 
                 <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">
@@ -422,7 +432,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
           
           <ScrollReveal className="text-center max-w-2xl mx-auto space-y-2">
             <div className="flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
-              <Quote className="w-3.5 h-3.5 text-[#3B82F6]" />
+              <Quote className="w-3.5 h-3.5 text-[#0059A6]" />
               <span>Testimonials</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold font-display tracking-tight text-slate-950">
@@ -471,7 +481,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
                   <div className="font-bold text-lg text-slate-950 font-display">
                     {currentTestimonial.name}
                   </div>
-                  <div className="text-xs font-semibold text-slate-500">
+                  <div className="text-xs font-semibold text-[#0059A6]">
                     {currentTestimonial.role}
                   </div>
                 </div>
@@ -492,7 +502,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
           <ScrollReveal className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="space-y-3">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
-                <span className="w-3.5 h-3.5 rounded-sm border border-slate-400 flex items-center justify-center text-[9px]">⬡</span>
+                <span className="w-3.5 h-3.5 rounded-sm border border-[#0059A6] text-[#0059A6] flex items-center justify-center text-[9px]">⬡</span>
                 <span>SCCTA Matchdesk & Circuit</span>
               </div>
               <h2 className="text-3xl sm:text-5xl font-extrabold font-display tracking-tight text-slate-950 leading-[1.08]">
@@ -514,7 +524,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
                   onClick={() => setTournamentFilter(f.id)}
                   className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
                     tournamentFilter === f.id
-                      ? 'bg-slate-950 text-[#D4F826] shadow-sm'
+                      ? 'bg-[#0059A6] text-white shadow-sm'
                       : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
@@ -530,7 +540,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
               <ScrollReveal 
                 key={t.id}
                 delay={idx * 100}
-                className="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl hover:border-slate-400 transition-all duration-500 flex flex-col justify-between group"
+                className="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl hover:border-blue-300 transition-all duration-500 flex flex-col justify-between group"
               >
                 {/* Photo & Overlay Area */}
                 <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-950">
@@ -543,23 +553,23 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
 
                   {/* Top Floating Glass Badges */}
                   <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-                    <span className="px-3 py-1.5 rounded-full text-[11px] font-extrabold uppercase tracking-wide bg-black/60 backdrop-blur-md text-[#D4F826] border border-white/15 shadow-sm">
+                    <span className="px-3 py-1.5 rounded-full text-[11px] font-extrabold uppercase tracking-wide bg-[#061326]/85 backdrop-blur-md text-[#38BDF8] border border-white/15 shadow-sm">
                       {t.level}
                     </span>
 
                     <span className={`px-3 py-1.5 rounded-full text-[11px] font-bold backdrop-blur-md flex items-center gap-1.5 shadow-sm ${
                       t.status === 'Registration Open' 
-                        ? 'bg-emerald-500/90 text-white' 
+                        ? 'bg-blue-600/90 text-white' 
                         : 'bg-white/20 text-white border border-white/10'
                     }`}>
-                      <span className={`w-2 h-2 rounded-full ${t.status === 'Registration Open' ? 'bg-[#D4F826] animate-pulse' : 'bg-slate-300'}`} />
+                      <span className={`w-2 h-2 rounded-full ${t.status === 'Registration Open' ? 'bg-[#38BDF8] animate-pulse' : 'bg-slate-300'}`} />
                       {t.status}
                     </span>
                   </div>
 
                   {/* Prominent Date Tag in Bottom Corner */}
-                  <div className="absolute bottom-4 left-4 flex items-center gap-2.5 bg-slate-950/90 backdrop-blur-md px-3.5 py-2 rounded-xl border border-white/15 text-white shadow-md">
-                    <Calendar className="w-4 h-4 text-[#D4F826]" />
+                  <div className="absolute bottom-4 left-4 flex items-center gap-2.5 bg-[#061326]/90 backdrop-blur-md px-3.5 py-2 rounded-xl border border-white/15 text-white shadow-md">
+                    <Calendar className="w-4 h-4 text-[#38BDF8]" />
                     <span className="text-xs font-extrabold tracking-wide">{t.date}</span>
                   </div>
                 </div>
@@ -570,12 +580,12 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
                     
                     {/* Title & Venue */}
                     <div className="space-y-2">
-                      <h3 className="text-xl sm:text-2xl font-extrabold font-display text-slate-950 group-hover:text-[#3B82F6] transition-colors leading-snug">
+                      <h3 className="text-xl sm:text-2xl font-extrabold font-display text-slate-950 group-hover:text-[#0059A6] transition-colors leading-snug">
                         {t.title}
                       </h3>
 
                       <div className="flex items-start gap-2 text-xs text-slate-600">
-                        <MapPin className="w-3.5 h-3.5 text-slate-900 shrink-0 mt-0.5" />
+                        <MapPin className="w-3.5 h-3.5 text-[#0059A6] shrink-0 mt-0.5" />
                         <span className="font-medium text-slate-700">{t.location}</span>
                       </div>
                     </div>
@@ -593,25 +603,25 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
                     </div>
 
                     {/* Deadline urgency note */}
-                    <div className="flex items-center gap-2 text-[11px] font-bold text-rose-600 bg-rose-50/80 px-3 py-2 rounded-lg border border-rose-100">
-                      <Clock className="w-3.5 h-3.5 shrink-0" />
+                    <div className="flex items-center gap-2 text-[11px] font-bold text-blue-800 bg-blue-50/80 px-3 py-2 rounded-lg border border-blue-100">
+                      <Clock className="w-3.5 h-3.5 shrink-0 text-[#0059A6]" />
                       <span>Registration Deadline: {t.deadline}</span>
                     </div>
 
                   </div>
 
-                  {/* Actions Bar (Lime Volt CTA + Minimal Link) */}
+                  {/* Actions Bar (Brand Blue CTA + Minimal Link) */}
                   <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
                     <button
                       onClick={() => setActivePage('tournaments')}
-                      className="text-xs font-bold text-slate-600 hover:text-slate-950 transition-colors py-2"
+                      className="text-xs font-bold text-slate-600 hover:text-[#0059A6] transition-colors py-2"
                     >
                       Fact Sheet & Draws →
                     </button>
 
                     <button
                       onClick={() => setActivePage('tournaments')}
-                      className="px-5 py-2.5 rounded-xl bg-[#D4F826] hover:bg-[#c6ec15] text-slate-950 font-bold text-xs shadow-sm transition-all active:scale-95 flex items-center gap-1.5"
+                      className="px-5 py-2.5 rounded-xl bg-[#0059A6] hover:bg-[#004785] text-white font-bold text-xs shadow-[0_2px_10px_rgba(0,89,166,0.3)] transition-all active:scale-95 flex items-center gap-1.5"
                     >
                       <span>Register on USTA</span>
                       <ExternalLink className="w-3.5 h-3.5" />
@@ -623,22 +633,22 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
             ))}
           </div>
 
-          <ScrollReveal className="bg-slate-950 text-white rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6" delay={150}>
+          <ScrollReveal className="bg-[#061326] text-white rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 border border-white/10" delay={150}>
             <div className="space-y-1 text-center sm:text-left">
-              <div className="text-xs font-bold uppercase tracking-wider text-[#D4F826]">
+              <div className="text-xs font-bold uppercase tracking-wider text-[#38BDF8]">
                 Need assistance before match day?
               </div>
               <div className="font-bold text-base sm:text-lg text-white">
                 Contact Tournament Administrator Peggy Ballou & Match Desk
               </div>
-              <div className="text-xs text-slate-400">
+              <div className="text-xs text-slate-300">
                 Phone: 404-386-4009 · Email: sccta.jr.tournament@gmail.com
               </div>
             </div>
 
             <button
               onClick={() => setActivePage('tournaments')}
-              className="px-6 py-3 rounded-lg bg-[#D4F826] hover:bg-[#c6ec15] text-slate-950 font-bold text-xs whitespace-nowrap shadow-md transition-all active:scale-95 shrink-0"
+              className="px-6 py-3 rounded-xl bg-[#0059A6] hover:bg-[#004785] text-white font-bold text-xs whitespace-nowrap shadow-[0_4px_14px_rgba(0,89,166,0.4)] transition-all active:scale-95 shrink-0"
             >
               View Full Tournament Desk Guide →
             </button>
@@ -650,11 +660,21 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
       {/* ========================================================================= */}
       {/* 07. FINAL CTA BANNER */}
       {/* ========================================================================= */}
-      <section className="py-28 bg-slate-950 text-white text-center relative overflow-hidden">
-        <ScrollReveal className="max-w-3xl mx-auto px-4 space-y-6">
+      <section className="py-28 bg-[#061326] text-white text-center relative overflow-hidden">
+        {/* Subtle ambient lighting */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#0059A6]/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-[#38BDF8]/15 rounded-full blur-3xl pointer-events-none" />
+
+        <ScrollReveal className="max-w-3xl mx-auto px-4 space-y-6 relative z-10">
+          <div className="flex justify-center mb-2">
+            <div className="p-3 rounded-2xl bg-white shadow-2xl ring-4 ring-white/20 inline-flex items-center justify-center">
+              <img src="/logo.png" alt="SCCTA Official Logo" className="w-14 h-14 object-contain" />
+            </div>
+          </div>
+
           <h2 className="text-3xl sm:text-6xl font-black font-display text-white tracking-tight">
             The next opportunity <br />
-            <span className="text-[#D4F826]">starts here.</span>
+            <span className="text-[#38BDF8]">starts here.</span>
           </h2>
           <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed">
             Whether you're picking up a racquet for the first time, looking for sanctioned competition, or ready to support the next generation.
@@ -662,13 +682,13 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
           <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
             <button
               onClick={onOpenProgramFinder}
-              className="px-8 py-3.5 rounded-lg bg-[#D4F826] hover:bg-[#c6ec15] text-slate-950 font-bold text-xs sm:text-sm shadow-md transition-all active:scale-95"
+              className="px-8 py-3.5 rounded-xl bg-[#0059A6] hover:bg-[#004785] text-white font-bold text-xs sm:text-sm shadow-[0_4px_20px_rgba(0,89,166,0.45)] hover:shadow-[0_6px_25px_rgba(0,89,166,0.6)] transition-all active:scale-95"
             >
               Find a Program
             </button>
             <button
               onClick={onOpenDonate}
-              className="px-8 py-3.5 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs sm:text-sm transition-all"
+              className="px-8 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs sm:text-sm transition-all active:scale-95"
             >
               Support SCCTA
             </button>
