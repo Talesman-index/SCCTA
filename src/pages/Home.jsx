@@ -158,7 +158,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
           }}
         >
           <img 
-            src="/images/sccta-clayton-team.jpg" 
+            src="/images/clayton_hero.jpeg" 
             alt="South Clayton Community Tennis Association Clayton Connected Junior Team" 
             className="w-full h-full object-cover object-[center_35%]"
           />
