@@ -158,12 +158,12 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
           }}
         >
           <img 
-            src="/images/sccta-hero-actual.png" 
-            alt="South Clayton Community Tennis Association Clayton Connected Team at Parks and Recreation" 
-            className="w-full h-full object-cover object-[center_25%]"
+            src="/images/sccta-clayton-team.jpg" 
+            alt="South Clayton Community Tennis Association Clayton Connected Junior Team" 
+            className="w-full h-full object-cover object-[center_35%]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-slate-950/15" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/30 to-transparent" />
         </div>
 
         {/* Content Aligned to Bottom-Left with Staggered Entry */}
