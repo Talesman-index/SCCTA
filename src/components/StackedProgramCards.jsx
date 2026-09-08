@@ -118,7 +118,7 @@ export default function StackedProgramCards({ programs, onOpenProgramFinder, set
                   <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
                     <button
                       onClick={onOpenProgramFinder}
-                      className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs sm:text-sm transition-all shadow-[0_4px_14px_rgba(140, 176, 191,0.35)] hover:shadow-[0_6px_20px_rgba(140, 176, 191,0.5)] active:scale-95 text-center"
+                      className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white font-bold text-xs sm:text-sm transition-all shadow-md shadow-[#102A33]/20 hover:shadow-lg hover:shadow-[#102A33]/30 active:scale-95 text-center"
                     >
                       {prog.ctaText}
                     </button>

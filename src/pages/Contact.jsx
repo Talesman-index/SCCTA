@@ -180,7 +180,7 @@ export default function Contact() {
                           message: ''
                         });
                       }}
-                      className="px-6 py-3 rounded-xl bg-slate-100 text-slate-800 text-xs font-bold hover:bg-[#8cb0bf] hover:text-[#061326] transition-all"
+                      className="px-6 py-3 rounded-xl bg-slate-100 text-slate-800 text-xs font-bold hover:bg-[#102A33] hover:text-white transition-all"
                     >
                       Send Another Message
                     </button>
@@ -263,7 +263,7 @@ export default function Contact() {
 
                     <button
                       type="submit"
-                      className="w-full py-4 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs uppercase tracking-wider shadow-[0_4px_14px_rgba(140, 176, 191,0.35)] transition-all active:scale-95 flex items-center justify-center gap-2"
+                      className="w-full py-4 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white font-bold text-xs uppercase tracking-wider shadow-md shadow-[#102A33]/20 transition-all active:scale-95 flex items-center justify-center gap-2"
                     >
                       <Send className="w-3.5 h-3.5" />
                       <span>Send Message</span>

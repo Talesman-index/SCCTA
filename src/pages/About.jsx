@@ -371,7 +371,7 @@ export default function About({ setActivePage, onOpenProgramFinder }) {
           <div className="pt-2">
             <button
               onClick={() => setActivePage('programs')}
-              className="px-8 py-3.5 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs sm:text-sm shadow-[0_4px_20px_rgba(140, 176, 191,0.4)] transition-all active:scale-95"
+              className="px-8 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-[#061326] font-extrabold text-xs sm:text-sm shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_6px_25px_rgba(255,255,255,0.25)] transition-all active:scale-95"
             >
               Explore Our Programs →
             </button>

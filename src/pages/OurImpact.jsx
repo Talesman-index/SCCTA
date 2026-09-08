@@ -89,7 +89,7 @@ export default function OurImpact({ setActivePage, onSelectStory, onOpenDonate }
                 <div className="pt-2 flex items-center gap-4">
                   <button
                     onClick={() => onSelectStory(essayWinner)}
-                    className="px-6 py-3.5 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs sm:text-sm shadow-[0_4px_14px_rgba(140, 176, 191,0.35)] transition-all active:scale-95 flex items-center gap-2"
+                    className="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-[#061326] font-extrabold text-xs sm:text-sm shadow-xl transition-all active:scale-95 flex items-center gap-2"
                   >
                     <span>Read Full Story & Essay</span>
                     <ArrowRight className="w-4 h-4" />
@@ -202,7 +202,7 @@ export default function OurImpact({ setActivePage, onSelectStory, onOpenDonate }
                   onClick={() => setSelectedFilter(f)}
                   className={`px-3.5 py-1.5 rounded-xl text-xs font-bold capitalize transition-all ${
                     selectedFilter === f
-                      ? 'bg-[#8cb0bf] text-[#061326] shadow-sm'
+                      ? 'bg-[#102A33] text-white shadow-sm'
                       : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
                   }`}
                 >
@@ -243,7 +243,7 @@ export default function OurImpact({ setActivePage, onSelectStory, onOpenDonate }
                 <div className="p-6 sm:p-8 pt-0">
                   <button
                     onClick={() => onSelectStory(story)}
-                    className="w-full py-3 rounded-xl bg-slate-100 hover:bg-[#8cb0bf] hover:text-[#061326] text-xs font-bold text-slate-800 transition-all flex items-center justify-center gap-2"
+                    className="w-full py-3 rounded-xl bg-slate-100 hover:bg-[#102A33] hover:text-white text-xs font-bold text-slate-800 transition-all flex items-center justify-center gap-2"
                   >
                     <span>Read Story & Reflections</span>
                     <ArrowRight className="w-3.5 h-3.5" />

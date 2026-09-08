@@ -103,7 +103,7 @@ export default function Header({ activePage, setActivePage, onOpenDonate, onOpen
             <div className="flex items-center gap-2 sm:gap-3">
               <button
                 onClick={() => handleNavClick('contact')}
-                className="hidden sm:inline-flex px-4 py-2 rounded-xl bg-[#8cb0bf] hover:bg-[#9ec0cf] text-white font-bold text-xs transition-all shadow-[0_2px_12px_rgba(140, 176, 191,0.4)] hover:shadow-[0_4px_16px_rgba(0,124,232,0.6)] active:scale-95 whitespace-nowrap"
+                className="hidden sm:inline-flex px-4 py-2 rounded-xl bg-white hover:bg-slate-100 text-[#061326] font-bold text-xs transition-all shadow-md active:scale-95 whitespace-nowrap"
               >
                 Contact Us
               </button>
@@ -171,7 +171,7 @@ export default function Header({ activePage, setActivePage, onOpenDonate, onOpen
                   onClick={() => handleNavClick(item.id)}
                   className={`w-full flex items-center justify-between py-3 px-4 rounded-2xl font-display font-bold text-lg transition-all ${
                     isActive 
-                      ? 'bg-[#8cb0bf] text-[#061326] shadow-md' 
+                      ? 'bg-[#102A33] border border-white/20 text-white shadow-md' 
                       : 'text-slate-200 hover:bg-white/10 hover:text-white'
                   }`}
                 >
@@ -189,9 +189,9 @@ export default function Header({ activePage, setActivePage, onOpenDonate, onOpen
                 setMobileMenuOpen(false);
                 onOpenProgramFinder();
               }}
-              className="w-full py-3.5 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg active:scale-95"
+              className="w-full py-3.5 rounded-xl bg-[#102A33] hover:bg-[#173B4A] border border-white/20 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg active:scale-95"
             >
-              <Activity className="w-4 h-4 text-[#8cb0bf]" />
+              <Activity className="w-4 h-4 text-white" />
               <span>Interactive Program Matcher</span>
             </button>
 

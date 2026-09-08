@@ -74,7 +74,7 @@ export default function GetInvolved({ setActivePage, onOpenDonate }) {
 
               <button
                 onClick={onOpenDonate}
-                className="w-full py-3.5 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs shadow-[0_4px_14px_rgba(140, 176, 191,0.35)] transition-all active:scale-95 flex items-center justify-center gap-2"
+                className="w-full py-3.5 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white font-bold text-xs shadow-md shadow-[#102A33]/20 transition-all active:scale-95 flex items-center justify-center gap-2"
               >
                 <span>Donate Now</span>
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -161,7 +161,7 @@ export default function GetInvolved({ setActivePage, onOpenDonate }) {
 
                 <button
                   onClick={onOpenDonate}
-                  className="w-full py-3 rounded-xl bg-slate-100 hover:bg-[#8cb0bf] hover:text-[#061326] text-slate-950 font-bold text-xs transition-all shadow-xs"
+                  className="w-full py-3 rounded-xl bg-slate-100 hover:bg-[#102A33] hover:text-white text-slate-950 font-bold text-xs transition-all shadow-xs"
                 >
                   Sponsor ${tier.amount}
                 </button>
@@ -246,10 +246,10 @@ export default function GetInvolved({ setActivePage, onOpenDonate }) {
 
                 <button
                   type="submit"
-                  className="w-full py-4 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs uppercase tracking-wider shadow-[0_4px_14px_rgba(140, 176, 191,0.35)] transition-all active:scale-95 flex items-center justify-center gap-2"
+                  className="w-full py-4 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white font-bold text-xs uppercase tracking-wider shadow-md shadow-[#102A33]/20 transition-all active:scale-95 flex items-center justify-center gap-2"
                 >
                   <span>Submit Volunteer Application</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </form>
             </ScrollReveal>

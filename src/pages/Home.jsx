@@ -190,7 +190,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <button
                 onClick={onOpenProgramFinder}
-                className="px-6 py-3 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs sm:text-sm transition-all shadow-[0_4px_20px_rgba(140, 176, 191,0.45)] hover:shadow-[0_6px_25px_rgba(140, 176, 191,0.6)] active:scale-95 flex items-center gap-2"
+                className="px-6 py-3 rounded-xl bg-white hover:bg-slate-100 text-[#061326] font-extrabold text-xs sm:text-sm transition-all shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_6px_25px_rgba(255,255,255,0.25)] active:scale-95 flex items-center gap-2"
               >
                 <span>Find a Program</span>
                 <ArrowRight className="w-4 h-4" />
@@ -208,11 +208,11 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
         </div>
 
         {/* Floating Badge */}
-        <div className="absolute bottom-6 right-6 z-10 hidden sm:flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-white/95 backdrop-blur-md text-slate-950 text-xs font-bold shadow-xl border border-slate-200">
+        <div className="absolute bottom-6 right-6 z-10 hidden sm:flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-white/95 backdrop-blur-md text-xs font-bold shadow-xl border border-slate-200">
           <div className="w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow-xs">
             <img src="/logo.png" alt="SCCTA" className="w-full h-full object-contain" />
           </div>
-          <span className="text-[#8cb0bf] font-extrabold">SCCTA Tennis Academy</span>
+          <span className="text-[#061326] font-black tracking-tight">SCCTA Tennis Academy</span>
         </div>
       </section>
 
@@ -224,7 +224,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 flex justify-end">
           <button
             onClick={() => setActivePage('contact')}
-            className="px-4 py-2 rounded-xl bg-[#8cb0bf] text-[#061326] text-xs font-bold hover:bg-[#769dae] transition-all shadow-sm active:scale-95"
+            className="px-4 py-2 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white text-xs font-bold transition-all shadow-md shadow-[#102A33]/20 active:scale-95"
           >
             Contact Us
           </button>
@@ -346,15 +346,15 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 
-                <div className="absolute top-6 left-6 w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-md text-white flex items-center justify-center">
-                  <Shield className="w-5 h-5 text-[#8cb0bf]" />
+                <div className="absolute top-6 left-6 w-11 h-11 rounded-2xl bg-white text-[#061326] shadow-xl flex items-center justify-center ring-1 ring-black/10">
+                  <Shield className="w-5 h-5 stroke-[2.2]" />
                 </div>
 
                 <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">
                   <h3 className="text-xl sm:text-2xl font-bold font-display text-white">
                     Clayton County Community Courts
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 max-w-xl leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-200 max-w-xl leading-relaxed">
                     You train on the same surfaces you compete on. No adjustments, no excuses on match day.
                   </p>
                 </div>
@@ -362,16 +362,16 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
             </ScrollReveal>
 
             <ScrollReveal className="lg:col-span-4" delay={200}>
-              <div className="bg-gradient-to-br from-[#8cb0bf] to-[#64899b] text-white rounded-3xl p-8 flex flex-col justify-between space-y-8 shadow-md h-full">
-                <div className="w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-md text-white flex items-center justify-center">
-                  <TrendingUp className="w-5 h-5 text-[#8cb0bf]" />
+              <div className="bg-gradient-to-br from-[#1E4353] to-[#0F2631] text-white rounded-3xl p-8 flex flex-col justify-between space-y-8 shadow-md h-full border border-white/10">
+                <div className="w-11 h-11 rounded-2xl bg-white text-[#061326] shadow-xl flex items-center justify-center ring-1 ring-black/10">
+                  <TrendingUp className="w-5 h-5 stroke-[2.2]" />
                 </div>
 
                 <div className="space-y-2">
                   <h3 className="text-xl sm:text-2xl font-bold font-display text-white">
                     Structured training
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+                  <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-normal">
                     Every session follows a defined progression, building the right technical skills.
                   </p>
                 </div>
@@ -380,15 +380,15 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
 
             <ScrollReveal className="lg:col-span-4" delay={250}>
               <div className="bg-gradient-to-br from-[#061326] to-[#0B254D] text-white rounded-3xl p-8 flex flex-col justify-between space-y-8 shadow-md h-full border border-blue-900/30">
-                <div className="w-10 h-10 rounded-2xl bg-white/10 backdrop-blur-md text-[#8cb0bf] flex items-center justify-center">
-                  <Users className="w-5 h-5" />
+                <div className="w-11 h-11 rounded-2xl bg-white text-[#061326] shadow-xl flex items-center justify-center ring-1 ring-black/10">
+                  <Users className="w-5 h-5 stroke-[2.2]" />
                 </div>
 
                 <div className="space-y-2">
                   <h3 className="text-xl sm:text-2xl font-bold font-display text-white">
                     Mentorship beyond the court
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                  <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-normal">
                     Academic study halls, Arthur Ashe writing workshops, and college readiness mentorship.
                   </p>
                 </div>
@@ -404,15 +404,15 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 
-                <div className="absolute top-6 left-6 w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-md text-white flex items-center justify-center">
-                  <Zap className="w-5 h-5 text-[#8cb0bf]" />
+                <div className="absolute top-6 left-6 w-11 h-11 rounded-2xl bg-white text-[#061326] shadow-xl flex items-center justify-center ring-1 ring-black/10">
+                  <Zap className="w-5 h-5 stroke-[2.2]" />
                 </div>
 
                 <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">
                   <h3 className="text-xl sm:text-2xl font-bold font-display text-white">
                     Sanctioned Tournament Matchplay
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 max-w-xl leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-200 max-w-xl leading-relaxed">
                     Regular competitive experience through Junior Team Tennis and USTA Georgia championship events.
                   </p>
                 </div>
@@ -524,7 +524,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
                   onClick={() => setTournamentFilter(f.id)}
                   className={`px-4 py-2 rounded-lg text-xs font-bold transition-all ${
                     tournamentFilter === f.id
-                      ? 'bg-[#8cb0bf] text-[#061326] shadow-sm'
+                      ? 'bg-[#102A33] text-white shadow-sm'
                       : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
@@ -621,7 +621,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
 
                     <button
                       onClick={() => setActivePage('tournaments')}
-                      className="px-5 py-2.5 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs shadow-[0_2px_10px_rgba(140, 176, 191,0.3)] transition-all active:scale-95 flex items-center gap-1.5"
+                      className="px-5 py-2.5 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white font-bold text-xs shadow-md shadow-[#102A33]/20 transition-all active:scale-95 flex items-center gap-1.5"
                     >
                       <span>Register on USTA</span>
                       <ExternalLink className="w-3.5 h-3.5" />
@@ -648,7 +648,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
 
             <button
               onClick={() => setActivePage('tournaments')}
-              className="px-6 py-3 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs whitespace-nowrap shadow-[0_4px_14px_rgba(140, 176, 191,0.4)] transition-all active:scale-95 shrink-0"
+              className="px-6 py-3 rounded-xl bg-white hover:bg-slate-100 text-[#061326] font-extrabold text-xs whitespace-nowrap shadow-lg transition-all active:scale-95 shrink-0"
             >
               View Full Tournament Desk Guide →
             </button>
@@ -682,7 +682,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
           <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
             <button
               onClick={onOpenProgramFinder}
-              className="px-8 py-3.5 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs sm:text-sm shadow-[0_4px_20px_rgba(140, 176, 191,0.45)] hover:shadow-[0_6px_25px_rgba(140, 176, 191,0.6)] transition-all active:scale-95"
+              className="px-8 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-[#061326] font-extrabold text-xs sm:text-sm shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_6px_25px_rgba(255,255,255,0.25)] transition-all active:scale-95"
             >
               Find a Program
             </button>

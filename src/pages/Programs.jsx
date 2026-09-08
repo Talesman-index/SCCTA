@@ -144,7 +144,7 @@ export default function Programs({ setActivePage, onOpenProgramFinder, onOpenDon
           <div className="pt-2 flex flex-wrap items-center gap-4">
             <button
               onClick={onOpenProgramFinder}
-              className="px-6 py-3.5 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs sm:text-sm transition-all shadow-[0_4px_20px_rgba(140, 176, 191,0.4)] active:scale-95"
+              className="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-[#061326] font-extrabold text-xs sm:text-sm transition-all shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_6px_25px_rgba(255,255,255,0.25)] active:scale-95"
             >
               Interactive Program Matcher
             </button>
@@ -191,7 +191,7 @@ export default function Programs({ setActivePage, onOpenProgramFinder, onOpenDon
                     onClick={() => setActiveBallStageId(stage.id)}
                     className={`p-3 sm:p-4 rounded-xl text-left transition-all duration-300 flex items-center gap-3 ${
                       isActive 
-                        ? 'bg-[#8cb0bf] text-[#061326] shadow-md' 
+                        ? 'bg-[#102A33] text-white shadow-md' 
                         : 'hover:bg-slate-50 text-slate-700'
                     }`}
                   >
@@ -203,7 +203,7 @@ export default function Programs({ setActivePage, onOpenProgramFinder, onOpenDon
                       <div className="font-extrabold font-display text-sm leading-tight">
                         {stage.label}
                       </div>
-                      <div className={`text-[10px] ${isActive ? 'text-slate-700' : 'text-slate-500'}`}>
+                      <div className={`text-[10px] ${isActive ? 'text-slate-300' : 'text-slate-500'}`}>
                         {stage.subtitle}
                       </div>
                     </div>
@@ -305,7 +305,7 @@ export default function Programs({ setActivePage, onOpenProgramFinder, onOpenDon
                   <div className="pt-2 flex flex-wrap items-center gap-4">
                     <button
                       onClick={onOpenProgramFinder}
-                      className="px-6 py-3.5 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs sm:text-sm transition-all shadow-[0_4px_14px_rgba(140, 176, 191,0.35)] active:scale-95"
+                      className="px-6 py-3.5 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white font-bold text-xs sm:text-sm transition-all shadow-md shadow-[#102A33]/20 active:scale-95"
                     >
                       Check {currentStage.name} Availability
                     </button>
@@ -354,7 +354,7 @@ export default function Programs({ setActivePage, onOpenProgramFinder, onOpenDon
               <div className="pt-2">
                 <button
                   onClick={() => setActivePage('tournaments')}
-                  className="px-6 py-3.5 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs shadow-[0_4px_14px_rgba(140, 176, 191,0.35)] transition-all active:scale-95 flex items-center gap-2"
+                  className="px-6 py-3.5 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white font-bold text-xs shadow-md shadow-[#102A33]/20 transition-all active:scale-95 flex items-center gap-2"
                 >
                   <span>Explore Tournaments</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -419,7 +419,7 @@ export default function Programs({ setActivePage, onOpenProgramFinder, onOpenDon
               <div className="pt-2">
                 <button
                   onClick={() => setActivePage('impact')}
-                  className="px-6 py-3.5 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs shadow-[0_4px_14px_rgba(140, 176, 191,0.35)] transition-all active:scale-95 flex items-center gap-2"
+                  className="px-6 py-3.5 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white font-bold text-xs shadow-md shadow-[#102A33]/20 transition-all active:scale-95 flex items-center gap-2"
                 >
                   <span>Read Student Stories</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -471,7 +471,7 @@ export default function Programs({ setActivePage, onOpenProgramFinder, onOpenDon
                 <div className="pt-2">
                   <button
                     onClick={() => setActivePage('contact')}
-                    className="px-6 py-3.5 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs shadow-[0_4px_14px_rgba(140, 176, 191,0.35)] transition-all active:scale-95 flex items-center gap-2"
+                    className="px-6 py-3.5 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white font-bold text-xs shadow-md shadow-[#102A33]/20 transition-all active:scale-95 flex items-center gap-2"
                   >
                     <span>Explore Adult Programs</span>
                     <ArrowRight className="w-3.5 h-3.5" />

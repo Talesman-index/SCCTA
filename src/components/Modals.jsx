@@ -54,7 +54,7 @@ export function DonationModal({ isOpen, onClose }) {
                   type="button"
                   onClick={() => setIsRecurring(false)}
                   className={`py-2.5 text-xs font-bold rounded-lg transition-all ${
-                    !isRecurring ? 'bg-[#8cb0bf] text-[#061326] shadow-sm' : 'text-slate-600'
+                    !isRecurring ? 'bg-[#102A33] text-white shadow-sm' : 'text-slate-600'
                   }`}
                 >
                   One-Time Gift
@@ -63,7 +63,7 @@ export function DonationModal({ isOpen, onClose }) {
                   type="button"
                   onClick={() => setIsRecurring(true)}
                   className={`py-2.5 text-xs font-bold rounded-lg transition-all ${
-                    isRecurring ? 'bg-[#8cb0bf] text-[#061326] shadow-sm' : 'text-slate-600'
+                    isRecurring ? 'bg-[#102A33] text-white shadow-sm' : 'text-slate-600'
                   }`}
                 >
                   Monthly Supporter
@@ -121,7 +121,7 @@ export function DonationModal({ isOpen, onClose }) {
               <button
                 type="button"
                 onClick={() => setStep('details')}
-                className="w-full py-3.5 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs shadow-[0_4px_14px_rgba(140, 176, 191,0.35)] transition-all active:scale-95 flex items-center justify-center gap-2"
+                className="w-full py-3.5 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white font-bold text-xs shadow-md shadow-[#102A33]/20 transition-all active:scale-95 flex items-center justify-center gap-2"
               >
                 <span>Continue (${currentAmount})</span>
                 <ArrowRight className="w-4 h-4" />
@@ -190,7 +190,7 @@ export function DonationModal({ isOpen, onClose }) {
                 </button>
                 <button
                   type="submit"
-                  className="w-2/3 py-3 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] text-xs font-bold shadow-[0_4px_14px_rgba(140, 176, 191,0.35)] transition-all active:scale-95"
+                  className="w-2/3 py-3 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white text-xs font-bold shadow-md shadow-[#102A33]/20 transition-all active:scale-95"
                 >
                   Complete Donation
                 </button>
@@ -210,7 +210,7 @@ export function DonationModal({ isOpen, onClose }) {
               <button
                 type="button"
                 onClick={onClose}
-                className="px-6 py-2.5 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] text-xs font-bold shadow transition-all active:scale-95"
+                className="px-6 py-2.5 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white text-xs font-bold shadow-md shadow-[#102A33]/20 transition-all active:scale-95"
               >
                 Close Window
               </button>
@@ -304,7 +304,7 @@ export function ProgramFinderModal({ isOpen, onClose, onSelectProgram }) {
                       onClick={() => setAgeGroup(item.id)}
                       className={`p-4 rounded-2xl border text-left transition-all duration-200 ${item.fullWidth ? 'sm:col-span-2' : ''} ${
                         isSelected 
-                          ? 'border-[#8cb0bf] bg-[#8cb0bf] text-[#061326] shadow-lg scale-[1.01]' 
+                          ? 'border-[#102A33] bg-[#102A33] text-white shadow-lg scale-[1.01]' 
                           : 'border-slate-200 hover:border-blue-300 bg-[#FAF9F5]'
                       }`}
                     >
@@ -313,11 +313,11 @@ export function ProgramFinderModal({ isOpen, onClose, onSelectProgram }) {
                           <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: item.color }} />
                           <span className="font-extrabold text-sm">{item.label}</span>
                         </div>
-                        <span className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded-full ${isSelected ? 'bg-white/20 text-[#8cb0bf]' : 'bg-white border border-slate-200 text-slate-700'}`}>
+                        <span className={`text-[10px] font-bold uppercase px-2 py-0.5 rounded-full ${isSelected ? 'bg-white/20 text-white' : 'bg-white border border-slate-200 text-slate-700'}`}>
                           {item.tag}
                         </span>
                       </div>
-                      <div className={`text-xs ${isSelected ? 'text-slate-700' : 'text-slate-500'}`}>
+                      <div className={`text-xs ${isSelected ? 'text-slate-300' : 'text-slate-500'}`}>
                         {item.desc}
                       </div>
                     </button>
@@ -329,7 +329,7 @@ export function ProgramFinderModal({ isOpen, onClose, onSelectProgram }) {
                 type="button"
                 disabled={!ageGroup}
                 onClick={() => setStep(2)}
-                className="w-full mt-4 py-4 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs uppercase tracking-wider shadow-[0_4px_14px_rgba(140, 176, 191,0.35)] disabled:opacity-30 disabled:pointer-events-none transition-all flex items-center justify-center gap-2"
+                className="w-full mt-4 py-4 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white font-bold text-xs uppercase tracking-wider shadow-md shadow-[#102A33]/20 disabled:opacity-30 disabled:pointer-events-none transition-all flex items-center justify-center gap-2"
               >
                 <span>Continue to Experience</span>
                 <ArrowRight className="w-4 h-4" />
@@ -360,12 +360,12 @@ export function ProgramFinderModal({ isOpen, onClose, onSelectProgram }) {
                       onClick={() => setExperience(item.id)}
                       className={`p-4 rounded-2xl border text-left transition-all ${
                         isSelected 
-                          ? 'border-[#8cb0bf] bg-[#8cb0bf] text-[#061326] shadow-lg' 
+                          ? 'border-[#102A33] bg-[#102A33] text-white shadow-lg' 
                           : 'border-slate-200 hover:border-blue-300 bg-[#FAF9F5]'
                       }`}
                     >
                       <div className="font-extrabold text-sm mb-0.5">{item.label}</div>
-                      <div className={`text-xs ${isSelected ? 'text-slate-700' : 'text-slate-500'}`}>
+                      <div className={`text-xs ${isSelected ? 'text-slate-300' : 'text-slate-500'}`}>
                         {item.desc}
                       </div>
                     </button>
@@ -385,7 +385,7 @@ export function ProgramFinderModal({ isOpen, onClose, onSelectProgram }) {
                   type="button"
                   disabled={!experience}
                   onClick={() => setStep(3)}
-                  className="w-2/3 py-3.5 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs uppercase tracking-wider shadow-[0_4px_14px_rgba(140, 176, 191,0.35)] disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center gap-2"
+                  className="w-2/3 py-3.5 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white font-bold text-xs uppercase tracking-wider shadow-md shadow-[#102A33]/20 disabled:opacity-30 disabled:pointer-events-none flex items-center justify-center gap-2"
                 >
                   <span>Next Step</span>
                   <ArrowRight className="w-4 h-4" />
@@ -417,12 +417,12 @@ export function ProgramFinderModal({ isOpen, onClose, onSelectProgram }) {
                       onClick={() => setGoal(item.id)}
                       className={`p-4 rounded-2xl border text-left transition-all ${
                         isSelected 
-                          ? 'border-[#8cb0bf] bg-[#8cb0bf] text-[#061326] shadow-lg' 
+                          ? 'border-[#102A33] bg-[#102A33] text-white shadow-lg' 
                           : 'border-slate-200 hover:border-blue-300 bg-[#FAF9F5]'
                       }`}
                     >
                       <div className="font-extrabold text-sm mb-0.5">{item.label}</div>
-                      <div className={`text-xs ${isSelected ? 'text-slate-700' : 'text-slate-500'}`}>
+                      <div className={`text-xs ${isSelected ? 'text-slate-300' : 'text-slate-500'}`}>
                         {item.desc}
                       </div>
                     </button>
@@ -442,7 +442,7 @@ export function ProgramFinderModal({ isOpen, onClose, onSelectProgram }) {
                   type="button"
                   disabled={!goal}
                   onClick={handleFinish}
-                  className="w-2/3 py-3.5 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs uppercase tracking-wider shadow-[0_4px_14px_rgba(140, 176, 191,0.35)] disabled:opacity-30 flex items-center justify-center gap-2"
+                  className="w-2/3 py-3.5 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white font-bold text-xs uppercase tracking-wider shadow-md shadow-[#102A33]/20 disabled:opacity-30 flex items-center justify-center gap-2"
                 >
                   <span>View Recommended Program</span>
                   <ArrowRight className="w-4 h-4" />
@@ -505,7 +505,7 @@ export function StoryModal({ story, onClose }) {
             </div>
             <button
               onClick={onClose}
-              className="px-5 py-2.5 rounded-xl bg-[#8cb0bf] hover:bg-[#7ba0b0] text-[#061326] font-bold text-xs shadow transition-all active:scale-95"
+              className="px-5 py-2.5 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white font-bold text-xs shadow-md shadow-[#102A33]/20 transition-all active:scale-95"
             >
               Close Story
             </button>
