@@ -264,7 +264,8 @@ export const PAST_TOURNAMENTS = [
     entryFee: "$28.70",
     status: "COMPLETED",
     logo: "/logo.png",
-    image: "/images/tournament-winner-boy-trophy.jpg"
+    image: "/images/poster-nextgen-best-l7.jpg",
+    imageFocus: "center center"
   },
   {
     id: "past-spring-kickoff",
@@ -280,7 +281,8 @@ export const PAST_TOURNAMENTS = [
     entryFee: "$28.70",
     status: "COMPLETED",
     logo: "/logo.png",
-    image: "/images/tournament-winners-medals.jpg"
+    image: "/images/poster-spring-kickoff.jpg",
+    imageFocus: "center center"
   },
   {
     id: "past-winter-classic",
@@ -297,7 +299,8 @@ export const PAST_TOURNAMENTS = [
     entryFee: "$28.70",
     status: "COMPLETED",
     logo: "/logo.png",
-    image: "/images/tournament-winner-904-trophy.jpg"
+    image: "/images/poster-winter-classic.jpg",
+    imageFocus: "center center"
   },
   {
     id: "past-march-madness",
@@ -314,7 +317,8 @@ export const PAST_TOURNAMENTS = [
     entryFee: "$28.70",
     status: "COMPLETED",
     logo: "/logo.png",
-    image: "/images/tournament-winners-clubhouse.jpg"
+    image: "/images/poster-march-madness.jpg",
+    imageFocus: "center center"
   },
   {
     id: "past-grand-slam",
@@ -330,7 +334,8 @@ export const PAST_TOURNAMENTS = [
     entryFee: "$28.70",
     status: "COMPLETED",
     logo: "/logo.png",
-    image: "/images/tournament-winners-girls-medals.jpg"
+    image: "/images/poster-grand-slam.jpg",
+    imageFocus: "center center"
   },
   {
     id: "past-clayton-spring",
@@ -347,7 +352,8 @@ export const PAST_TOURNAMENTS = [
     entryFee: "$28.70",
     status: "COMPLETED",
     logo: "/logo.png",
-    image: "/images/tournament-winners-girls-trophies.jpg"
+    image: "/images/poster-clayton-spring.jpg",
+    imageFocus: "center center"
   },
   {
     id: "past-hudlow-singles-doubles",
@@ -364,7 +370,8 @@ export const PAST_TOURNAMENTS = [
     entryFee: "$39.00 – $78.00",
     status: "COMPLETED",
     logo: "/logo.png",
-    image: "/images/tournament-winner-boy-trophy.jpg"
+    image: "/images/poster-hudlow-may.jpg",
+    imageFocus: "center center"
   },
   {
     id: "past-rockdale-invitational",
@@ -380,7 +387,8 @@ export const PAST_TOURNAMENTS = [
     entryFee: "$28.70",
     status: "COMPLETED",
     logo: "/logo.png",
-    image: "/images/tournament-winners-medals.jpg"
+    image: "/images/poster-spring-kickoff.jpg",
+    imageFocus: "center center"
   },
   {
     id: "past-summer-satellite",
@@ -395,7 +403,9 @@ export const PAST_TOURNAMENTS = [
     },
     entryFee: "$28.70",
     status: "COMPLETED",
-    logo: "/logo.png"
+    logo: "/logo.png",
+    image: "/images/poster-grand-slam.jpg",
+    imageFocus: "center center"
   },
   {
     id: "past-hudlow-champs-p1",
@@ -411,7 +421,9 @@ export const PAST_TOURNAMENTS = [
     },
     entryFee: "$39.00 – $78.00",
     status: "COMPLETED",
-    logo: "/logo.png"
+    logo: "/logo.png",
+    image: "/images/poster-hudlow-l6-oct.jpg",
+    imageFocus: "center center"
   }
 ];
 
