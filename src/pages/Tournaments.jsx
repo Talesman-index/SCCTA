@@ -10,319 +10,645 @@ import {
   ChevronUp, 
   ArrowRight,
   Search,
-  Zap,
+  Filter,
+  Check,
+  X,
   Phone,
   Mail,
-  Shield
+  Shield,
+  Sparkles,
+  DollarSign,
+  AlertCircle
 } from 'lucide-react';
-import { UPCOMING_TOURNAMENTS, FAQS_TOURNAMENTS } from '../data/mockData';
+import { UPCOMING_TOURNAMENTS, PAST_TOURNAMENTS, FAQS_TOURNAMENTS } from '../data/mockData';
 import ScrollReveal from '../components/ScrollReveal';
 
 export default function Tournaments({ setActivePage, onOpenTournamentRegister }) {
+  const [activeTab, setActiveTab] = useState('upcoming'); // 'upcoming' | 'past'
   const [filterLevel, setFilterLevel] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [expandedEvents, setExpandedEvents] = useState({});
   const [expandedFaq, setExpandedFaq] = useState(null);
-  const [selectedTournamentDetail, setSelectedTournamentDetail] = useState(null);
+  const [selectedTournament, setSelectedTournament] = useState(null);
 
-  const filteredTournaments = UPCOMING_TOURNAMENTS.filter((t) => {
-    const matchesSearch = t.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          t.location.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          t.divisions.toLowerCase().includes(searchQuery.toLowerCase());
+  const toggleEventCollapse = (id) => {
+    setExpandedEvents((prev) => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
+  };
+
+  const currentTournaments = activeTab === 'upcoming' ? UPCOMING_TOURNAMENTS : PAST_TOURNAMENTS;
+
+  const filteredTournaments = currentTournaments.filter((t) => {
+    const query = searchQuery.toLowerCase();
+    const matchesSearch = t.title.toLowerCase().includes(query) || 
+                          t.location.toLowerCase().includes(query) ||
+                          (t.divisions && t.divisions.toLowerCase().includes(query));
     const matchesLevel = filterLevel === 'all' || 
-                         (filterLevel === 'junior' && (t.level.toLowerCase().includes('junior') || t.level.includes('Level'))) ||
-                         (filterLevel === 'adult' && t.level.toLowerCase().includes('adult'));
+                         (filterLevel === 'junior' && t.category === 'junior') ||
+                         (filterLevel === 'adult' && t.category === 'adult') ||
+                         (filterLevel === 'level6' && t.level.includes('Level 6')) ||
+                         (filterLevel === 'level7' && t.level.includes('Level 7'));
     return matchesSearch && matchesLevel;
   });
 
   return (
-    <div className="w-full bg-white text-slate-900 font-sans">
+    <div className="w-full bg-[#FAF9F5] text-slate-900 font-sans">
       
-      {/* 01. HERO HEADER (WITH PHOTOGRAPHIC BACKGROUND) */}
-      <section className="bg-slate-950 text-white pt-36 pb-24 relative overflow-hidden">
+      {/* ========================================================================= */}
+      {/* 01. HERO HEADER */}
+      {/* ========================================================================= */}
+      <section className="bg-slate-950 text-white pt-36 pb-20 relative overflow-hidden">
         
-        {/* Photographic Background Image Layer */}
+        {/* Background Photo */}
         <div className="absolute inset-0 z-0">
           <img 
             src="/images/sccta-clayton-clinic.png" 
-            alt="SCCTA tournament competitors and coaches" 
+            alt="SCCTA tournament competitors" 
             className="w-full h-full object-cover opacity-25 object-[center_20%]" 
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/60" />
         </div>
 
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#8cb0bf]/20 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-10 right-1/4 w-96 h-96 bg-[#8cb0bf]/20 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 relative z-10">
-          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-wider text-[#8cb0bf] shadow-lg">
-            <div className="w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow-sm">
-              <img src="/logo.png" alt="SCCTA" className="w-full h-full object-contain" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6">
+          
+          <div className="flex flex-wrap items-center gap-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-wider text-[#8cb0bf] shadow-lg">
+              <div className="w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow-sm">
+                <img src="/logo.png" alt="SCCTA" className="w-full h-full object-contain" />
+              </div>
+              <span>SCCTA Tournament Circuit</span>
             </div>
-            <span>SCCTA Tournaments</span>
+
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-slate-300 text-xs font-medium">
+              <MapPin className="w-3.5 h-3.5 text-[#8cb0bf]" />
+              Sanctioned USTA Georgia Events
+            </span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold font-display tracking-tight text-white leading-[1.08]">
-            Play. Compete. <br />
-            <span className="text-[#8cb0bf]">Grow.</span>
-          </h1>
+          <div className="max-w-3xl space-y-4">
+            <h1 className="text-4xl sm:text-6xl font-extrabold font-display tracking-tight text-white leading-tight">
+              Tournaments & <br />
+              <span className="text-[#8cb0bf]">Competitive Matchplay.</span>
+            </h1>
 
-          <p className="text-base sm:text-lg text-slate-300 max-w-2xl leading-relaxed">
-            Put your game to the test through SCCTA junior and adult tournament opportunities sanctioned by USTA Georgia and the Southern Section.
-          </p>
-        </div>
-      </section>
-
-      {/* 02. UPCOMING TOURNAMENTS SECTION */}
-      <section className="py-24 bg-[#FAF9F5] border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          
-          <ScrollReveal className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div>
-              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
-                <span className="w-3.5 h-3.5 rounded-sm border border-[#8cb0bf] text-[#8cb0bf] flex items-center justify-center text-[9px]">⬡</span>
-                <span>Sanctioned Matchplay</span>
-              </div>
-              <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-slate-950 tracking-tight mt-1">
-                Upcoming Tournaments
-              </h2>
-              <p className="text-slate-600 text-sm max-w-xl mt-1">
-                View upcoming events, registration deadlines, draws, and tournament details.
-              </p>
-            </div>
-
-            {/* Filter & Search */}
-            <div className="flex flex-col sm:flex-row gap-3">
-              <div className="relative">
-                <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-                <input 
-                  type="text"
-                  placeholder="Search tournaments or level..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 text-xs w-full sm:w-64 focus:outline-none focus:ring-2 focus:ring-[#8cb0bf] bg-white shadow-xs"
-                />
-              </div>
-
-              <select 
-                value={filterLevel}
-                onChange={(e) => setFilterLevel(e.target.value)}
-                className="px-4 py-2.5 rounded-xl border border-slate-300 text-xs font-semibold text-slate-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#8cb0bf] shadow-xs"
-              >
-                <option value="all">All Divisions</option>
-                <option value="junior">Junior Events</option>
-                <option value="adult">Adult Events</option>
-              </select>
-            </div>
-          </ScrollReveal>
-
-          {/* Tournament Cards Grid (Elevated Design) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {filteredTournaments.map((t, idx) => (
-              <ScrollReveal 
-                key={t.id}
-                delay={idx * 100}
-                className="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl hover:border-blue-300 transition-all duration-500 flex flex-col justify-between group"
-              >
-                {/* Photo Header */}
-                <div className="relative h-64 w-full overflow-hidden bg-slate-950">
-                  <img 
-                    src={t.image || "/doubles-ready-stance.jpg"} 
-                    alt={t.title} 
-                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 opacity-90"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/10" />
-
-                  {/* Badges */}
-                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-                    <span className="px-3 py-1.5 rounded-full text-[11px] font-extrabold uppercase tracking-wide bg-[#061326]/85 backdrop-blur-md text-[#8cb0bf] border border-white/15 shadow-sm">
-                      {t.level}
-                    </span>
-
-                    <span className="px-3 py-1.5 rounded-full text-[11px] font-bold text-white bg-blue-600/90 backdrop-blur-md flex items-center gap-1.5 shadow-sm">
-                      <span className="w-2 h-2 rounded-full bg-[#8cb0bf] animate-pulse" />
-                      {t.status}
-                    </span>
-                  </div>
-
-                  <div className="absolute bottom-4 left-4 flex items-center gap-2.5 bg-[#061326]/90 backdrop-blur-md px-3.5 py-2 rounded-xl border border-white/15 text-white shadow-md">
-                    <Calendar className="w-4 h-4 text-[#8cb0bf]" />
-                    <span className="text-xs font-extrabold tracking-wide">{t.date}</span>
-                  </div>
-                </div>
-
-                {/* Card Body */}
-                <div className="p-6 sm:p-8 space-y-6 flex-1 flex flex-col justify-between">
-                  <div className="space-y-4">
-                    <div className="space-y-2">
-                      <h3 className="text-xl sm:text-2xl font-extrabold font-display text-slate-950 group-hover:text-[#8cb0bf] transition-colors leading-snug">
-                        {t.title}
-                      </h3>
-
-                      <div className="flex items-start gap-2 text-xs text-slate-600">
-                        <MapPin className="w-3.5 h-3.5 text-[#8cb0bf] shrink-0 mt-0.5" />
-                        <span className="font-medium text-slate-700">{t.location}</span>
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-2 text-xs">
-                      <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 space-y-0.5">
-                        <div className="text-[10px] font-bold uppercase text-slate-400">Divisions</div>
-                        <div className="font-bold text-slate-900 truncate">{t.divisions}</div>
-                      </div>
-                      <div className="p-3 rounded-xl bg-slate-50 border border-slate-100 space-y-0.5">
-                        <div className="text-[10px] font-bold uppercase text-slate-400">Entry Fee</div>
-                        <div className="font-bold text-slate-900 truncate">{t.entryFee}</div>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center gap-2 text-[11px] font-bold text-blue-800 bg-blue-50/80 px-3 py-2 rounded-lg border border-blue-100">
-                      <Clock className="w-3.5 h-3.5 shrink-0 text-[#8cb0bf]" />
-                      <span>Deadline: {t.deadline}</span>
-                    </div>
-                  </div>
-
-                  {/* Actions */}
-                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
-                    <button
-                      onClick={() => setSelectedTournamentDetail(t)}
-                      className="text-xs font-bold text-slate-600 hover:text-[#8cb0bf] transition-colors py-2"
-                    >
-                      Fact Sheet & Draws →
-                    </button>
-
-                    <button
-                      onClick={() => setSelectedTournamentDetail(t)}
-                      className="px-5 py-2.5 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white font-bold text-xs shadow-md shadow-[#102A33]/20 transition-all active:scale-95 flex items-center gap-1.5"
-                    >
-                      <span>Register</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </button>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* 03. TOURNAMENT INFORMATION CENTER & FAQS */}
-      <section className="py-24 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          
-          <ScrollReveal className="text-center max-w-2xl mx-auto space-y-2">
-            <div className="flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-500">
-              <span className="w-3.5 h-3.5 rounded-sm border border-[#8cb0bf] text-[#8cb0bf] flex items-center justify-center text-[9px]">⬡</span>
-              <span>Player & Parent Information</span>
-            </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-slate-950 tracking-tight">
-              Tournament Information Center
-            </h2>
-            <p className="text-slate-600 text-sm">
-              Everything you need before match day.
+            <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+              Official USTA Georgia sanctioned Level 5, 6, 7 tournaments and Junior Circuit round-robins hosted across Clayton County and partner facilities.
             </p>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { title: 'Draws & Schedules', desc: 'Published 48h prior via Match Tennis App & USTA portal.' },
-              { title: 'Registration & Entry', desc: 'Secure online entry via USTA Serve Tennis with USTA ID.' },
-              { title: 'Tournament Sites', desc: 'Clayton County International Park & Lovejoy Regional Park.' },
-              { title: 'Withdrawals & Refunds', desc: 'Full refund prior to deadline. No refunds once draws are published.' },
-              { title: 'Late Entries', desc: 'Considered only if main draw spots remain open.' },
-              { title: 'Alternate Players', desc: 'Alternates notified in order of entry ranking.' },
-              { title: 'Consolation Rounds', desc: 'Guaranteed 2+ matches via First Match Losers Consolation.' },
-              { title: 'Code of Conduct', desc: 'Strict sportsmanship enforcement with certified USTA officials.' },
-            ].map((topic, i) => (
-              <ScrollReveal key={i} delay={i * 50} className="p-6 rounded-3xl bg-[#FAF9F5] border border-slate-200 text-xs space-y-2 hover:shadow-md hover:border-blue-200 transition-all">
-                <div className="font-extrabold text-slate-950 font-display flex items-center gap-2 text-sm">
-                  <CheckCircle2 className="w-4 h-4 text-[#8cb0bf] shrink-0" />
-                  <span>{topic.title}</span>
-                </div>
-                <p className="text-slate-600 leading-relaxed">{topic.desc}</p>
-              </ScrollReveal>
-            ))}
           </div>
 
-          {/* FAQ Accordion */}
-          <div className="max-w-3xl mx-auto pt-6 space-y-4">
-            <h3 className="text-2xl font-extrabold font-display text-slate-950 text-center mb-6">
-              Frequently Asked Questions
-            </h3>
-
-            {FAQS_TOURNAMENTS.map((faq, index) => {
-              const isOpen = expandedFaq === index;
-              return (
-                <div key={index} className="border border-slate-200 rounded-2xl overflow-hidden bg-white shadow-xs">
-                  <button
-                    onClick={() => setExpandedFaq(isOpen ? null : index)}
-                    className="w-full px-6 py-4 text-left flex items-center justify-between gap-4 font-bold text-sm text-slate-800 hover:bg-slate-50 transition-colors"
-                  >
-                    <span>{faq.q}</span>
-                    {isOpen ? <ChevronUp className="w-4 h-4 text-[#8cb0bf] shrink-0" /> : <ChevronDown className="w-4 h-4 text-slate-500 shrink-0" />}
-                  </button>
-                  {isOpen && (
-                    <div className="px-6 pb-5 text-xs text-slate-600 leading-relaxed border-t border-slate-100 pt-3 bg-slate-50">
-                      {faq.a}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+          {/* Quick Stats Banner */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-white/10">
+            <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+              <div className="text-2xl sm:text-3xl font-extrabold text-[#8cb0bf] font-display">6</div>
+              <div className="text-xs text-slate-300 font-medium">Upcoming Tournaments</div>
+            </div>
+            <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+              <div className="text-2xl sm:text-3xl font-extrabold text-amber-300 font-display">10</div>
+              <div className="text-xs text-slate-300 font-medium">Completed Events in Archive</div>
+            </div>
+            <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+              <div className="text-2xl sm:text-3xl font-extrabold text-white font-display">USTA</div>
+              <div className="text-xs text-slate-300 font-medium">National Ranking Points</div>
+            </div>
+            <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+              <div className="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-display">All Ages</div>
+              <div className="text-xs text-slate-300 font-medium">10U to Adult Open</div>
+            </div>
           </div>
 
         </div>
       </section>
 
-      {/* Pop-up detail modal */}
-      {selectedTournamentDetail && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-fadeIn">
-          <div className="bg-white w-full max-w-lg rounded-3xl shadow-2xl border border-slate-200 overflow-hidden relative">
-            <div className="bg-[#061326] p-8 text-white relative">
-              <button 
-                onClick={() => setSelectedTournamentDetail(null)}
-                className="absolute top-5 right-5 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
-              >
-                ✕
-              </button>
-              <div className="text-[10px] font-bold text-[#8cb0bf] uppercase tracking-wider mb-1">
-                {selectedTournamentDetail.level}
-              </div>
-              <h3 className="text-2xl font-extrabold font-display">{selectedTournamentDetail.title}</h3>
+      {/* ========================================================================= */}
+      {/* 02. MAIN TOURNAMENTS SECTION WITH AUTHENTIC USTA TABS */}
+      {/* ========================================================================= */}
+      <section className="py-16 sm:py-24 bg-white border-b border-slate-200">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          
+          {/* Top Tabs: UPCOMING TOURNAMENTS | PAST TOURNAMENTS */}
+          <div className="flex items-center gap-8 border-b border-slate-200 pb-1">
+            <button
+              onClick={() => {
+                setActiveTab('upcoming');
+                setFilterLevel('all');
+              }}
+              className={`pb-3 text-xs sm:text-sm font-extrabold tracking-wider uppercase transition-all relative flex items-center gap-2 ${
+                activeTab === 'upcoming' 
+                  ? 'text-[#0059a6] border-b-2 border-[#0059a6]' 
+                  : 'text-slate-400 hover:text-slate-700'
+              }`}
+            >
+              <span>Upcoming Tournaments</span>
+              <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                activeTab === 'upcoming' ? 'bg-blue-100 text-[#0059a6]' : 'bg-slate-100 text-slate-500'
+              }`}>
+                {UPCOMING_TOURNAMENTS.length}
+              </span>
+            </button>
+
+            <button
+              onClick={() => {
+                setActiveTab('past');
+                setFilterLevel('all');
+              }}
+              className={`pb-3 text-xs sm:text-sm font-extrabold tracking-wider uppercase transition-all relative flex items-center gap-2 ${
+                activeTab === 'past' 
+                  ? 'text-[#0059a6] border-b-2 border-[#0059a6]' 
+                  : 'text-slate-400 hover:text-slate-700'
+              }`}
+            >
+              <span>Past Tournaments</span>
+              <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                activeTab === 'past' ? 'bg-blue-100 text-[#0059a6]' : 'bg-slate-100 text-slate-500'
+              }`}>
+                {PAST_TOURNAMENTS.length}
+              </span>
+            </button>
+          </div>
+
+          {/* Search & Filter Controls */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+            <div className="relative w-full sm:w-80">
+              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <input 
+                type="text"
+                placeholder="Search by tournament name, venue..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-none focus:ring-2 focus:ring-[#8cb0bf] bg-white shadow-xs"
+              />
             </div>
+
+            <div className="flex items-center gap-2 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0">
+              {[
+                { id: 'all', label: 'All Events' },
+                { id: 'junior', label: 'Junior' },
+                { id: 'adult', label: 'Adult' },
+                { id: 'level7', label: 'Level 7' },
+                { id: 'level6', label: 'Level 6' },
+              ].map((f) => (
+                <button
+                  key={f.id}
+                  onClick={() => setFilterLevel(f.id)}
+                  className={`px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
+                    filterLevel === f.id
+                      ? 'bg-[#102A33] text-white shadow-xs'
+                      : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                  }`}
+                >
+                  {f.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Tournament List (Authentic Clean USTA Card Layout) */}
+          <div className="space-y-6">
+            {filteredTournaments.length === 0 ? (
+              <div className="text-center py-16 bg-slate-50 rounded-3xl border border-slate-200 space-y-3">
+                <Trophy className="w-12 h-12 text-slate-300 mx-auto" />
+                <div className="font-bold text-slate-700 text-base">No tournaments found</div>
+                <p className="text-xs text-slate-500">Try adjusting your search or filter options.</p>
+              </div>
+            ) : (
+              filteredTournaments.map((t) => {
+                const isExpanded = expandedEvents[t.id] ?? true;
+                return (
+                  <div 
+                    key={t.id}
+                    className="bg-white rounded-2xl border border-slate-200/90 shadow-sm hover:shadow-md transition-all p-6 sm:p-8 space-y-4"
+                  >
+                    
+                    {/* Top Row: Title & Price */}
+                    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
+                      <div className="space-y-1 max-w-2xl">
+                        <h3 
+                          onClick={() => setSelectedTournament(t)}
+                          className="text-lg sm:text-xl font-bold font-display text-[#0059a6] hover:underline cursor-pointer leading-tight"
+                        >
+                          {t.title}
+                        </h3>
+
+                        <div className="text-xs text-slate-600 font-medium">
+                          {t.location}
+                        </div>
+
+                        <div className="text-xs text-slate-500 font-medium flex items-center gap-1.5 pt-0.5">
+                          <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                          <span>{t.date}</span>
+                        </div>
+                      </div>
+
+                      {/* Price on Top Right */}
+                      <div className="text-left sm:text-right shrink-0">
+                        <div className="text-lg sm:text-xl font-black font-display text-slate-900">
+                          {t.entryFee}
+                        </div>
+                        <div className="text-[10px] uppercase font-bold text-slate-400">
+                          Entry Fee
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Divisions Tags Area (Collapsible) */}
+                    {isExpanded && t.divisionTags && (
+                      <div className="pt-2 border-t border-slate-100 space-y-3">
+                        
+                        {/* Boys */}
+                        {t.divisionTags.boys && (
+                          <div className="flex flex-wrap items-center gap-2">
+                            <span className="text-xs font-bold text-slate-500 w-12">Boys:</span>
+                            <div className="flex flex-wrap gap-1.5">
+                              {t.divisionTags.boys.map((b, i) => (
+                                <span 
+                                  key={i} 
+                                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-50 border border-slate-200 text-[11px] font-semibold text-slate-700"
+                                >
+                                  <span>{b}</span>
+                                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Girls */}
+                        {t.divisionTags.girls && (
+                          <div className="flex flex-wrap items-center gap-2">
+                            <span className="text-xs font-bold text-slate-500 w-12">Girls:</span>
+                            <div className="flex flex-wrap gap-1.5">
+                              {t.divisionTags.girls.map((g, i) => (
+                                <span 
+                                  key={i} 
+                                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-50 border border-slate-200 text-[11px] font-semibold text-slate-700"
+                                >
+                                  <span>{g}</span>
+                                  <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Adult Men */}
+                        {t.divisionTags.men && (
+                          <div className="flex flex-wrap items-center gap-2">
+                            <span className="text-xs font-bold text-slate-500 w-12">Men:</span>
+                            <div className="flex flex-wrap gap-1.5">
+                              {t.divisionTags.men.map((m, i) => (
+                                <span 
+                                  key={i} 
+                                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-50 border border-slate-200 text-[11px] font-semibold text-slate-700"
+                                >
+                                  <span>{m}</span>
+                                  <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Adult Women */}
+                        {t.divisionTags.women && (
+                          <div className="flex flex-wrap items-center gap-2">
+                            <span className="text-xs font-bold text-slate-500 w-12">Women:</span>
+                            <div className="flex flex-wrap gap-1.5">
+                              {t.divisionTags.women.map((w, i) => (
+                                <span 
+                                  key={i} 
+                                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-50 border border-slate-200 text-[11px] font-semibold text-slate-700"
+                                >
+                                  <span>{w}</span>
+                                  <span className="w-1.5 h-1.5 rounded-full bg-pink-400" />
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Mixed */}
+                        {t.divisionTags.mixed && (
+                          <div className="flex flex-wrap items-center gap-2">
+                            <span className="text-xs font-bold text-slate-500 w-12">Mixed:</span>
+                            <div className="flex flex-wrap gap-1.5">
+                              {t.divisionTags.mixed.map((m, i) => (
+                                <span 
+                                  key={i} 
+                                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-50 border border-slate-200 text-[11px] font-semibold text-slate-700"
+                                >
+                                  <span>{m}</span>
+                                  <span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Coed (Junior Circuit) */}
+                        {t.divisionTags.coed && (
+                          <div className="flex flex-wrap items-center gap-2">
+                            <span className="text-xs font-bold text-slate-500 w-12">Co-ed:</span>
+                            <div className="flex flex-wrap gap-1.5">
+                              {t.divisionTags.coed.map((c, i) => (
+                                <span 
+                                  key={i} 
+                                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-50 border border-slate-200 text-[11px] font-semibold text-slate-700"
+                                >
+                                  <span>{c}</span>
+                                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                      </div>
+                    )}
+
+                    {/* Bottom Row: Hide events, Status, Deadline & Logos */}
+                    <div className="pt-3 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                      
+                      <div className="space-y-2">
+                        {t.divisionTags && (
+                          <button
+                            onClick={() => toggleEventCollapse(t.id)}
+                            className="text-xs font-bold text-[#0059a6] hover:underline flex items-center gap-1"
+                          >
+                            <span>{isExpanded ? 'Hide events ▲' : 'View events ▼'}</span>
+                          </button>
+                        )}
+
+                        <div className="flex flex-wrap items-center gap-2.5 text-xs">
+                          {/* Status Badge */}
+                          <span className={`px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider border ${
+                            t.status === 'REGISTRATIONS OPEN'
+                              ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                              : t.status === 'COMPLETED'
+                                ? 'bg-slate-100 text-slate-600 border-slate-200'
+                                : 'bg-amber-50 text-amber-700 border-amber-200'
+                          }`}>
+                            {t.status}
+                          </span>
+
+                          {/* Deadline */}
+                          {t.deadline && (
+                            <span className="text-slate-500 font-medium">
+                              {t.deadline}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Right Action: Logo & Register Button */}
+                      <div className="flex items-center justify-between sm:justify-end gap-4 shrink-0">
+                        {/* Logo Badge */}
+                        <div className="flex items-center gap-2">
+                          <div className="w-9 h-9 rounded-xl bg-white border border-slate-200 p-1 flex items-center justify-center shadow-xs">
+                            <img 
+                              src="/logo.png" 
+                              alt="SCCTA" 
+                              className="w-full h-full object-contain" 
+                            />
+                          </div>
+                          <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 hidden sm:inline">
+                            SCCTA
+                          </span>
+                        </div>
+
+                        {activeTab === 'upcoming' ? (
+                          <button
+                            onClick={() => setSelectedTournament(t)}
+                            className="px-5 py-2.5 rounded-xl bg-[#061326] hover:bg-[#0059a6] text-white font-bold text-xs shadow-md transition-all active:scale-95 flex items-center gap-1.5"
+                          >
+                            <span>Tournament Details & Registration</span>
+                            <ArrowRight className="w-3.5 h-3.5" />
+                          </button>
+                        ) : (
+                          <button
+                            onClick={() => setSelectedTournament(t)}
+                            className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs transition-colors"
+                          >
+                            Archive Draw & Results
+                          </button>
+                        )}
+                      </div>
+
+                    </div>
+
+                  </div>
+                );
+              })
+            )}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 03. OFFICIAL USTA PROMOTIONAL BANNER (AS IN SCREENSHOT) */}
+      {/* ========================================================================= */}
+      <section className="bg-[#0059a6] text-white py-12">
+        <div className="max-w-4xl mx-auto px-4 text-center space-y-4">
+          <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-white">
+            Take USTA everywhere!
+          </h2>
+          <p className="text-xs sm:text-sm text-blue-100 max-w-lg mx-auto">
+            Find local tennis programs, camps, upcoming tournaments, and a local USTA League to join.
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+            <a 
+              href="https://apps.apple.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-5 py-2.5 rounded-xl bg-black/40 hover:bg-black/60 border border-white/20 text-white font-bold text-xs flex items-center gap-2 transition-all"
+            >
+              <span>Download on the App Store</span>
+            </a>
+            <a 
+              href="https://play.google.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-5 py-2.5 rounded-xl bg-black/40 hover:bg-black/60 border border-white/20 text-white font-bold text-xs flex items-center gap-2 transition-all"
+            >
+              <span>Get it on Google Play</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 04. TOURNAMENT FAQ & PLAYER GUIDELINES */}
+      {/* ========================================================================= */}
+      <section className="py-20 bg-white border-b border-slate-200">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+          
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#8cb0bf]">
+              Player Handbook
+            </span>
+            <h2 className="text-3xl font-extrabold font-display text-slate-900">
+              Tournament FAQs & Player Guidelines
+            </h2>
+          </div>
+
+          <div className="space-y-3">
+            {FAQS_TOURNAMENTS.map((faq, i) => (
+              <div 
+                key={i}
+                className="bg-[#FAF9F5] rounded-2xl border border-slate-200 overflow-hidden"
+              >
+                <button
+                  onClick={() => setExpandedFaq(expandedFaq === i ? null : i)}
+                  className="w-full p-5 text-left font-bold text-sm text-slate-900 flex items-center justify-between gap-4"
+                >
+                  <span>{faq.q}</span>
+                  {expandedFaq === i ? <ChevronUp className="w-4 h-4 text-slate-500 shrink-0" /> : <ChevronDown className="w-4 h-4 text-slate-500 shrink-0" />}
+                </button>
+                {expandedFaq === i && (
+                  <div className="px-5 pb-5 text-xs text-slate-600 leading-relaxed border-t border-slate-200/50 pt-3">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 05. DETAILED TOURNAMENT MODAL (FACTSHEET & REGISTRATION) */}
+      {/* ========================================================================= */}
+      {selectedTournament && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
+          <div className="bg-white rounded-3xl w-full max-w-xl overflow-hidden shadow-2xl border border-slate-200 relative animate-scaleUp">
             
-            <div className="p-8 space-y-5 text-xs text-slate-700">
-              <div className="space-y-2 bg-slate-50 p-4 rounded-2xl border border-slate-200">
-                <div><strong>Dates:</strong> {selectedTournamentDetail.date}</div>
-                <div><strong>Location:</strong> {selectedTournamentDetail.location}</div>
-                <div><strong>Divisions:</strong> {selectedTournamentDetail.divisions}</div>
-                <div><strong>Entry Fee:</strong> {selectedTournamentDetail.entryFee}</div>
-                <div className="text-blue-800 font-bold"><strong>Deadline:</strong> {selectedTournamentDetail.deadline}</div>
+            {/* Modal Header */}
+            <div className="bg-[#061326] p-6 text-white relative">
+              <button 
+                onClick={() => setSelectedTournament(null)}
+                className="absolute top-5 right-5 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+                aria-label="Close"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#8cb0bf] mb-1">
+                <Trophy className="w-4 h-4" />
+                <span>{selectedTournament.level}</span>
               </div>
 
-              <p className="leading-relaxed text-slate-600">
-                Registration is processed securely via USTA Serve Tennis and Match Tennis App. You will need an active USTA account to enter.
-              </p>
+              <h3 className="text-xl sm:text-2xl font-bold font-display text-white pr-8">
+                {selectedTournament.title}
+              </h3>
 
-              <div className="pt-2 flex gap-3">
+              <div className="flex items-center gap-2 text-xs text-slate-300 mt-2">
+                <Calendar className="w-3.5 h-3.5 text-[#8cb0bf]" />
+                <span>{selectedTournament.date}</span>
+              </div>
+            </div>
+
+            {/* Modal Content */}
+            <div className="p-6 sm:p-8 space-y-5 max-h-[70vh] overflow-y-auto">
+              
+              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                <div className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                  Location & Facility
+                </div>
+                <div className="text-sm font-bold text-slate-900 flex items-start gap-2">
+                  <MapPin className="w-4 h-4 text-[#8cb0bf] shrink-0 mt-0.5" />
+                  <span>{selectedTournament.location}</span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 text-xs">
+                <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                  <div className="text-slate-500 text-[10px] font-bold uppercase">Entry Fee</div>
+                  <div className="text-slate-900 font-extrabold text-sm mt-0.5">{selectedTournament.entryFee}</div>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200">
+                  <div className="text-slate-500 text-[10px] font-bold uppercase">Sanctioned By</div>
+                  <div className="text-slate-900 font-extrabold text-sm mt-0.5">USTA Georgia / Southern</div>
+                </div>
+              </div>
+
+              {selectedTournament.deadline && (
+                <div className="p-3 rounded-xl bg-blue-50 border border-blue-200 text-xs text-blue-900 font-medium flex items-center gap-2">
+                  <Clock className="w-4 h-4 text-[#0059a6] shrink-0" />
+                  <span>Registration Deadline: {selectedTournament.deadline}</span>
+                </div>
+              )}
+
+              {/* Divisions breakdown */}
+              {selectedTournament.divisionTags && (
+                <div className="space-y-2">
+                  <div className="text-xs font-bold uppercase tracking-wider text-slate-700">
+                    Age & Division Categories
+                  </div>
+                  <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2 text-xs">
+                    {selectedTournament.divisionTags.boys && (
+                      <div className="flex gap-2">
+                        <span className="font-bold text-slate-600">Boys:</span>
+                        <span className="text-slate-800">{selectedTournament.divisionTags.boys.join(' · ')}</span>
+                      </div>
+                    )}
+                    {selectedTournament.divisionTags.girls && (
+                      <div className="flex gap-2">
+                        <span className="font-bold text-slate-600">Girls:</span>
+                        <span className="text-slate-800">{selectedTournament.divisionTags.girls.join(' · ')}</span>
+                      </div>
+                    )}
+                    {selectedTournament.divisionTags.men && (
+                      <div className="flex gap-2">
+                        <span className="font-bold text-slate-600">Men:</span>
+                        <span className="text-slate-800">{selectedTournament.divisionTags.men.join(' · ')}</span>
+                      </div>
+                    )}
+                    {selectedTournament.divisionTags.women && (
+                      <div className="flex gap-2">
+                        <span className="font-bold text-slate-600">Women:</span>
+                        <span className="text-slate-800">{selectedTournament.divisionTags.women.join(' · ')}</span>
+                      </div>
+                    )}
+                    {selectedTournament.divisionTags.mixed && (
+                      <div className="flex gap-2">
+                        <span className="font-bold text-slate-600">Mixed:</span>
+                        <span className="text-slate-800">{selectedTournament.divisionTags.mixed.join(' · ')}</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Actions inside Modal */}
+              <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
                 <button
-                  type="button"
-                  onClick={() => setSelectedTournamentDetail(null)}
-                  className="w-1/3 py-3 rounded-xl border border-slate-300 font-bold text-slate-700 hover:bg-slate-50 transition-colors"
+                  onClick={() => setSelectedTournament(null)}
+                  className="px-4 py-3 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 hover:bg-slate-50"
                 >
                   Close
                 </button>
+
                 <a
-                  href="https://playtennis.usta.com"
+                  href="https://playtennis.usta.com/tournaments"
                   target="_blank"
-                  rel="noreferrer"
-                  className="w-2/3 py-3 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white font-bold text-center flex items-center justify-center gap-1.5 shadow-md shadow-[#102A33]/20 transition-all active:scale-95"
+                  rel="noopener noreferrer"
+                  className="flex-1 py-3 px-6 rounded-xl bg-[#0059a6] hover:bg-[#004a8c] text-white font-bold text-xs uppercase tracking-wider shadow-md transition-all flex items-center justify-center gap-2 text-center"
                 >
-                  <span>Proceed to USTA Portal</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  <span>Register on USTA PlayTennis</span>
+                  <ExternalLink className="w-4 h-4" />
                 </a>
               </div>
+
             </div>
+
           </div>
         </div>
       )}

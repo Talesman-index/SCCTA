@@ -108,60 +108,296 @@ export const BALL_STAGES = [
 
 export const UPCOMING_TOURNAMENTS = [
   {
-    id: "clayton-open-2026",
-    title: "SCCTA South Clayton Junior Spring Open",
-    level: "USTA Level 6 (Georgia)",
-    date: "April 18–19, 2026",
-    location: "Clayton County International Park Tennis Center, Jonesboro, GA",
+    id: "nextgen-l7-sep-2026",
+    title: "Level 7: NextGen Level - 7 Round Robin Invitational",
+    level: "USTA Level 7",
+    category: "junior",
+    date: "September 26–27, 2026",
+    location: "Clayton County Tennis Center, 2300 GA # 138, JONESBORO, GA, 30236",
     divisions: "Boys & Girls 12U, 14U, 16U, 18U (Singles & Doubles)",
-    deadline: "April 13, 2026 at 11:59 PM EST",
+    divisionTags: {
+      boys: ["12U S · Y", "12U D · Y", "14U S · Y", "14U D · Y", "16U S · Y", "18U S · Y"],
+      girls: ["12U S · Y", "12U D · Y", "14U S · Y", "14U D · Y", "16U S · Y", "18U D · Y"]
+    },
+    deadline: "Closes: 22 septembre 2026 à 17:59 UTC-4",
     surface: "Hard Court (Outdoor)",
-    entryFee: "$45.00 Singles / $25.00 Doubles",
-    status: "Registration Open",
+    entryFee: "$23.50 – $47.00",
+    status: "REGISTRATIONS OPEN",
+    statusType: "open",
+    logo: "/logo.png",
     image: "/images/sccta-the-mill-group.jpg",
+    ustaLink: "https://playtennis.usta.com/tournaments",
     featured: true
   },
   {
-    id: "metro-atl-circuit-2026",
-    title: "SCCTA Junior Circuit Green & Orange Ball Trophy Challenge",
-    level: "USTA Junior Circuit Non-Elimination",
-    date: "May 2–3, 2026",
-    location: "Lovejoy Regional Tennis Facility, Hampton, GA",
-    divisions: "Co-ed 10U Orange Ball & 12U Green Ball",
-    deadline: "April 28, 2026 at 11:59 PM EST",
+    id: "nextgen-l7-oct-2026",
+    title: "Level 7: NextGen Level - 7 Round Robin Invitational",
+    level: "USTA Level 7",
+    category: "junior",
+    date: "October 3–4, 2026",
+    location: "Clayton County Tennis Center, 2300 GA # 138, JONESBORO, GA, 30236",
+    divisions: "Boys & Girls 12U, 14U, 16U, 18U (Singles & Doubles)",
+    divisionTags: {
+      boys: ["12U S · Y", "12U D · Y", "14U S · Y", "14U D · Y", "16U S · Y", "18U S · Y"],
+      girls: ["12U S · Y", "12U D · Y", "14U S · Y", "14U D · Y", "16U S · Y", "18U D · Y"]
+    },
+    deadline: "Closes: 29 septembre 2026 à 17:59 UTC-4",
     surface: "Hard Court (Outdoor)",
-    entryFee: "$35.00 per player (Includes T-Shirt & Medals)",
-    status: "Registration Open",
+    entryFee: "$23.50 – $47.00",
+    status: "REGISTRATIONS OPEN",
+    statusType: "open",
+    logo: "/logo.png",
     image: "/images/sccta-the-mill-juniors.jpg",
+    ustaLink: "https://playtennis.usta.com/tournaments",
     featured: true
   },
   {
-    id: "summer-slam-2026",
-    title: "SCCTA Southern Sectional Prep Championship",
-    level: "USTA Level 5 Open",
-    date: "June 13–14, 2026",
-    location: "Clayton County Tennis Complex, GA",
-    divisions: "Junior B/G 14U–18U & Adult Open Singles",
-    deadline: "June 8, 2026 at 11:59 PM EST",
+    id: "hudlow-jr-champs-part2",
+    title: "Level 6: Level 6 - SCCTA @ The Hudlow Jr. Champs Part 2",
+    level: "USTA Level 6",
+    category: "junior",
+    date: "October 23–25, 2026",
+    location: "Hudlow Tennis Center, 2051 OLD ROCKBRIDGE RD, NORCROSS, GA, 30071",
+    divisions: "Boys & Girls 12U, 14U, 16U, 18U (Singles & Doubles)",
+    divisionTags: {
+      boys: ["12U S · Y", "12U D · Y", "14U S · Y", "14U D · Y", "16U S · Y", "18U S · Y", "18U D · Y"],
+      girls: ["12U S · Y", "12U D · Y", "14U S · Y", "14U D · Y", "16U S · Y", "18U S · Y", "18U D · Y"]
+    },
+    deadline: "Closes: 19 octobre 2026 à 17:59 UTC-4",
+    surface: "Hard Court (Outdoor)",
+    entryFee: "$39.00 – $78.00",
+    status: "REGISTRATIONS OPEN",
+    statusType: "open",
+    logo: "/logo.png",
+    image: "/images/sccta-clayton-team.jpg",
+    ustaLink: "https://playtennis.usta.com/tournaments",
+    featured: true
+  },
+  {
+    id: "turkey-bowl-classic",
+    title: "Level 6: SCCTA Fall Jr. Turkey Bowl Classic",
+    level: "USTA Level 6",
+    category: "junior",
+    date: "November 13–15, 2026",
+    location: "Clayton County Tennis Center, 2300 GA # 138, JONESBORO, GA, 30236",
+    divisions: "Boys & Girls 12U, 14U, 16U, 18U (Singles & Doubles)",
+    divisionTags: {
+      boys: ["12U S · Y", "12U D · Y", "14U S · Y", "14U D · Y", "16U S · Y", "18U S · Y", "18U D · Y"],
+      girls: ["12U S · Y", "12U D · Y", "14U S · Y", "14U D · Y", "16U S · Y", "18U S · Y", "18U D · Y"]
+    },
+    deadline: "Closes: 9 novembre 2026 à 17:59 UTC-5",
+    surface: "Hard Court (Outdoor)",
+    entryFee: "$39.00 – $78.00",
+    status: "REGISTRATIONS OPEN",
+    statusType: "open",
+    logo: "/logo.png",
+    image: "/images/sccta-scholarship-awards.jpg",
+    ustaLink: "https://playtennis.usta.com/tournaments",
+    featured: true
+  },
+  {
+    id: "adult-singles-doubles-l5",
+    title: "Level 5 Open: Adult Singles / Doubles",
+    level: "USTA Level 5 Adult Open",
+    category: "adult",
+    date: "November 20–22, 2026",
+    location: "Clayton County Tennis Center, 2300 GA # 138, JONESBORO, GA, 30236",
+    divisions: "Men's, Women's & Mixed Doubles & Singles (20+, 35+, 40+, 45+)",
+    divisionTags: {
+      men: ["20+ S · Y", "20+ D · Y", "35+ S · Y", "35+ D · Y", "40+ S · Y", "40+ D · Y", "45+ S · Y", "45+ D · Y"],
+      women: ["20+ S · Y", "20+ D · Y", "35+ S · Y", "35+ D · Y", "40+ S · Y", "40+ D · Y", "45+ S · Y", "45+ D · Y"],
+      mixed: ["20+ D · Y", "35+ D · Y", "40+ D · Y", "45+ D · Y"]
+    },
+    deadline: "Closes: 16 novembre 2026 à 17:59 UTC-5",
     surface: "Hard Court (Outdoor)",
     entryFee: "$50.00",
-    status: "Upcoming",
-    image: "/images/sccta-clayton-clinic.png",
+    status: "REGISTRATIONS OPEN",
+    statusType: "open",
+    logo: "/logo.png",
+    image: "/images/sccta-team-celebration.jpg",
+    ustaLink: "https://playtennis.usta.com/tournaments",
     featured: false
   },
   {
-    id: "clayton-adult-doubles",
-    title: "Clayton County Community Adult Doubles Classic",
-    level: "Adult NTRP 3.0, 3.5, 4.0 & Open",
-    date: "July 11, 2026",
-    location: "Clayton County International Park, Jonesboro, GA",
-    divisions: "Men's, Women's & Mixed Doubles",
-    deadline: "July 6, 2026 at 11:59 PM EST",
-    surface: "Hard Court",
-    entryFee: "$30.00 per player",
-    status: "Upcoming",
-    image: "/images/sccta-clayton-team.jpg",
+    id: "sam-kennedy-open-invitational",
+    title: "Level 6: SCCTA Sam Kennedy Open Invitation",
+    level: "USTA Level 6",
+    category: "junior",
+    date: "November 27–29, 2026",
+    location: "Hudlow Tennis Center, 2051 Old Rockbridge Rd, Norcross, GA, 30071-2238",
+    divisions: "Boys & Girls 12U, 14U, 16U, 18U (Singles & Doubles)",
+    divisionTags: {
+      boys: ["12U S · Y", "12U D · Y", "14U S · Y", "14U D · Y", "16U S · Y", "18U S · Y", "18U D · Y"],
+      girls: ["12U S · Y", "12U D · Y", "14U S · Y", "14U D · Y", "16U S · Y", "18U S · Y", "18U D · Y"]
+    },
+    deadline: "Opens: 23 septembre 2026 à 12:00 UTC-4",
+    surface: "Hard Court (Outdoor)",
+    entryFee: "$39.00 – $78.00",
+    status: "REGISTRATIONS CLOSED",
+    statusType: "upcoming",
+    logo: "/logo.png",
+    image: "/images/course-private-lesson.jpg",
+    ustaLink: "https://playtennis.usta.com/tournaments",
     featured: false
+  }
+];
+
+export const PAST_TOURNAMENTS = [
+  {
+    id: "past-nextgen-best",
+    title: "Level 7: NextGen 2026 BEST OF THE BEST Circuit Open",
+    level: "USTA Level 7",
+    category: "junior",
+    date: "January 24–25, 2026",
+    location: "Clayton County Tennis Center, 2300 GA # 138, Jonesboro, GA, 30236",
+    divisions: "Boys & Girls 12U, 14U, 16U, 18U (Singles & Doubles)",
+    divisionTags: {
+      boys: ["12U S", "14U S", "16U S", "18U S"],
+      girls: ["12U S", "14U S", "16U S", "18U S"]
+    },
+    entryFee: "$28.70",
+    status: "COMPLETED",
+    logo: "/logo.png"
+  },
+  {
+    id: "past-spring-kickoff",
+    title: "USTA Junior Circuit: Non-ranking SCCTA Spring Kick-off 10U & 12U Green Ball",
+    level: "USTA Junior Circuit",
+    category: "junior",
+    date: "February 7–8, 2026",
+    location: "Clayton County Tennis Center, Jonesboro, GA",
+    divisions: "Co-ed 10U Green & Orange Ball, 12U Green Ball",
+    divisionTags: {
+      coed: ["10U Orange", "10U Green", "12U Green"]
+    },
+    entryFee: "$28.70",
+    status: "COMPLETED",
+    logo: "/logo.png"
+  },
+  {
+    id: "past-winter-classic",
+    title: "Level 7: Winter Classic SCCTA Open Showcase",
+    level: "USTA Level 7",
+    category: "junior",
+    date: "February 21–22, 2026",
+    location: "Clayton County Tennis Center, Jonesboro, GA",
+    divisions: "Boys & Girls 12U, 14U, 16U Singles",
+    divisionTags: {
+      boys: ["12U S", "14U S", "16U S"],
+      girls: ["12U S", "14U S", "16U S"]
+    },
+    entryFee: "$28.70",
+    status: "COMPLETED",
+    logo: "/logo.png"
+  },
+  {
+    id: "past-march-madness",
+    title: "Level 7: SCCTA @ The Hudlow March Tennis Madness",
+    level: "USTA Level 7",
+    category: "junior",
+    date: "March 20–22, 2026",
+    location: "Hudlow Tennis Center, 2051 Old Rockbridge Rd, Norcross, GA 30071",
+    divisions: "Boys & Girls 12U, 14U, 16U, 18U Singles & Doubles",
+    divisionTags: {
+      boys: ["12U S", "14U S", "16U S", "18U S"],
+      girls: ["12U S", "14U S", "16U S", "18U S"]
+    },
+    entryFee: "$28.70",
+    status: "COMPLETED",
+    logo: "/logo.png"
+  },
+  {
+    id: "past-grand-slam",
+    title: "USTA Junior Circuit: Non-ranking SCCTA GRAND SLAM 10U Green Ball & 10U Orange Ball",
+    level: "USTA Junior Circuit",
+    category: "junior",
+    date: "April 11–12, 2026",
+    location: "Clayton County Tennis Center, Jonesboro, GA",
+    divisions: "Co-ed 10U Orange Ball & 10U Green Ball",
+    divisionTags: {
+      coed: ["10U Orange", "10U Green"]
+    },
+    entryFee: "$28.70",
+    status: "COMPLETED",
+    logo: "/logo.png"
+  },
+  {
+    id: "past-clayton-spring",
+    title: "Level 7: SCCTA @ Clayton County Spring Junior City Championship",
+    level: "USTA Level 7",
+    category: "junior",
+    date: "April 25–26, 2026",
+    location: "Clayton County Tennis Center, Jonesboro, GA",
+    divisions: "Boys & Girls 12U, 14U, 16U Singles & Doubles",
+    divisionTags: {
+      boys: ["12U S", "14U S", "16U S"],
+      girls: ["12U S", "14U S", "16U S"]
+    },
+    entryFee: "$28.70",
+    status: "COMPLETED",
+    logo: "/logo.png"
+  },
+  {
+    id: "past-hudlow-singles-doubles",
+    title: "Level 6: The Hudlow Singles & Doubles Jr. Champ",
+    level: "USTA Level 6",
+    category: "junior",
+    date: "May 15–17, 2026",
+    location: "Hudlow Tennis Center, 2051 Old Rockbridge Rd, Norcross, GA 30071",
+    divisions: "Boys & Girls 12U, 14U, 16U, 18U Singles & Doubles",
+    divisionTags: {
+      boys: ["12U S", "12U D", "14U S", "14U D", "16U S", "16U D", "18U S", "18U D"],
+      girls: ["12U S", "12U D", "14U S", "14U D", "16U S", "16U D", "18U S", "18U D"]
+    },
+    entryFee: "$39.00 – $78.00",
+    status: "COMPLETED",
+    logo: "/logo.png"
+  },
+  {
+    id: "past-rockdale-invitational",
+    title: "USTA Junior Circuit: Non-ranking Rockdale Junior Invitational Jr. Champ",
+    level: "USTA Junior Circuit",
+    category: "junior",
+    date: "June 19–20, 2026",
+    location: "Rockdale Tennis Center / Clayton Regional, GA",
+    divisions: "Co-ed 10U, 12U, 14U Round Robin",
+    divisionTags: {
+      coed: ["10U Green", "12U Green", "14U Yellow"]
+    },
+    entryFee: "$28.70",
+    status: "COMPLETED",
+    logo: "/logo.png"
+  },
+  {
+    id: "past-summer-satellite",
+    title: "USTA Junior Circuit: Non-ranking Summer Satellite Junior Circuit",
+    level: "USTA Junior Circuit",
+    category: "junior",
+    date: "July 17–18, 2026",
+    location: "Clayton County International Park Tennis Center, GA",
+    divisions: "10U, 12U, 14U Green & Yellow Ball",
+    divisionTags: {
+      coed: ["10U Green", "12U Green", "14U Yellow"]
+    },
+    entryFee: "$28.70",
+    status: "COMPLETED",
+    logo: "/logo.png"
+  },
+  {
+    id: "past-hudlow-champs-p1",
+    title: "Level 6: SCCTA @ The Hudlow Jr. Champs Part 1",
+    level: "USTA Level 6",
+    category: "junior",
+    date: "August 14–16, 2026",
+    location: "Hudlow Tennis Center, 2051 Old Rockbridge Rd, Norcross, GA 30071-2238",
+    divisions: "Boys & Girls 12U, 14U, 16U, 18U Singles & Doubles",
+    divisionTags: {
+      boys: ["12U S", "12U D", "14U S", "14U D", "16U S", "16U D", "18U S", "18U D"],
+      girls: ["12U S", "12U D", "14U S", "14U D", "16U S", "16U D", "18U S", "18U D"]
+    },
+    entryFee: "$39.00 – $78.00",
+    status: "COMPLETED",
+    logo: "/logo.png"
   }
 ];
 
