@@ -29,10 +29,8 @@ export default function Header({ activePage, setActivePage, onOpenDonate, onOpen
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'programs', label: 'Programs' },
-    { id: 'lessons', label: 'Lessons' },
     { id: 'simpson-camp', label: 'Leadership Camp' },
     { id: 'tournaments', label: 'Tournaments' },
-    { id: 'impact', label: 'Testimonials' },
     { id: 'involved', label: 'Get Involved' },
     { id: 'contact', label: 'Contact Us' },
   ];
@@ -110,10 +108,11 @@ export default function Header({ activePage, setActivePage, onOpenDonate, onOpen
             {/* Right Desktop CTA & Mobile Toggle */}
             <div className="flex items-center gap-2 sm:gap-3">
               <button
-                onClick={() => handleNavClick('lessons')}
-                className="hidden lg:inline-flex px-3.5 py-2 rounded-xl bg-[#8cb0bf] hover:bg-[#a2c4d2] text-[#061326] font-bold text-xs transition-all shadow-md active:scale-95 whitespace-nowrap"
+                onClick={onOpenDonate}
+                className="hidden lg:inline-flex px-3.5 py-2 rounded-xl bg-[#8cb0bf] hover:bg-[#a2c4d2] text-[#061326] font-bold text-xs transition-all shadow-md active:scale-95 whitespace-nowrap items-center gap-1.5"
               >
-                Book Lessons
+                <Heart className="w-3.5 h-3.5 text-[#061326]" />
+                <span>Donate</span>
               </button>
 
               <button

@@ -15,14 +15,16 @@ import {
   GraduationCap,
   Calendar,
   Phone,
-  Activity
+  Activity,
+  Quote,
+  ExternalLink
 } from 'lucide-react';
-import { TEAM_MEMBERS } from '../data/mockData';
+import { TEAM_MEMBERS, IMPACT_STORIES } from '../data/mockData';
 import TextRevealScroll from '../components/TextRevealScroll';
 import AnimatedCounter from '../components/AnimatedCounter';
 import ScrollReveal from '../components/ScrollReveal';
 
-export default function About({ setActivePage, onOpenProgramFinder }) {
+export default function About({ setActivePage, onOpenProgramFinder, onSelectStory }) {
   return (
     <div className="w-full bg-white text-slate-900 font-sans">
       
@@ -355,7 +357,178 @@ export default function About({ setActivePage, onOpenProgramFinder }) {
         </div>
       </section>
 
-      {/* 06. CTA */}
+      {/* ========================================================================= */}
+      {/* 06. VOICES OF SCCTA: TESTIMONIALS & COMMUNITY IMPACT */}
+      {/* ========================================================================= */}
+      <section className="py-24 bg-[#FAF9F5] border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+          
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <ScrollReveal className="max-w-2xl space-y-3">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#8cb0bf]/20 text-[#061326]">
+                <Quote className="w-3.5 h-3.5 text-[#8cb0bf]" />
+                <span>Community Voices & Testimonials</span>
+              </div>
+              <h2 className="text-3xl sm:text-5xl font-extrabold font-display text-slate-950 tracking-tight">
+                Real Stories. Lasting Impact.
+              </h2>
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Tennis is our foundation, but our greatest accomplishments live in the character, academic achievements, and college pathways of our players.
+              </p>
+            </ScrollReveal>
+
+            <ScrollReveal delay={100} className="shrink-0">
+              <button
+                onClick={() => setActivePage('simpson-camp')}
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white font-bold text-xs transition-all shadow-md active:scale-95"
+              >
+                <Sparkles className="w-4 h-4 text-amber-400" />
+                <span>2025 Leadership Camp Honorees</span>
+                <ArrowRight className="w-3.5 h-3.5 text-slate-400" />
+              </button>
+            </ScrollReveal>
+          </div>
+
+          {/* Featured Recognition: Scholarship Winners Ashley Cooke & Isaiah Kendrick */}
+          {IMPACT_STORIES.length > 0 && (
+            <ScrollReveal className="bg-[#061326] text-white rounded-3xl p-8 sm:p-12 shadow-2xl border border-white/10 overflow-hidden relative">
+              <div className="absolute top-0 right-0 w-96 h-96 bg-[#8cb0bf]/15 rounded-full blur-3xl pointer-events-none" />
+              
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center relative z-10">
+                <div className="lg:col-span-7 space-y-6">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-wider bg-[#8cb0bf] text-[#061326]">
+                    <Award className="w-4 h-4 text-white" />
+                    <span>NJTL Collegiate Scholarship Awardees</span>
+                  </div>
+
+                  <h3 className="text-2xl sm:text-4xl font-extrabold font-display text-white leading-tight">
+                    {IMPACT_STORIES[0].name}
+                  </h3>
+
+                  <div className="text-sm font-bold text-[#8cb0bf]">
+                    {IMPACT_STORIES[0].achievement}
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    {IMPACT_STORIES[0].excerpt}
+                  </p>
+
+                  <div className="p-5 rounded-2xl bg-white/5 border border-white/10 italic text-xs sm:text-sm text-slate-200 leading-relaxed flex items-start gap-3">
+                    <Quote className="w-5 h-5 text-[#8cb0bf] shrink-0 mt-0.5" />
+                    <span>“{IMPACT_STORIES[0].quote}”</span>
+                  </div>
+
+                  {onSelectStory && (
+                    <div className="pt-2">
+                      <button
+                        onClick={() => onSelectStory(IMPACT_STORIES[0])}
+                        className="px-6 py-3 rounded-xl bg-white hover:bg-slate-100 text-[#061326] font-bold text-xs shadow-lg transition-all active:scale-95 flex items-center gap-2"
+                      >
+                        <span>Read Full Reflections</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+                  )}
+                </div>
+
+                <div className="lg:col-span-5 flex justify-center">
+                  <div className="rounded-2xl overflow-hidden border border-white/20 shadow-2xl w-full max-w-sm aspect-4/3 sm:aspect-square bg-slate-900 group">
+                    <img 
+                      src={IMPACT_STORIES[0].image} 
+                      alt={IMPACT_STORIES[0].name} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+          )}
+
+          {/* Testimonial Quote Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {IMPACT_STORIES.slice(1, 4).map((story, idx) => (
+              <ScrollReveal 
+                key={story.id || idx}
+                delay={idx * 100}
+                className="bg-white rounded-3xl p-7 border border-slate-200 shadow-sm hover:shadow-xl hover:border-[#8cb0bf] transition-all duration-300 flex flex-col justify-between space-y-6 group"
+              >
+                <div className="space-y-4">
+                  {/* Photo Header */}
+                  <div className="relative h-48 w-full rounded-2xl overflow-hidden bg-slate-950">
+                    <img 
+                      src={story.image} 
+                      alt={story.name} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                    <div className="absolute top-3 left-3 bg-[#061326]/90 backdrop-blur-md text-[#8cb0bf] text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full border border-white/10 shadow">
+                      {story.category}
+                    </div>
+                  </div>
+
+                  {/* Quote */}
+                  <div className="italic text-xs sm:text-sm text-slate-700 leading-relaxed relative pt-1">
+                    “{story.quote}”
+                  </div>
+
+                  {/* Author */}
+                  <div>
+                    <h4 className="text-lg font-bold font-display text-slate-950 group-hover:text-[#8cb0bf] transition-colors">
+                      {story.name}
+                    </h4>
+                    <div className="text-[11px] font-semibold text-slate-500 mt-0.5">
+                      {story.achievement}
+                    </div>
+                  </div>
+                </div>
+
+                {onSelectStory && (
+                  <div className="pt-3 border-t border-slate-100">
+                    <button
+                      onClick={() => onSelectStory(story)}
+                      className="text-xs font-bold text-slate-700 hover:text-[#8cb0bf] transition-colors flex items-center gap-1.5 py-1"
+                    >
+                      <span>Read Story</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                )}
+              </ScrollReveal>
+            ))}
+          </div>
+
+          {/* 2025 Lenny Simpson NJTL Leadership Camp Highlight */}
+          <ScrollReveal className="bg-gradient-to-r from-[#061326] to-[#0D243F] text-white rounded-3xl p-8 sm:p-10 border border-white/10 shadow-xl" delay={150}>
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+              <div className="space-y-2 text-center sm:text-left">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-amber-400 text-slate-950">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>Louisville, KY · Southern Tennis Foundation</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-extrabold font-display text-white">
+                  2025 Lenny Simpson NJTL Leadership Camp
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 max-w-2xl leading-relaxed">
+                  Proudly sending Clayton County youth leaders to train with legendary American tennis trailblazer Lenny Simpson, building character and athletic excellence.
+                </p>
+              </div>
+
+              <div className="shrink-0 flex items-center gap-3">
+                <button
+                  onClick={() => setActivePage('simpson-camp')}
+                  className="px-5 py-3 rounded-xl bg-white hover:bg-slate-100 text-[#061326] font-bold text-xs shadow-lg transition-all active:scale-95 flex items-center gap-2"
+                >
+                  <span>Explore Camp Page</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+          </ScrollReveal>
+
+        </div>
+      </section>
+
+      {/* 07. CTA */}
       <section className="py-24 bg-[#061326] text-white text-center relative overflow-hidden">
         <div className="absolute top-0 right-1/3 w-96 h-96 bg-[#8cb0bf]/20 rounded-full blur-3xl pointer-events-none" />
         <ScrollReveal className="max-w-3xl mx-auto px-4 space-y-6 relative z-10">

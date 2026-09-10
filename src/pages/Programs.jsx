@@ -15,7 +15,16 @@ import {
   GraduationCap,
   Shield,
   Activity,
-  Layers
+  Layers,
+  CreditCard,
+  DollarSign,
+  Check,
+  X,
+  ShieldCheck,
+  Heart,
+  Info,
+  Phone,
+  Mail
 } from 'lucide-react';
 import { BALL_STAGES } from '../data/mockData';
 import ScrollReveal from '../components/ScrollReveal';
@@ -23,6 +32,118 @@ import ScrollReveal from '../components/ScrollReveal';
 export default function Programs({ setActivePage, onOpenProgramFinder, onOpenDonate }) {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [activeBallStageId, setActiveBallStageId] = useState('red');
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [bookingStep, setBookingStep] = useState('select'); // 'select' | 'details' | 'confirmed'
+  const [formData, setFormData] = useState({
+    playerName: '',
+    playerAge: '',
+    contactName: '',
+    email: '',
+    phone: '',
+    venue: 'Clayton County International Park Tennis Center',
+    dayTime: 'Tuesday & Thursday 4:30 PM - 5:30 PM',
+    notes: '',
+    paymentMethod: 'square' // 'square' | 'on-court'
+  });
+
+  const lessonProducts = [
+    {
+      id: 'group-lesson',
+      title: 'Pay for Lesson',
+      subtitle: 'Group Development Clinic',
+      price: '22.00',
+      priceNum: 22,
+      period: 'per session',
+      badge: 'Group Program',
+      badgeColor: 'bg-[#8cb0bf] text-[#061326]',
+      image: '/images/course-group-lesson.jpg',
+      description: 'Progressive group session focusing on active footwork, point construction, live-ball rally drills, and matchplay fundamentals.',
+      features: [
+        '60 minutes of high-energy structured coaching',
+        'Red, Orange, Green & Yellow ball groups (ages 4–18)',
+        'Low student-to-coach ratio for personalized attention',
+        'Complimentary junior racquet loaners provided'
+      ],
+      cta: 'Book & Pay $22.00'
+    },
+    {
+      id: 'private-lesson',
+      title: 'Private Lesson',
+      subtitle: '1-on-1 Personalized Coaching',
+      price: '40.00',
+      priceNum: 40,
+      period: 'per hour',
+      badge: 'Individualized Mastery',
+      badgeColor: 'bg-amber-400 text-slate-950',
+      image: '/images/course-private-lesson.jpg',
+      description: 'Dedicated one-on-one master instruction tailored to the player’s specific technical biomechanics, serve mechanics, and tactical strategy.',
+      features: [
+        'Full 60 minutes with dedicated certified SCCTA Coach',
+        'Instant high-speed video stroke review & biomechanics',
+        'Custom tournament strategy & mental toughness drills',
+        'Open to all ages (Juniors & Adult Competitors)'
+      ],
+      cta: 'Book & Pay $40.00'
+    },
+    {
+      id: 'donation-square',
+      title: 'Make a donation using Square',
+      subtitle: 'Help SCCTA Grow & Sponsor Youth',
+      price: '20.00',
+      priceNum: 20,
+      period: 'suggested gift',
+      badge: '501(c)(3) Tax Deductible',
+      badgeColor: 'bg-emerald-500 text-white',
+      image: '/images/course-donation-square.jpg',
+      description: 'Directly support young athletes across Clayton County with racquets, court fees, tournament entry grants, and educational tutoring.',
+      features: [
+        'Sponsors junior gear, strings, and grips for underserved players',
+        'Funds academic tutoring & Arthur Ashe essay workshops',
+        '100% tax-deductible charitable community gift',
+        'Instant digital Square receipt emailed to you'
+      ],
+      cta: 'Donate $20.00 via Square'
+    }
+  ];
+
+  const lessonPackages = [
+    {
+      title: '4-Lesson Group Clinic Pass',
+      sessions: '4 Group Lessons',
+      price: '$80.00',
+      savings: 'Save $8 vs drop-in rate',
+      details: 'Valid for any 4 weekday or Saturday clinics within 6 weeks.'
+    },
+    {
+      title: '4-Session Private Coaching Pass',
+      sessions: '4 One-on-One Hours',
+      price: '$150.00',
+      savings: 'Save $10 on private mastery',
+      details: 'Flexible scheduling directly with head professional.'
+    },
+    {
+      title: 'Youth Full Season Sponsorship',
+      sessions: 'Complete Clinic + Gear',
+      price: '$180.00',
+      savings: 'Community Impact Gift',
+      details: 'Provides a junior player with a racquet, bag, clinic season, and tournament registration.'
+    }
+  ];
+
+  const handleStartBooking = (product) => {
+    setSelectedProduct(product);
+    setBookingStep('details');
+  };
+
+  const handleSubmitBooking = (e) => {
+    e.preventDefault();
+    setBookingStep('confirmed');
+  };
+
+  const resetBookingModal = () => {
+    setSelectedProduct(null);
+    setBookingStep('select');
+  };
 
   const categories = [
     { id: 'all', label: 'All Programs' },
@@ -141,16 +262,23 @@ export default function Programs({ setActivePage, onOpenProgramFinder, onOpenDon
             Whether you're discovering tennis, developing your game, competing in sanctioned tournaments, or returning to the sport, SCCTA provides structured pathways to grow.
           </p>
 
-          <div className="pt-2 flex flex-wrap items-center gap-4">
+          <div className="pt-2 flex flex-wrap items-center gap-3">
             <button
               onClick={onOpenProgramFinder}
               className="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-100 text-[#061326] font-extrabold text-xs sm:text-sm transition-all shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_6px_25px_rgba(255,255,255,0.25)] active:scale-95"
             >
               Interactive Program Matcher
             </button>
+            <a
+              href="#lessons-coaching"
+              className="px-5 py-3.5 rounded-xl bg-[#8cb0bf] hover:bg-[#a2c4d2] text-[#061326] font-extrabold text-xs sm:text-sm transition-all shadow-md active:scale-95 flex items-center gap-2"
+            >
+              <span>Private Lessons & Clinics</span>
+              <ArrowRight className="w-4 h-4" />
+            </a>
             <button
               onClick={onOpenDonate}
-              className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs sm:text-sm transition-all active:scale-95"
+              className="px-5 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs sm:text-sm transition-all active:scale-95"
             >
               Sponsor a Youth Player
             </button>
@@ -311,7 +439,7 @@ export default function Programs({ setActivePage, onOpenProgramFinder, onOpenDon
                     </button>
 
                     <button
-                      onClick={() => setActivePage('lessons')}
+                      onClick={() => handleStartBooking(lessonProducts[0])}
                       className="px-5 py-3.5 rounded-xl bg-[#8cb0bf] hover:bg-[#a2c4d2] text-[#061326] font-bold text-xs sm:text-sm transition-all shadow-md active:scale-95"
                     >
                       Book & Pay ($22)
@@ -332,6 +460,158 @@ export default function Programs({ setActivePage, onOpenProgramFinder, onOpenDon
 
           </div>
         </section>
+
+      {/* ========================================================================= */}
+      {/* 03B. LESSONS & COACHING: PRIVATE LESSONS, GROUP CLINICS & VALUE PASSES */}
+      {/* ========================================================================= */}
+      <section id="lessons-coaching" className="py-24 bg-white border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+          
+          <div className="text-center max-w-3xl mx-auto space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#8cb0bf]/20 text-[#061326]">
+              <Sparkles className="w-3.5 h-3.5 text-[#8cb0bf]" />
+              Lessons & Player Instruction
+            </div>
+            <h2 className="text-3xl sm:text-5xl font-extrabold font-display tracking-tight text-slate-900">
+              Private Lessons & Group Clinics
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              Tailored 1-on-1 coaching, high-energy group clinics, and flexible monthly passes with certified SCCTA professionals. Instant booking and secure checkout powered by Square.
+            </p>
+          </div>
+
+          {/* Core 3 Cards: Group Lesson $22, Private Lesson $40, Square Donation $20 */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+            {lessonProducts.map((p, idx) => (
+              <ScrollReveal 
+                key={p.id}
+                delay={idx * 120}
+                className="bg-[#FAF9F5] rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl hover:border-[#8cb0bf] transition-all flex flex-col justify-between group"
+              >
+                <div>
+                  {/* Photo Banner with floating badge */}
+                  <div className="relative aspect-square w-full bg-slate-900 overflow-hidden">
+                    <img 
+                      src={p.image} 
+                      alt={p.title} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/20" />
+                    
+                    <div className="absolute top-4 left-4">
+                      <span className={`px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider shadow-md ${p.badgeColor}`}>
+                        {p.badge}
+                      </span>
+                    </div>
+
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <div className="text-white font-display text-3xl sm:text-4xl font-black flex items-baseline gap-1">
+                        <span>${p.price}</span>
+                        <span className="text-xs text-slate-300 font-sans font-normal">{p.period}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Card Content */}
+                  <div className="p-6 sm:p-8 space-y-4">
+                    <div>
+                      <h3 className="text-xl sm:text-2xl font-bold font-display text-slate-950 group-hover:text-[#8cb0bf] transition-colors">
+                        {p.title}
+                      </h3>
+                      <div className="text-xs font-semibold text-slate-500 mt-0.5">
+                        {p.subtitle}
+                      </div>
+                    </div>
+
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      {p.description}
+                    </p>
+
+                    <div className="pt-2 border-t border-slate-200/80 space-y-2.5">
+                      {p.features.map((feat, i) => (
+                        <div key={i} className="flex items-start gap-2.5 text-xs text-slate-700">
+                          <CheckCircle2 className="w-4 h-4 text-[#8cb0bf] shrink-0 mt-0.5" />
+                          <span>{feat}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom Booking Button */}
+                <div className="p-6 sm:p-8 pt-0">
+                  <button
+                    onClick={() => handleStartBooking(p)}
+                    className="w-full py-3.5 px-4 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition-all active:scale-95 group-hover:bg-[#8cb0bf] group-hover:text-[#061326]"
+                  >
+                    <span>{p.cta}</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          {/* Value Packages Row */}
+          <div className="pt-6">
+            <div className="bg-[#061326] text-white rounded-3xl p-8 sm:p-12 border border-white/10 shadow-2xl">
+              <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+                <div className="space-y-2">
+                  <span className="text-xs font-bold uppercase tracking-widest text-[#8cb0bf]">
+                    Cost Savings & Multi-Passes
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold font-display text-white">
+                    Save With Multi-Lesson Pass Packages
+                  </h3>
+                </div>
+                <p className="text-xs text-slate-300 max-w-md">
+                  Lock in lower rates for ongoing clinics or private coaching. Flexible scheduling at Clayton County International Park and Lovejoy Regional Park.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {lessonPackages.map((pkg) => (
+                  <div 
+                    key={pkg.title}
+                    className="bg-white/5 rounded-2xl p-6 border border-white/10 flex flex-col justify-between space-y-4 hover:border-[#8cb0bf]/50 transition-all"
+                  >
+                    <div className="space-y-2">
+                      <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-400 text-slate-950">
+                        {pkg.savings}
+                      </span>
+                      <h4 className="text-base font-bold text-white font-display">
+                        {pkg.title}
+                      </h4>
+                      <div className="text-2xl font-black font-display text-[#8cb0bf]">
+                        {pkg.price}
+                      </div>
+                      <p className="text-xs text-slate-300 leading-relaxed">
+                        {pkg.details}
+                      </p>
+                    </div>
+
+                    <button
+                      onClick={() => handleStartBooking({
+                        id: pkg.title.toLowerCase().replace(/\s+/g, '-'),
+                        title: pkg.title,
+                        subtitle: pkg.sessions,
+                        price: pkg.price.replace('$', ''),
+                        priceNum: parseFloat(pkg.price.replace('$', '')),
+                        period: 'package',
+                        image: '/images/course-group-lesson.jpg'
+                      })}
+                      className="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider transition-colors text-center"
+                    >
+                      Select Package
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
 
       {/* 04. COMPETITIVE DEVELOPMENT */}
       <section className="py-24 bg-white border-b border-slate-200">
@@ -425,7 +705,7 @@ export default function Programs({ setActivePage, onOpenProgramFinder, onOpenDon
 
               <div className="pt-2">
                 <button
-                  onClick={() => setActivePage('impact')}
+                  onClick={() => setActivePage('about')}
                   className="px-6 py-3.5 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white font-bold text-xs shadow-md shadow-[#102A33]/20 transition-all active:scale-95 flex items-center gap-2"
                 >
                   <span>Read Student Stories</span>
@@ -499,6 +779,237 @@ export default function Programs({ setActivePage, onOpenProgramFinder, onOpenDon
             </div>
           </div>
         </section>
+
+      {/* ========================================================================= */}
+      {/* 07. INTERACTIVE LESSON BOOKING & SQUARE CHECKOUT MODAL */}
+      {/* ========================================================================= */}
+      {selectedProduct && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn font-sans">
+          <div className="bg-white rounded-3xl w-full max-w-lg overflow-hidden shadow-2xl border border-slate-200 relative animate-scaleUp">
+            
+            {/* Modal Header */}
+            <div className="bg-[#061326] p-6 text-white relative">
+              <button 
+                onClick={resetBookingModal}
+                className="absolute top-5 right-5 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+                aria-label="Close modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#8cb0bf] mb-1">
+                <CreditCard className="w-4 h-4" />
+                <span>Square Checkout & Registration</span>
+              </div>
+
+              <h3 className="text-2xl font-bold font-display text-white">
+                {selectedProduct.title}
+              </h3>
+
+              <div className="flex items-baseline gap-2 mt-2">
+                <span className="text-3xl font-black font-display text-[#8cb0bf]">
+                  ${selectedProduct.price}
+                </span>
+                <span className="text-xs text-slate-300 font-medium">
+                  USD · Powered by Square
+                </span>
+              </div>
+            </div>
+
+            {/* Modal Body */}
+            <div className="p-6 sm:p-8">
+              
+              {bookingStep === 'details' && (
+                <form onSubmit={handleSubmitBooking} className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                        Player Full Name *
+                      </label>
+                      <input 
+                        type="text" 
+                        required 
+                        value={formData.playerName}
+                        onChange={(e) => setFormData({...formData, playerName: e.target.value})}
+                        placeholder="e.g. Jordan Smith"
+                        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-[#8cb0bf] focus:outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                        Player Age / Level *
+                      </label>
+                      <input 
+                        type="text" 
+                        required 
+                        value={formData.playerAge}
+                        onChange={(e) => setFormData({...formData, playerAge: e.target.value})}
+                        placeholder="e.g. 11 yrs · Orange Ball"
+                        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-[#8cb0bf] focus:outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                        Parent / Contact Name *
+                      </label>
+                      <input 
+                        type="text" 
+                        required 
+                        value={formData.contactName}
+                        onChange={(e) => setFormData({...formData, contactName: e.target.value})}
+                        placeholder="Your full name"
+                        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-[#8cb0bf] focus:outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                        Phone Number *
+                      </label>
+                      <input 
+                        type="tel" 
+                        required 
+                        value={formData.phone}
+                        onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                        placeholder="(770) 000-0000"
+                        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-[#8cb0bf] focus:outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                      Email Address (for Square Receipt) *
+                    </label>
+                    <input 
+                      type="email" 
+                      required 
+                      value={formData.email}
+                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      placeholder="receipt@example.com"
+                      className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-[#8cb0bf] focus:outline-none"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                      Preferred Court Location
+                    </label>
+                    <select
+                      value={formData.venue}
+                      onChange={(e) => setFormData({...formData, venue: e.target.value})}
+                      className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:ring-2 focus:ring-[#8cb0bf] focus:outline-none bg-white"
+                    >
+                      <option value="Clayton County International Park Tennis Center">
+                        Clayton County International Park Tennis Center
+                      </option>
+                      <option value="Lovejoy Regional Park Courts">
+                        Lovejoy Regional Park Courts, Hampton
+                      </option>
+                    </select>
+                  </div>
+
+                  {/* Payment Mode Selector */}
+                  <div className="pt-2">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+                      Payment Processing
+                    </label>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div 
+                        onClick={() => setFormData({...formData, paymentMethod: 'square'})}
+                        className={`p-3 rounded-xl border cursor-pointer flex items-center gap-2.5 text-xs transition-all ${
+                          formData.paymentMethod === 'square'
+                            ? 'border-[#8cb0bf] bg-blue-50 text-slate-950 font-bold ring-1 ring-[#8cb0bf]'
+                            : 'border-slate-200 text-slate-600'
+                        }`}
+                      >
+                        <CreditCard className="w-4 h-4 text-[#8cb0bf]" />
+                        <span>Square Card Payment</span>
+                      </div>
+
+                      <div 
+                        onClick={() => setFormData({...formData, paymentMethod: 'on-court'})}
+                        className={`p-3 rounded-xl border cursor-pointer flex items-center gap-2.5 text-xs transition-all ${
+                          formData.paymentMethod === 'on-court'
+                            ? 'border-[#8cb0bf] bg-blue-50 text-slate-950 font-bold ring-1 ring-[#8cb0bf]'
+                            : 'border-slate-200 text-slate-600'
+                        }`}
+                      >
+                        <DollarSign className="w-4 h-4 text-emerald-600" />
+                        <span>Pay on Court (Square / Cash)</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+                    <button
+                      type="button"
+                      onClick={resetBookingModal}
+                      className="px-4 py-3 rounded-xl border border-slate-200 text-xs font-bold text-slate-600 hover:bg-slate-50 transition-colors"
+                    >
+                      Cancel
+                    </button>
+
+                    <button
+                      type="submit"
+                      className="flex-1 py-3 px-6 rounded-xl bg-[#061326] hover:bg-[#102A33] text-white font-bold text-xs uppercase tracking-wider shadow-lg transition-all flex items-center justify-center gap-2"
+                    >
+                      <span>Confirm & Pay ${selectedProduct.price}</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                  </div>
+                </form>
+              )}
+
+              {bookingStep === 'confirmed' && (
+                <div className="text-center py-6 space-y-4 animate-fadeIn">
+                  <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-inner">
+                    <Check className="w-8 h-8 stroke-[3]" />
+                  </div>
+
+                  <h4 className="text-2xl font-extrabold font-display text-slate-900">
+                    Registration Received!
+                  </h4>
+
+                  <p className="text-xs sm:text-sm text-slate-600 max-w-sm mx-auto leading-relaxed">
+                    Thank you, <strong className="text-slate-900">{formData.contactName || 'Player'}</strong>. Your spot for <strong className="text-slate-900">{selectedProduct.title} (${selectedProduct.price})</strong> has been reserved at <strong className="text-slate-900">{formData.venue}</strong>.
+                  </p>
+
+                  <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-left text-xs text-slate-700 space-y-1.5 max-w-sm mx-auto">
+                    <div className="flex justify-between">
+                      <span className="text-slate-500">Player:</span>
+                      <span className="font-bold text-slate-900">{formData.playerName || 'Registered Player'}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-slate-500">Payment:</span>
+                      <span className="font-bold text-emerald-600">${selectedProduct.price} ({formData.paymentMethod === 'square' ? 'Square Online' : 'On-Court Pay'})</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-slate-500">Confirmation Sent To:</span>
+                      <span className="font-bold text-slate-900 truncate max-w-[180px]">{formData.email || 'your email'}</span>
+                    </div>
+                  </div>
+
+                  <div className="pt-4">
+                    <button
+                      onClick={resetBookingModal}
+                      className="w-full py-3 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white font-bold text-xs uppercase tracking-wider transition-all"
+                    >
+                      Done & Return to Programs
+                    </button>
+                  </div>
+                </div>
+              )}
+
+            </div>
+
+          </div>
+        </div>
+      )}
 
     </div>
   );

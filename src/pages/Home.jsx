@@ -197,10 +197,10 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
               </button>
 
               <button
-                onClick={() => setActivePage('lessons')}
+                onClick={() => setActivePage('programs')}
                 className="px-5 py-3 rounded-xl bg-[#8cb0bf] hover:bg-[#a2c4d2] text-[#061326] font-extrabold text-xs sm:text-sm transition-all shadow-md active:scale-95 flex items-center gap-2"
               >
-                <span>Book Lessons ($22)</span>
+                <span>Programs & Lessons</span>
               </button>
 
               <button

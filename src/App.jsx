@@ -9,11 +9,9 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Programs from './pages/Programs';
 import Tournaments from './pages/Tournaments';
-import OurImpact from './pages/OurImpact';
 import GetInvolved from './pages/GetInvolved';
 import Contact from './pages/Contact';
 import SimpsonCamp from './pages/SimpsonCamp';
-import Lessons from './pages/Lessons';
 
 export default function App() {
   const [activePage, setActivePage] = useState('home');
@@ -52,14 +50,15 @@ export default function App() {
           />
         )}
 
-        {activePage === 'about' && (
+        {(activePage === 'about' || activePage === 'impact' || activePage === 'testimonials') && (
           <About 
             setActivePage={handlePageChange}
             onOpenProgramFinder={() => setIsProgramFinderOpen(true)}
+            onSelectStory={(story) => setSelectedStory(story)}
           />
         )}
 
-        {activePage === 'programs' && (
+        {(activePage === 'programs' || activePage === 'lessons' || activePage === 'cours' || activePage === 'coaching') && (
           <Programs 
             setActivePage={handlePageChange}
             onOpenProgramFinder={() => setIsProgramFinderOpen(true)}
@@ -71,14 +70,6 @@ export default function App() {
           <Tournaments 
             setActivePage={handlePageChange}
             onOpenTournamentRegister={() => setIsDonateOpen(true)}
-          />
-        )}
-
-        {(activePage === 'impact' || activePage === 'testimonials') && (
-          <OurImpact 
-            setActivePage={handlePageChange}
-            onSelectStory={(story) => setSelectedStory(story)}
-            onOpenDonate={() => setIsDonateOpen(true)}
           />
         )}
 
@@ -98,13 +89,6 @@ export default function App() {
             setActivePage={handlePageChange}
             onOpenDonate={() => setIsDonateOpen(true)}
             onOpenProgramFinder={() => setIsProgramFinderOpen(true)}
-          />
-        )}
-
-        {(activePage === 'lessons' || activePage === 'cours' || activePage === 'coaching') && (
-          <Lessons 
-            setActivePage={handlePageChange}
-            onOpenDonate={() => setIsDonateOpen(true)}
           />
         )}
       </main>
