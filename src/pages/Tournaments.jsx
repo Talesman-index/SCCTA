@@ -557,38 +557,7 @@ export default function Tournaments({ setActivePage, onOpenTournamentRegister })
         </div>
       </section>
 
-      {/* ========================================================================= */}
-      {/* 03. OFFICIAL USTA PROMOTIONAL BANNER (AS IN SCREENSHOT) */}
-      {/* ========================================================================= */}
-      <section className="bg-[#0059a6] text-white py-12">
-        <div className="max-w-4xl mx-auto px-4 text-center space-y-4">
-          <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-white">
-            Take USTA everywhere!
-          </h2>
-          <p className="text-xs sm:text-sm text-blue-100 max-w-lg mx-auto">
-            Find local tennis programs, camps, upcoming tournaments, and a local USTA League to join.
-          </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-            <a 
-              href="https://apps.apple.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-xl bg-black/40 hover:bg-black/60 border border-white/20 text-white font-bold text-xs flex items-center gap-2 transition-all"
-            >
-              <span>Download on the App Store</span>
-            </a>
-            <a 
-              href="https://play.google.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-xl bg-black/40 hover:bg-black/60 border border-white/20 text-white font-bold text-xs flex items-center gap-2 transition-all"
-            >
-              <span>Get it on Google Play</span>
-            </a>
-          </div>
-        </div>
-      </section>
 
       {/* ========================================================================= */}
       {/* 04. TOURNAMENT FAQ & PLAYER GUIDELINES */}
