@@ -106,30 +106,6 @@ export default function Programs({ setActivePage, onOpenProgramFinder, onOpenDon
     }
   ];
 
-  const lessonPackages = [
-    {
-      title: '4-Lesson Group Clinic Pass',
-      sessions: '4 Group Lessons',
-      price: '$80.00',
-      savings: 'Save $8 vs drop-in rate',
-      details: 'Valid for any 4 weekday or Saturday clinics within 6 weeks.'
-    },
-    {
-      title: '4-Session Private Coaching Pass',
-      sessions: '4 One-on-One Hours',
-      price: '$150.00',
-      savings: 'Save $10 on private mastery',
-      details: 'Flexible scheduling directly with head professional.'
-    },
-    {
-      title: 'Youth Full Season Sponsorship',
-      sessions: 'Complete Clinic + Gear',
-      price: '$180.00',
-      savings: 'Community Impact Gift',
-      details: 'Provides a junior player with a racquet, bag, clinic season, and tournament registration.'
-    }
-  ];
-
   const handleStartBooking = (product) => {
     setSelectedProduct(product);
     setBookingStep('details');
@@ -550,64 +526,6 @@ export default function Programs({ setActivePage, onOpenProgramFinder, onOpenDon
                 </div>
               </ScrollReveal>
             ))}
-          </div>
-
-          {/* Value Packages Row */}
-          <div className="pt-6">
-            <div className="bg-[#061326] text-white rounded-3xl p-8 sm:p-12 border border-white/10 shadow-2xl">
-              <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
-                <div className="space-y-2">
-                  <span className="text-xs font-bold uppercase tracking-widest text-[#8cb0bf]">
-                    Cost Savings & Multi-Passes
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-extrabold font-display text-white">
-                    Save With Multi-Lesson Pass Packages
-                  </h3>
-                </div>
-                <p className="text-xs text-slate-300 max-w-md">
-                  Lock in lower rates for ongoing clinics or private coaching. Flexible scheduling at Clayton County International Park and Lovejoy Regional Park.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {lessonPackages.map((pkg) => (
-                  <div 
-                    key={pkg.title}
-                    className="bg-white/5 rounded-2xl p-6 border border-white/10 flex flex-col justify-between space-y-4 hover:border-[#8cb0bf]/50 transition-all"
-                  >
-                    <div className="space-y-2">
-                      <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-400 text-slate-950">
-                        {pkg.savings}
-                      </span>
-                      <h4 className="text-base font-bold text-white font-display">
-                        {pkg.title}
-                      </h4>
-                      <div className="text-2xl font-black font-display text-[#8cb0bf]">
-                        {pkg.price}
-                      </div>
-                      <p className="text-xs text-slate-300 leading-relaxed">
-                        {pkg.details}
-                      </p>
-                    </div>
-
-                    <button
-                      onClick={() => handleStartBooking({
-                        id: pkg.title.toLowerCase().replace(/\s+/g, '-'),
-                        title: pkg.title,
-                        subtitle: pkg.sessions,
-                        price: pkg.price.replace('$', ''),
-                        priceNum: parseFloat(pkg.price.replace('$', '')),
-                        period: 'package',
-                        image: '/images/course-group-lesson.jpg'
-                      })}
-                      className="w-full py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider transition-colors text-center"
-                    >
-                      Select Package
-                    </button>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
 
         </div>
