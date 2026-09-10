@@ -157,24 +157,7 @@ export default function Lessons({ setActivePage, onOpenDonate }) {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6">
           
-          <div className="flex flex-wrap items-center gap-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-wider text-[#8cb0bf] shadow-lg">
-              <div className="w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow-sm">
-                <img src="/logo.png" alt="SCCTA" className="w-full h-full object-contain" />
-              </div>
-              <span>SCCTA Tennis Academy</span>
-            </div>
 
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-slate-300 text-xs font-medium">
-              <MapPin className="w-3.5 h-3.5 text-[#8cb0bf]" />
-              Clayton County, GA
-            </span>
-
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-500/30">
-              <ShieldCheck className="w-3.5 h-3.5" />
-              Official Square Payment & Booking
-            </span>
-          </div>
 
           <div className="max-w-3xl space-y-4">
             <h1 className="text-4xl sm:text-6xl font-extrabold font-display tracking-tight text-white leading-tight">
