@@ -125,7 +125,7 @@ export const UPCOMING_TOURNAMENTS = [
     status: "REGISTRATIONS OPEN",
     statusType: "open",
     logo: "/logo.png",
-    image: "/images/sccta-the-mill-group.jpg",
+    image: "/images/tournament-winner-boy-trophy.jpg",
     ustaLink: "https://playtennis.usta.com/tournaments",
     featured: true
   },
@@ -147,7 +147,7 @@ export const UPCOMING_TOURNAMENTS = [
     status: "REGISTRATIONS OPEN",
     statusType: "open",
     logo: "/logo.png",
-    image: "/images/sccta-the-mill-juniors.jpg",
+    image: "/images/tournament-winner-904-trophy.jpg",
     ustaLink: "https://playtennis.usta.com/tournaments",
     featured: true
   },
@@ -169,7 +169,7 @@ export const UPCOMING_TOURNAMENTS = [
     status: "REGISTRATIONS OPEN",
     statusType: "open",
     logo: "/logo.png",
-    image: "/images/sccta-clayton-team.jpg",
+    image: "/images/tournament-winners-medals.jpg",
     ustaLink: "https://playtennis.usta.com/tournaments",
     featured: true
   },
@@ -191,7 +191,7 @@ export const UPCOMING_TOURNAMENTS = [
     status: "REGISTRATIONS OPEN",
     statusType: "open",
     logo: "/logo.png",
-    image: "/images/sccta-scholarship-awards.jpg",
+    image: "/images/tournament-winners-clubhouse.jpg",
     ustaLink: "https://playtennis.usta.com/tournaments",
     featured: true
   },
@@ -236,7 +236,7 @@ export const UPCOMING_TOURNAMENTS = [
     status: "REGISTRATIONS CLOSED",
     statusType: "upcoming",
     logo: "/logo.png",
-    image: "/images/course-private-lesson.jpg",
+    image: "/images/tournament-winner-boy-trophy.jpg",
     ustaLink: "https://playtennis.usta.com/tournaments",
     featured: false
   }
@@ -257,7 +257,8 @@ export const PAST_TOURNAMENTS = [
     },
     entryFee: "$28.70",
     status: "COMPLETED",
-    logo: "/logo.png"
+    logo: "/logo.png",
+    image: "/images/tournament-winner-boy-trophy.jpg"
   },
   {
     id: "past-spring-kickoff",
@@ -272,7 +273,8 @@ export const PAST_TOURNAMENTS = [
     },
     entryFee: "$28.70",
     status: "COMPLETED",
-    logo: "/logo.png"
+    logo: "/logo.png",
+    image: "/images/tournament-winners-medals.jpg"
   },
   {
     id: "past-winter-classic",
@@ -288,7 +290,8 @@ export const PAST_TOURNAMENTS = [
     },
     entryFee: "$28.70",
     status: "COMPLETED",
-    logo: "/logo.png"
+    logo: "/logo.png",
+    image: "/images/tournament-winner-904-trophy.jpg"
   },
   {
     id: "past-march-madness",
@@ -304,7 +307,8 @@ export const PAST_TOURNAMENTS = [
     },
     entryFee: "$28.70",
     status: "COMPLETED",
-    logo: "/logo.png"
+    logo: "/logo.png",
+    image: "/images/tournament-winners-clubhouse.jpg"
   },
   {
     id: "past-grand-slam",
