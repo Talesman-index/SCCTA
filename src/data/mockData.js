@@ -214,7 +214,7 @@ export const UPCOMING_TOURNAMENTS = [
     status: "REGISTRATIONS OPEN",
     statusType: "open",
     logo: "/logo.png",
-    image: "/images/sccta-team-celebration.jpg",
+    image: "/images/tournament-winners-girls-medals.jpg",
     ustaLink: "https://playtennis.usta.com/tournaments",
     featured: false
   },
@@ -236,7 +236,7 @@ export const UPCOMING_TOURNAMENTS = [
     status: "REGISTRATIONS CLOSED",
     statusType: "upcoming",
     logo: "/logo.png",
-    image: "/images/tournament-winner-boy-trophy.jpg",
+    image: "/images/tournament-winners-girls-trophies.jpg",
     ustaLink: "https://playtennis.usta.com/tournaments",
     featured: false
   }
@@ -323,7 +323,8 @@ export const PAST_TOURNAMENTS = [
     },
     entryFee: "$28.70",
     status: "COMPLETED",
-    logo: "/logo.png"
+    logo: "/logo.png",
+    image: "/images/tournament-winners-girls-medals.jpg"
   },
   {
     id: "past-clayton-spring",
@@ -339,7 +340,8 @@ export const PAST_TOURNAMENTS = [
     },
     entryFee: "$28.70",
     status: "COMPLETED",
-    logo: "/logo.png"
+    logo: "/logo.png",
+    image: "/images/tournament-winners-girls-trophies.jpg"
   },
   {
     id: "past-hudlow-singles-doubles",
@@ -355,7 +357,8 @@ export const PAST_TOURNAMENTS = [
     },
     entryFee: "$39.00 – $78.00",
     status: "COMPLETED",
-    logo: "/logo.png"
+    logo: "/logo.png",
+    image: "/images/tournament-winner-boy-trophy.jpg"
   },
   {
     id: "past-rockdale-invitational",
@@ -370,7 +373,8 @@ export const PAST_TOURNAMENTS = [
     },
     entryFee: "$28.70",
     status: "COMPLETED",
-    logo: "/logo.png"
+    logo: "/logo.png",
+    image: "/images/tournament-winners-medals.jpg"
   },
   {
     id: "past-summer-satellite",
