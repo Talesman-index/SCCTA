@@ -27,7 +27,7 @@ export default function Tournaments({ setActivePage, onOpenTournamentRegister })
   const [activeTab, setActiveTab] = useState('upcoming'); // 'upcoming' | 'past'
   const [filterLevel, setFilterLevel] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [expandedEvents, setExpandedEvents] = useState({});
+  const [expandedEvents, setExpandedEvents] = useState({}); // Default: all cards collapsed
   const [expandedFaq, setExpandedFaq] = useState(null);
   const [selectedTournament, setSelectedTournament] = useState(null);
 
@@ -38,19 +38,85 @@ export default function Tournaments({ setActivePage, onOpenTournamentRegister })
     }));
   };
 
+  const handleExpandAll = () => {
+    const allExpanded = {};
+    filteredTournaments.forEach(t => {
+      allExpanded[t.id] = true;
+    });
+    setExpandedEvents(allExpanded);
+  };
+
+  const handleCollapseAll = () => {
+    setExpandedEvents({});
+  };
+
   const currentTournaments = activeTab === 'upcoming' ? UPCOMING_TOURNAMENTS : PAST_TOURNAMENTS;
 
+  // Dynamic counts for current tab
+  const counts = {
+    all: currentTournaments.length,
+    level7: currentTournaments.filter(t => (t.level || '').toLowerCase().includes('level 7') || (t.title || '').toLowerCase().includes('level 7')).length,
+    level6: currentTournaments.filter(t => (t.level || '').toLowerCase().includes('level 6') || (t.title || '').toLowerCase().includes('level 6')).length,
+    circuit: currentTournaments.filter(t => (t.level || '').toLowerCase().includes('circuit') || (t.title || '').toLowerCase().includes('circuit')).length,
+    junior: currentTournaments.filter(t => t.category === 'junior').length,
+    adult: currentTournaments.filter(t => t.category === 'adult' || (t.level || '').toLowerCase().includes('adult')).length,
+  };
+
+  const filterOptions = [
+    { id: 'all', label: 'All Events', count: counts.all },
+    ...(counts.level7 > 0 ? [{ id: 'level7', label: 'Level 7', count: counts.level7 }] : []),
+    ...(counts.level6 > 0 ? [{ id: 'level6', label: 'Level 6', count: counts.level6 }] : []),
+    ...(counts.circuit > 0 ? [{ id: 'circuit', label: 'Junior Circuit', count: counts.circuit }] : []),
+    ...(counts.adult > 0 ? [{ id: 'adult', label: 'Adult Open', count: counts.adult }] : []),
+    ...(counts.junior > 0 && counts.adult > 0 ? [{ id: 'junior', label: 'Junior', count: counts.junior }] : []),
+  ];
+
   const filteredTournaments = currentTournaments.filter((t) => {
-    const query = searchQuery.toLowerCase();
-    const matchesSearch = t.title.toLowerCase().includes(query) || 
-                          t.location.toLowerCase().includes(query) ||
-                          (t.divisions && t.divisions.toLowerCase().includes(query));
-    const matchesLevel = filterLevel === 'all' || 
-                         (filterLevel === 'junior' && t.category === 'junior') ||
-                         (filterLevel === 'adult' && t.category === 'adult') ||
-                         (filterLevel === 'level6' && t.level.includes('Level 6')) ||
-                         (filterLevel === 'level7' && t.level.includes('Level 7'));
-    return matchesSearch && matchesLevel;
+    // 1. Search Query filter
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase().trim();
+      const titleMatch = (t.title || '').toLowerCase().includes(q);
+      const locationMatch = (t.location || '').toLowerCase().includes(q);
+      const divisionsMatch = (t.divisions || '').toLowerCase().includes(q);
+      const levelMatch = (t.level || '').toLowerCase().includes(q);
+      const dateMatch = (t.date || '').toLowerCase().includes(q);
+      
+      let tagMatch = false;
+      if (t.divisionTags) {
+        const allTags = [
+          ...(t.divisionTags.boys || []),
+          ...(t.divisionTags.girls || []),
+          ...(t.divisionTags.men || []),
+          ...(t.divisionTags.women || []),
+          ...(t.divisionTags.mixed || []),
+          ...(t.divisionTags.coed || []),
+        ];
+        tagMatch = allTags.some(tag => tag.toLowerCase().includes(q));
+      }
+
+      if (!titleMatch && !locationMatch && !divisionsMatch && !levelMatch && !dateMatch && !tagMatch) {
+        return false;
+      }
+    }
+
+    // 2. Filter level
+    if (filterLevel === 'all') return true;
+    if (filterLevel === 'level7') {
+      return (t.level || '').toLowerCase().includes('level 7') || (t.title || '').toLowerCase().includes('level 7');
+    }
+    if (filterLevel === 'level6') {
+      return (t.level || '').toLowerCase().includes('level 6') || (t.title || '').toLowerCase().includes('level 6');
+    }
+    if (filterLevel === 'circuit') {
+      return (t.level || '').toLowerCase().includes('circuit') || (t.title || '').toLowerCase().includes('circuit');
+    }
+    if (filterLevel === 'junior') {
+      return t.category === 'junior';
+    }
+    if (filterLevel === 'adult') {
+      return t.category === 'adult' || (t.level || '').toLowerCase().includes('adult');
+    }
+    return true;
   });
 
   return (
@@ -136,6 +202,7 @@ export default function Tournaments({ setActivePage, onOpenTournamentRegister })
               onClick={() => {
                 setActiveTab('upcoming');
                 setFilterLevel('all');
+                setExpandedEvents({});
               }}
               className={`pb-3 text-xs sm:text-sm font-extrabold tracking-wider uppercase transition-all relative flex items-center gap-2 ${
                 activeTab === 'upcoming' 
@@ -155,6 +222,7 @@ export default function Tournaments({ setActivePage, onOpenTournamentRegister })
               onClick={() => {
                 setActiveTab('past');
                 setFilterLevel('all');
+                setExpandedEvents({});
               }}
               className={`pb-3 text-xs sm:text-sm font-extrabold tracking-wider uppercase transition-all relative flex items-center gap-2 ${
                 activeTab === 'past' 
@@ -171,40 +239,94 @@ export default function Tournaments({ setActivePage, onOpenTournamentRegister })
             </button>
           </div>
 
-          {/* Search & Filter Controls */}
+          {/* Search & Dynamic Filter Controls */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
             <div className="relative w-full sm:w-80">
               <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input 
                 type="text"
-                placeholder="Search by tournament name, venue..."
+                placeholder="Search by name, division (10U, 12U), venue..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-none focus:ring-2 focus:ring-[#8cb0bf] bg-white shadow-xs"
+                className="w-full pl-10 pr-9 py-2.5 rounded-xl border border-slate-200 text-xs focus:outline-none focus:ring-2 focus:ring-[#8cb0bf] bg-white shadow-xs"
               />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-0.5"
+                  aria-label="Clear search"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              )}
             </div>
 
+            {/* Dynamic Filter Pills with Live Match Counts */}
             <div className="flex items-center gap-2 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0">
-              {[
-                { id: 'all', label: 'All Events' },
-                { id: 'junior', label: 'Junior' },
-                { id: 'adult', label: 'Adult' },
-                { id: 'level7', label: 'Level 7' },
-                { id: 'level6', label: 'Level 6' },
-              ].map((f) => (
-                <button
-                  key={f.id}
-                  onClick={() => setFilterLevel(f.id)}
-                  className={`px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
-                    filterLevel === f.id
-                      ? 'bg-[#102A33] text-white shadow-xs'
-                      : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                  }`}
-                >
-                  {f.label}
-                </button>
-              ))}
+              {filterOptions.map((f) => {
+                const isActive = filterLevel === f.id;
+                return (
+                  <button
+                    key={f.id}
+                    onClick={() => setFilterLevel(f.id)}
+                    className={`px-3.5 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all flex items-center gap-1.5 ${
+                      isActive
+                        ? 'bg-[#102A33] text-white shadow-xs ring-1 ring-white/20'
+                        : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                    }`}
+                  >
+                    <span>{f.label}</span>
+                    <span className={`px-1.5 py-0.5 rounded-full text-[10px] font-bold ${
+                      isActive ? 'bg-white/25 text-white' : 'bg-slate-200 text-slate-600'
+                    }`}>
+                      {f.count}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
+          </div>
+
+          {/* Results Summary Bar & Global Details Toggle */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-slate-500 pt-1 pb-1 border-b border-slate-100">
+            <div className="flex items-center gap-2">
+              <span className="font-semibold text-slate-700">
+                Showing {filteredTournaments.length} tournament{filteredTournaments.length !== 1 ? 's' : ''}
+              </span>
+              {(filterLevel !== 'all' || searchQuery) && (
+                <button
+                  onClick={() => {
+                    setFilterLevel('all');
+                    setSearchQuery('');
+                  }}
+                  className="text-xs font-bold text-[#0059a6] hover:underline flex items-center gap-1 ml-1"
+                >
+                  <X className="w-3 h-3" />
+                  <span>Clear filters</span>
+                </button>
+              )}
+            </div>
+
+            {filteredTournaments.length > 0 && (
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={handleExpandAll}
+                  className="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-colors flex items-center gap-1.5"
+                >
+                  <ChevronDown className="w-3.5 h-3.5 text-slate-500" />
+                  <span>Show All Details</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={handleCollapseAll}
+                  className="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition-colors flex items-center gap-1.5"
+                >
+                  <ChevronUp className="w-3.5 h-3.5 text-slate-500" />
+                  <span>Hide All Details</span>
+                </button>
+              </div>
+            )}
           </div>
 
           {/* Tournament List (Authentic Clean USTA Card Layout) */}
@@ -217,7 +339,7 @@ export default function Tournaments({ setActivePage, onOpenTournamentRegister })
               </div>
             ) : (
               filteredTournaments.map((t) => {
-                const isExpanded = expandedEvents[t.id] ?? true;
+                const isExpanded = Boolean(expandedEvents[t.id]);
                 return (
                   <div 
                     key={t.id}
@@ -242,6 +364,13 @@ export default function Tournaments({ setActivePage, onOpenTournamentRegister })
                           <Calendar className="w-3.5 h-3.5 text-slate-400" />
                           <span>{t.date}</span>
                         </div>
+
+                        {t.divisions && (
+                          <div className="text-xs text-slate-500 font-medium pt-1">
+                            <span className="font-semibold text-slate-700">Divisions: </span>
+                            <span>{t.divisions}</span>
+                          </div>
+                        )}
                       </div>
 
                       {/* Price on Top Right */}
@@ -255,19 +384,32 @@ export default function Tournaments({ setActivePage, onOpenTournamentRegister })
                       </div>
                     </div>
 
-                    {/* Divisions Tags Area (Collapsible) */}
+                    {/* Divisions Tags Area (Collapsible) - Hidden by default */}
                     {isExpanded && t.divisionTags && (
-                      <div className="pt-2 border-t border-slate-100 space-y-3">
-                        
+                      <div className="pt-3 border-t border-slate-100 space-y-3 bg-slate-50/70 p-4 rounded-xl transition-all">
+                        <div className="flex items-center justify-between pb-1 border-b border-slate-200/60">
+                          <span className="text-[11px] font-extrabold uppercase tracking-wider text-slate-600">
+                            Age Categories & Division Draws
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => toggleEventCollapse(t.id)}
+                            className="text-[11px] font-bold text-[#0059a6] hover:underline flex items-center gap-1"
+                          >
+                            <span>Hide details</span>
+                            <ChevronUp className="w-3 h-3" />
+                          </button>
+                        </div>
+
                         {/* Boys */}
                         {t.divisionTags.boys && (
                           <div className="flex flex-wrap items-center gap-2">
-                            <span className="text-xs font-bold text-slate-500 w-12">Boys:</span>
+                            <span className="text-xs font-bold text-slate-600 w-14">Boys:</span>
                             <div className="flex flex-wrap gap-1.5">
                               {t.divisionTags.boys.map((b, i) => (
                                 <span 
                                   key={i} 
-                                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-50 border border-slate-200 text-[11px] font-semibold text-slate-700"
+                                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-[11px] font-semibold text-slate-700 shadow-xs"
                                 >
                                   <span>{b}</span>
                                   <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
@@ -280,12 +422,12 @@ export default function Tournaments({ setActivePage, onOpenTournamentRegister })
                         {/* Girls */}
                         {t.divisionTags.girls && (
                           <div className="flex flex-wrap items-center gap-2">
-                            <span className="text-xs font-bold text-slate-500 w-12">Girls:</span>
+                            <span className="text-xs font-bold text-slate-600 w-14">Girls:</span>
                             <div className="flex flex-wrap gap-1.5">
                               {t.divisionTags.girls.map((g, i) => (
                                 <span 
                                   key={i} 
-                                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-50 border border-slate-200 text-[11px] font-semibold text-slate-700"
+                                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-[11px] font-semibold text-slate-700 shadow-xs"
                                 >
                                   <span>{g}</span>
                                   <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
@@ -298,12 +440,12 @@ export default function Tournaments({ setActivePage, onOpenTournamentRegister })
                         {/* Adult Men */}
                         {t.divisionTags.men && (
                           <div className="flex flex-wrap items-center gap-2">
-                            <span className="text-xs font-bold text-slate-500 w-12">Men:</span>
+                            <span className="text-xs font-bold text-slate-600 w-14">Men:</span>
                             <div className="flex flex-wrap gap-1.5">
                               {t.divisionTags.men.map((m, i) => (
                                 <span 
                                   key={i} 
-                                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-50 border border-slate-200 text-[11px] font-semibold text-slate-700"
+                                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-[11px] font-semibold text-slate-700 shadow-xs"
                                 >
                                   <span>{m}</span>
                                   <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
@@ -316,12 +458,12 @@ export default function Tournaments({ setActivePage, onOpenTournamentRegister })
                         {/* Adult Women */}
                         {t.divisionTags.women && (
                           <div className="flex flex-wrap items-center gap-2">
-                            <span className="text-xs font-bold text-slate-500 w-12">Women:</span>
+                            <span className="text-xs font-bold text-slate-600 w-14">Women:</span>
                             <div className="flex flex-wrap gap-1.5">
                               {t.divisionTags.women.map((w, i) => (
                                 <span 
                                   key={i} 
-                                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-50 border border-slate-200 text-[11px] font-semibold text-slate-700"
+                                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-[11px] font-semibold text-slate-700 shadow-xs"
                                 >
                                   <span>{w}</span>
                                   <span className="w-1.5 h-1.5 rounded-full bg-pink-400" />
@@ -334,12 +476,12 @@ export default function Tournaments({ setActivePage, onOpenTournamentRegister })
                         {/* Mixed */}
                         {t.divisionTags.mixed && (
                           <div className="flex flex-wrap items-center gap-2">
-                            <span className="text-xs font-bold text-slate-500 w-12">Mixed:</span>
+                            <span className="text-xs font-bold text-slate-600 w-14">Mixed:</span>
                             <div className="flex flex-wrap gap-1.5">
                               {t.divisionTags.mixed.map((m, i) => (
                                 <span 
                                   key={i} 
-                                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-50 border border-slate-200 text-[11px] font-semibold text-slate-700"
+                                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-[11px] font-semibold text-slate-700 shadow-xs"
                                 >
                                   <span>{m}</span>
                                   <span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
@@ -352,12 +494,12 @@ export default function Tournaments({ setActivePage, onOpenTournamentRegister })
                         {/* Coed (Junior Circuit) */}
                         {t.divisionTags.coed && (
                           <div className="flex flex-wrap items-center gap-2">
-                            <span className="text-xs font-bold text-slate-500 w-12">Co-ed:</span>
+                            <span className="text-xs font-bold text-slate-600 w-14">Co-ed:</span>
                             <div className="flex flex-wrap gap-1.5">
                               {t.divisionTags.coed.map((c, i) => (
                                 <span 
                                   key={i} 
-                                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-50 border border-slate-200 text-[11px] font-semibold text-slate-700"
+                                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-[11px] font-semibold text-slate-700 shadow-xs"
                                 >
                                   <span>{c}</span>
                                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
@@ -370,38 +512,51 @@ export default function Tournaments({ setActivePage, onOpenTournamentRegister })
                       </div>
                     )}
 
-                    {/* Bottom Row: Hide events, Status, Deadline & Logos */}
+                    {/* Bottom Row: Toggle Button, Status, Deadline & Logos */}
                     <div className="pt-3 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                       
-                      <div className="space-y-2">
+                      <div className="flex flex-wrap items-center gap-3">
                         {t.divisionTags && (
                           <button
+                            type="button"
                             onClick={() => toggleEventCollapse(t.id)}
-                            className="text-xs font-bold text-[#0059a6] hover:underline flex items-center gap-1"
+                            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all border ${
+                              isExpanded 
+                                ? 'bg-blue-50 border-blue-200 text-[#0059a6]' 
+                                : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100 hover:text-[#0059a6]'
+                            }`}
                           >
-                            <span>{isExpanded ? 'Hide events ▲' : 'View events ▼'}</span>
+                            {isExpanded ? (
+                              <>
+                                <span>Hide details</span>
+                                <ChevronUp className="w-3.5 h-3.5" />
+                              </>
+                            ) : (
+                              <>
+                                <span>Show details (Boys, Girls...)</span>
+                                <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
+                              </>
+                            )}
                           </button>
                         )}
 
-                        <div className="flex flex-wrap items-center gap-2.5 text-xs">
-                          {/* Status Badge */}
-                          <span className={`px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider border ${
-                            t.status === 'REGISTRATIONS OPEN'
-                              ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
-                              : t.status === 'COMPLETED'
-                                ? 'bg-slate-100 text-slate-600 border-slate-200'
-                                : 'bg-amber-50 text-amber-700 border-amber-200'
-                          }`}>
-                            {t.status}
-                          </span>
+                        {/* Status Badge */}
+                        <span className={`px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider border ${
+                          t.status === 'REGISTRATIONS OPEN'
+                            ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
+                            : t.status === 'COMPLETED'
+                              ? 'bg-slate-100 text-slate-600 border-slate-200'
+                              : 'bg-amber-50 text-amber-700 border-amber-200'
+                        }`}>
+                          {t.status}
+                        </span>
 
-                          {/* Deadline */}
-                          {t.deadline && (
-                            <span className="text-slate-500 font-medium">
-                              {t.deadline}
-                            </span>
-                          )}
-                        </div>
+                        {/* Deadline */}
+                        {t.deadline && (
+                          <span className="text-slate-500 font-medium text-xs">
+                            {t.deadline}
+                          </span>
+                        )}
                       </div>
 
                       {/* Right Action: Logo & Register Button */}
