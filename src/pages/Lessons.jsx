@@ -198,67 +198,53 @@ export default function Lessons({ setActivePage, onOpenDonate }) {
               <ScrollReveal 
                 key={p.id}
                 delay={idx * 120}
-                className="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl hover:border-[#8cb0bf] transition-all flex flex-col justify-between group"
+                className="bg-white rounded-3xl p-7 sm:p-8 border border-slate-200 shadow-sm hover:shadow-xl hover:border-[#8cb0bf] transition-all flex flex-col justify-between group"
               >
-                <div>
-                  {/* Photo Banner with floating badge */}
-                  <div className="relative h-48 sm:h-56 w-full bg-slate-900 overflow-hidden">
-                    <img 
-                      src={p.image} 
-                      alt={p.title} 
-                      style={{ objectPosition: 'center 15%' }}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
-                    
-                    <div className="absolute top-3.5 left-3.5">
-                      <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider shadow-md ${p.badgeColor}`}>
-                        {p.badge}
-                      </span>
-                    </div>
+                <div className="space-y-5">
+                  {/* Header: Badge & Subtitle */}
+                  <div className="flex items-center justify-between gap-3 flex-wrap">
+                    <span className={`px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider shadow-xs ${p.badgeColor}`}>
+                      {p.badge}
+                    </span>
+                    <span className="text-xs font-semibold text-slate-500">
+                      {p.subtitle}
+                    </span>
+                  </div>
 
-                    <div className="absolute bottom-3 left-4 right-4">
-                      <div className="text-white font-display text-2xl sm:text-3xl font-black flex items-baseline gap-1">
-                        <span>${p.price}</span>
-                        <span className="text-xs text-slate-300 font-sans font-normal">{p.period}</span>
-                      </div>
+                  {/* Title & Price */}
+                  <div>
+                    <h3 className="text-2xl font-bold font-display text-slate-950 group-hover:text-[#0059a6] transition-colors">
+                      {p.title}
+                    </h3>
+                    <div className="mt-2 flex items-baseline gap-1.5">
+                      <span className="text-3xl sm:text-4xl font-black font-display text-slate-900">${p.price}</span>
+                      <span className="text-xs text-slate-500 font-medium">{p.period}</span>
                     </div>
                   </div>
 
-                  {/* Card Content */}
-                  <div className="p-5 sm:p-6 space-y-3.5">
-                    <div>
-                      <h3 className="text-lg sm:text-xl font-bold font-display text-slate-950 group-hover:text-[#8cb0bf] transition-colors">
-                        {p.title}
-                      </h3>
-                      <div className="text-xs font-semibold text-slate-500 mt-0.5">
-                        {p.subtitle}
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    {p.description}
+                  </p>
+
+                  {/* Features List */}
+                  <div className="pt-3 border-t border-slate-100 space-y-2.5">
+                    {p.features.map((feat, i) => (
+                      <div key={i} className="flex items-start gap-2.5 text-xs text-slate-700">
+                        <CheckCircle2 className="w-4 h-4 text-[#8cb0bf] shrink-0 mt-0.5" />
+                        <span>{feat}</span>
                       </div>
-                    </div>
-
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      {p.description}
-                    </p>
-
-                    <div className="pt-2 border-t border-slate-100 space-y-2">
-                      {p.features.map((feat, i) => (
-                        <div key={i} className="flex items-start gap-2 text-xs text-slate-700">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#8cb0bf] shrink-0 mt-0.5" />
-                          <span>{feat}</span>
-                        </div>
-                      ))}
-                    </div>
+                    ))}
                   </div>
                 </div>
 
                 {/* Bottom Booking Button */}
-                <div className="p-5 sm:p-6 pt-0">
+                <div className="pt-6 mt-6 border-t border-slate-100">
                   <button
                     onClick={() => handleStartBooking(p)}
-                    className="w-full py-3 px-4 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition-all active:scale-95 group-hover:bg-[#8cb0bf] group-hover:text-[#061326]"
+                    className="w-full py-3.5 px-4 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition-all active:scale-95 group-hover:bg-[#8cb0bf] group-hover:text-[#061326]"
                   >
                     <span>{p.cta}</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
               </ScrollReveal>
