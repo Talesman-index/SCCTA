@@ -159,10 +159,6 @@ export default function SimpsonCamp({ setActivePage, onOpenDonate, onOpenProgram
             
             {/* Left Column: Narrative & Details */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-white/10 text-[#8cb0bf] border border-white/15 backdrop-blur-md">
-                <Sparkles className="w-3.5 h-3.5 text-[#8cb0bf]" />
-                <span>USTA Southern NJTL · Louisville, KY</span>
-              </div>
 
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold font-display tracking-tight text-white leading-[1.1]">
                 Honoring Vision, <br />
