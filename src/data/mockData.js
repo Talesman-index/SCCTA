@@ -126,6 +126,7 @@ export const UPCOMING_TOURNAMENTS = [
     statusType: "open",
     logo: "/logo.png",
     image: "/images/tournament-winner-boy-trophy.jpg",
+    imageFocus: "center 12%",
     ustaLink: "https://playtennis.usta.com/tournaments",
     featured: true
   },
@@ -148,6 +149,7 @@ export const UPCOMING_TOURNAMENTS = [
     statusType: "open",
     logo: "/logo.png",
     image: "/images/tournament-winner-904-trophy.jpg",
+    imageFocus: "center 8%",
     ustaLink: "https://playtennis.usta.com/tournaments",
     featured: true
   },
@@ -170,6 +172,7 @@ export const UPCOMING_TOURNAMENTS = [
     statusType: "open",
     logo: "/logo.png",
     image: "/images/tournament-winners-medals.jpg",
+    imageFocus: "center 12%",
     ustaLink: "https://playtennis.usta.com/tournaments",
     featured: true
   },
@@ -192,6 +195,7 @@ export const UPCOMING_TOURNAMENTS = [
     statusType: "open",
     logo: "/logo.png",
     image: "/images/tournament-winners-clubhouse.jpg",
+    imageFocus: "center 22%",
     ustaLink: "https://playtennis.usta.com/tournaments",
     featured: true
   },
@@ -215,6 +219,7 @@ export const UPCOMING_TOURNAMENTS = [
     statusType: "open",
     logo: "/logo.png",
     image: "/images/tournament-winners-girls-medals.jpg",
+    imageFocus: "center 18%",
     ustaLink: "https://playtennis.usta.com/tournaments",
     featured: false
   },
@@ -237,6 +242,7 @@ export const UPCOMING_TOURNAMENTS = [
     statusType: "upcoming",
     logo: "/logo.png",
     image: "/images/tournament-winners-girls-trophies.jpg",
+    imageFocus: "center 20%",
     ustaLink: "https://playtennis.usta.com/tournaments",
     featured: false
   }
