@@ -498,20 +498,30 @@ export default function SimpsonCamp({ setActivePage, onOpenDonate, onOpenProgram
                   </p>
                 </div>
 
-                {/* Right: Detailed Itinerary Bullet Points */}
-                <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/90 shadow-xs space-y-4">
-                  <div className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-                    <span>Curriculum & Program Highlights</span>
+                {/* Right: Detailed Itinerary Cards */}
+                <div className="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/90 shadow-sm space-y-5">
+                  <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+                    <div className="text-xs font-black uppercase tracking-wider text-slate-500 flex items-center gap-2">
+                      <Sparkles className="w-4 h-4 text-[#8cb0bf]" />
+                      <span>Curriculum & Program Highlights</span>
+                    </div>
+                    <span className="text-[11px] font-bold text-slate-400 bg-slate-100 px-2.5 py-0.5 rounded-full">
+                      {scheduleDays[activeDayTab].details.length} Modules
+                    </span>
                   </div>
 
-                  <div className="space-y-3.5">
+                  <div className="space-y-3">
                     {scheduleDays[activeDayTab].details.map((detail, dIdx) => (
-                      <div key={dIdx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-700">
-                        <div className="w-5 h-5 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">
-                          {dIdx + 1}
+                      <div 
+                        key={dIdx} 
+                        className="p-4 rounded-2xl bg-slate-50/80 hover:bg-white border border-slate-200/80 hover:border-[#8cb0bf]/50 hover:shadow-md transition-all flex items-start gap-3.5 group"
+                      >
+                        <div className="shrink-0 w-8 h-8 rounded-xl bg-[#061326] text-[#8cb0bf] font-display font-black text-xs flex items-center justify-center shadow-sm group-hover:bg-[#8cb0bf] group-hover:text-[#061326] transition-colors">
+                          0{dIdx + 1}
                         </div>
-                        <span className="leading-relaxed">{detail}</span>
+                        <div className="flex-1 text-xs sm:text-sm text-slate-700 font-medium leading-relaxed pt-1">
+                          {detail}
+                        </div>
                       </div>
                     ))}
                   </div>
