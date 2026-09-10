@@ -78,29 +78,6 @@ export default function Lessons({ setActivePage, onOpenDonate }) {
     }
   ];
 
-  const packages = [
-    {
-      title: '4-Lesson Group Clinic Pass',
-      sessions: '4 Group Lessons',
-      price: '$80.00',
-      savings: 'Save $8 vs drop-in rate',
-      details: 'Valid for any 4 weekday or Saturday clinics within 6 weeks.'
-    },
-    {
-      title: '4-Session Private Coaching Pass',
-      sessions: '4 One-on-One Hours',
-      price: '$150.00',
-      savings: 'Save $10 on private mastery',
-      details: 'Flexible scheduling directly with head professional.'
-    },
-    {
-      title: 'Youth Full Season Sponsorship',
-      sessions: 'Complete Clinic + Gear',
-      price: '$180.00',
-      savings: 'Community Impact Gift',
-      details: 'Provides a junior player with a racquet, bag, clinic season, and tournament registration.'
-    }
-  ];
 
   const handleStartBooking = (product) => {
     setSelectedProduct(product);
@@ -254,71 +231,6 @@ export default function Lessons({ setActivePage, onOpenDonate }) {
         </div>
       </section>
 
-      {/* ========================================================================= */}
-      {/* 03. VALUE PASSES & PACKAGES */}
-      {/* ========================================================================= */}
-      <section className="py-20 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div className="space-y-2">
-              <div className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                Cost Savings & Bundles
-              </div>
-              <h2 className="text-2xl sm:text-4xl font-extrabold font-display text-slate-900">
-                Multi-Lesson Packages
-              </h2>
-            </div>
-            <p className="text-xs sm:text-sm text-slate-500 max-w-md">
-              Save on frequent training by locking in monthly pass rates. All packages can be used flexibly at any SCCTA court location.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {packages.map((pkg) => (
-              <div 
-                key={pkg.title}
-                className="bg-[#FAF9F5] p-7 rounded-3xl border border-slate-200 space-y-4 hover:border-slate-300 transition-all flex flex-col justify-between"
-              >
-                <div className="space-y-2">
-                  <div className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-900 border border-amber-200">
-                    {pkg.savings}
-                  </div>
-                  <h3 className="text-lg font-bold font-display text-slate-900">
-                    {pkg.title}
-                  </h3>
-                  <div className="text-2xl font-extrabold text-slate-950 font-display">
-                    {pkg.price}
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed pt-1">
-                    {pkg.details}
-                  </p>
-                </div>
-
-                <div className="pt-4 border-t border-slate-200 flex items-center justify-between">
-                  <span className="text-xs font-semibold text-slate-500">{pkg.sessions}</span>
-                  <button
-                    onClick={() => handleStartBooking({
-                      id: pkg.title.toLowerCase().replace(/\s+/g, '-'),
-                      title: pkg.title,
-                      subtitle: pkg.sessions,
-                      price: pkg.price.replace('$', ''),
-                      priceNum: parseFloat(pkg.price.replace('$', '')),
-                      period: 'package',
-                      image: '/images/course-group-lesson.jpg'
-                    })}
-                    className="text-xs font-bold text-[#8cb0bf] hover:text-[#6f94a4] transition-colors flex items-center gap-1"
-                  >
-                    <span>Purchase Pass</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
 
       {/* ========================================================================= */}
       {/* 04. COURT VENUES & SCHEDULE DETAILS */}
