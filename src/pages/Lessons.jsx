@@ -202,22 +202,23 @@ export default function Lessons({ setActivePage, onOpenDonate }) {
               >
                 <div>
                   {/* Photo Banner with floating badge */}
-                  <div className="relative aspect-square w-full bg-slate-900 overflow-hidden">
+                  <div className="relative h-48 sm:h-56 w-full bg-slate-900 overflow-hidden">
                     <img 
                       src={p.image} 
                       alt={p.title} 
+                      style={{ objectPosition: 'center 15%' }}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/20" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
                     
-                    <div className="absolute top-4 left-4">
-                      <span className={`px-3 py-1 rounded-full text-[11px] font-extrabold uppercase tracking-wider shadow-md ${p.badgeColor}`}>
+                    <div className="absolute top-3.5 left-3.5">
+                      <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider shadow-md ${p.badgeColor}`}>
                         {p.badge}
                       </span>
                     </div>
 
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <div className="text-white font-display text-3xl sm:text-4xl font-black flex items-baseline gap-1">
+                    <div className="absolute bottom-3 left-4 right-4">
+                      <div className="text-white font-display text-2xl sm:text-3xl font-black flex items-baseline gap-1">
                         <span>${p.price}</span>
                         <span className="text-xs text-slate-300 font-sans font-normal">{p.period}</span>
                       </div>
@@ -225,9 +226,9 @@ export default function Lessons({ setActivePage, onOpenDonate }) {
                   </div>
 
                   {/* Card Content */}
-                  <div className="p-6 sm:p-8 space-y-4">
+                  <div className="p-5 sm:p-6 space-y-3.5">
                     <div>
-                      <h3 className="text-xl sm:text-2xl font-bold font-display text-slate-950 group-hover:text-[#8cb0bf] transition-colors">
+                      <h3 className="text-lg sm:text-xl font-bold font-display text-slate-950 group-hover:text-[#8cb0bf] transition-colors">
                         {p.title}
                       </h3>
                       <div className="text-xs font-semibold text-slate-500 mt-0.5">
@@ -239,10 +240,10 @@ export default function Lessons({ setActivePage, onOpenDonate }) {
                       {p.description}
                     </p>
 
-                    <div className="pt-2 border-t border-slate-100 space-y-2.5">
+                    <div className="pt-2 border-t border-slate-100 space-y-2">
                       {p.features.map((feat, i) => (
-                        <div key={i} className="flex items-start gap-2.5 text-xs text-slate-700">
-                          <CheckCircle2 className="w-4 h-4 text-[#8cb0bf] shrink-0 mt-0.5" />
+                        <div key={i} className="flex items-start gap-2 text-xs text-slate-700">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#8cb0bf] shrink-0 mt-0.5" />
                           <span>{feat}</span>
                         </div>
                       ))}
@@ -251,13 +252,13 @@ export default function Lessons({ setActivePage, onOpenDonate }) {
                 </div>
 
                 {/* Bottom Booking Button */}
-                <div className="p-6 sm:p-8 pt-0">
+                <div className="p-5 sm:p-6 pt-0">
                   <button
                     onClick={() => handleStartBooking(p)}
-                    className="w-full py-3.5 px-4 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition-all active:scale-95 group-hover:bg-[#8cb0bf] group-hover:text-[#061326]"
+                    className="w-full py-3 px-4 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md transition-all active:scale-95 group-hover:bg-[#8cb0bf] group-hover:text-[#061326]"
                   >
                     <span>{p.cta}</span>
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </ScrollReveal>
