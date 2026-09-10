@@ -347,23 +347,31 @@ export default function Tournaments({ setActivePage, onOpenTournamentRegister })
                       key={t.id}
                       className="bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden group"
                     >
-                      {/* Photo Header Banner */}
-                      <div className="relative h-56 sm:h-64 w-full overflow-hidden bg-slate-900 shrink-0">
+                      {/* Photo Header Banner (Centered & Fully Visible Without Cropping) */}
+                      <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-950 shrink-0 flex items-center justify-center">
+                        {/* Ambient Blurred Background to Fill Edges Naturally */}
+                        <img 
+                          src={t.image || '/images/tournament-winner-boy-trophy.jpg'} 
+                          alt="" 
+                          aria-hidden="true"
+                          className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-35 scale-125 pointer-events-none" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-black/50 pointer-events-none" />
+
+                        {/* Centered Main Photo (Entire Subject, Faces & Trophies Fully Intact) */}
                         <img 
                           src={t.image || '/images/tournament-winner-boy-trophy.jpg'} 
                           alt={t.title} 
-                          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out" 
+                          className="relative z-1 h-full w-auto max-w-full object-contain mx-auto group-hover:scale-105 transition-transform duration-500 ease-out drop-shadow-2xl" 
                         />
-                        {/* Vignette & Gradient Overlays */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/45" />
 
                         {/* Top-Left: Level Badge */}
-                        <div className="absolute top-3.5 left-3.5 px-3 py-1 rounded-md bg-black/60 backdrop-blur-md border border-white/20 text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-white shadow-sm">
+                        <div className="absolute top-3.5 left-3.5 z-10 px-3 py-1 rounded-md bg-slate-950/75 backdrop-blur-md border border-white/20 text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-white shadow-sm">
                           {t.level || 'USTA Tournament'}
                         </div>
 
                         {/* Top-Right: Registration Status Badge */}
-                        <div className="absolute top-3.5 right-3.5 px-3 py-1 rounded-md bg-black/60 backdrop-blur-md border border-white/20 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm flex items-center gap-1.5">
+                        <div className="absolute top-3.5 right-3.5 z-10 px-3 py-1 rounded-md bg-slate-950/75 backdrop-blur-md border border-white/20 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm flex items-center gap-1.5">
                           <span className={`w-1.5 h-1.5 rounded-full ${
                             t.status === 'REGISTRATIONS OPEN' 
                               ? 'bg-emerald-400 animate-pulse' 
@@ -375,7 +383,7 @@ export default function Tournaments({ setActivePage, onOpenTournamentRegister })
                         </div>
 
                         {/* Bottom-Left: Calendar Date Pill */}
-                        <div className="absolute bottom-3.5 left-3.5 inline-flex items-center gap-2 px-3 py-1 rounded-md bg-black/60 backdrop-blur-md border border-white/20 text-xs font-bold text-white shadow-sm">
+                        <div className="absolute bottom-3.5 left-3.5 z-10 inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-slate-950/80 backdrop-blur-md border border-white/20 text-xs font-bold text-white shadow-sm">
                           <Calendar className="w-3.5 h-3.5 text-[#8cb0bf]" />
                           <span>{t.date}</span>
                         </div>
