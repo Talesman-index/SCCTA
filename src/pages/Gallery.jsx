@@ -63,21 +63,23 @@ export default function Gallery() {
         </p>
       </section>
 
-      {/* Year Filter Bar */}
-      <section className="pb-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-3 pt-1 scrollbar-none no-scrollbar">
+      {/* Year Filter Bar with High Contrast */}
+      <section className="pb-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="flex items-center justify-start sm:justify-center gap-2.5 overflow-x-auto pb-3 pt-1 scrollbar-none no-scrollbar">
           {/* All Years Button */}
           <button
             onClick={() => handleYearChange('all')}
-            className={`px-4 py-2 rounded-full text-xs font-bold tracking-wide transition-all duration-200 shrink-0 cursor-pointer flex items-center gap-1.5 ${
+            className={`px-4 py-2 rounded-full text-xs font-bold tracking-wide transition-all duration-200 shrink-0 cursor-pointer flex items-center gap-2 ${
               selectedYear === 'all'
-                ? 'bg-[#8cb0bf] text-[#061326] shadow-lg shadow-[#8cb0bf]/20 scale-105'
-                : 'bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 hover:border-white/20'
+                ? 'bg-white text-[#050e1a] shadow-lg shadow-white/20 ring-2 ring-white scale-105 font-black'
+                : 'bg-[#0e2137] hover:bg-[#163252] text-white border border-slate-600/80 hover:border-slate-400 font-semibold'
             }`}
           >
             <span>All Years</span>
-            <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
-              selectedYear === 'all' ? 'bg-[#061326]/20 text-[#061326]' : 'bg-white/10 text-slate-400'
+            <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full ${
+              selectedYear === 'all'
+                ? 'bg-[#050e1a] text-white'
+                : 'bg-[#1a385c] text-slate-200 border border-slate-600/60'
             }`}>
               {galleryPhotos.length}
             </span>
@@ -91,15 +93,17 @@ export default function Gallery() {
               <button
                 key={year}
                 onClick={() => handleYearChange(year)}
-                className={`px-3.5 py-2 rounded-full text-xs font-bold tracking-wide transition-all duration-200 shrink-0 cursor-pointer flex items-center gap-1.5 ${
+                className={`px-3.5 py-2 rounded-full text-xs font-bold tracking-wide transition-all duration-200 shrink-0 cursor-pointer flex items-center gap-2 ${
                   isSelected
-                    ? 'bg-[#8cb0bf] text-[#061326] shadow-lg shadow-[#8cb0bf]/20 scale-105'
-                    : 'bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 hover:border-white/20'
+                    ? 'bg-white text-[#050e1a] shadow-lg shadow-white/20 ring-2 ring-white scale-105 font-black'
+                    : 'bg-[#0e2137] hover:bg-[#163252] text-white border border-slate-600/80 hover:border-slate-400 font-semibold'
                 }`}
               >
                 <span>{year}</span>
-                <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
-                  isSelected ? 'bg-[#061326]/20 text-[#061326]' : 'bg-white/10 text-slate-400'
+                <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full ${
+                  isSelected
+                    ? 'bg-[#050e1a] text-white'
+                    : 'bg-[#1a385c] text-slate-200 border border-slate-600/60'
                 }`}>
                   {count}
                 </span>
