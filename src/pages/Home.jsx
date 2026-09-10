@@ -187,7 +187,7 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
               Train with internationally certified coaches in focused sessions designed to improve your game. SCCTA empowers young people through tennis, education, and mentorship in Clayton County.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="flex flex-wrap items-center gap-3 pt-2">
               <button
                 onClick={onOpenProgramFinder}
                 className="px-6 py-3 rounded-xl bg-white hover:bg-slate-100 text-[#061326] font-extrabold text-xs sm:text-sm transition-all shadow-[0_4px_20px_rgba(255,255,255,0.15)] hover:shadow-[0_6px_25px_rgba(255,255,255,0.25)] active:scale-95 flex items-center gap-2"
@@ -197,10 +197,17 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
               </button>
 
               <button
-                onClick={() => setActivePage('tournaments')}
-                className="inline-flex items-center gap-2 text-white hover:text-[#8cb0bf] text-xs sm:text-sm font-semibold transition-colors py-3 px-2"
+                onClick={() => setActivePage('lessons')}
+                className="px-5 py-3 rounded-xl bg-[#8cb0bf] hover:bg-[#a2c4d2] text-[#061326] font-extrabold text-xs sm:text-sm transition-all shadow-md active:scale-95 flex items-center gap-2"
               >
-                <span>View Tournaments</span>
+                <span>Book Lessons ($22)</span>
+              </button>
+
+              <button
+                onClick={() => setActivePage('tournaments')}
+                className="inline-flex items-center gap-1.5 text-white hover:text-[#8cb0bf] text-xs sm:text-sm font-semibold transition-colors py-3 px-2"
+              >
+                <span>Tournaments</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
@@ -490,6 +497,83 @@ export default function Home({ setActivePage, onOpenDonate, onOpenProgramFinder,
             </div>
           </ScrollReveal>
 
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 05B. SPECIAL FEATURE: 2025 LENNY SIMPSON NJTL LEADERSHIP CAMP TRIBUTE */}
+      {/* ========================================================================= */}
+      <section className="py-16 bg-[#061326] text-white border-b border-white/10 relative overflow-hidden">
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#8cb0bf]/15 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="bg-white/5 rounded-3xl p-8 sm:p-12 border border-white/10 shadow-2xl">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              
+              <div className="lg:col-span-7 space-y-5">
+                <div className="flex flex-wrap items-center gap-2.5">
+                  <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-400 text-slate-950 flex items-center gap-1.5 shadow-sm">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    Special Dedication & Thank You
+                  </span>
+                  <span className="text-xs text-slate-300 font-medium">
+                    June 2025 · Louisville, KY
+                  </span>
+                </div>
+
+                <h3 className="text-2xl sm:text-4xl font-extrabold font-display text-white leading-tight">
+                  2025 Lenny Simpson NJTL Leadership Camp
+                </h3>
+
+                <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+                  SCCTA extends our heartfelt gratitude to the <strong className="text-white font-semibold">Southern Tennis Foundation</strong>, tennis pioneer <strong className="text-white font-semibold">Lenny Simpson</strong>, <strong className="text-white font-semibold">USTA Southern</strong>, and <strong className="text-white font-semibold">USTA Kentucky</strong> for empowering twenty-seven aspiring young leaders through four unforgettable days of purpose, education, and tennis.
+                </p>
+
+                <div className="flex flex-wrap items-center gap-4 pt-2">
+                  <button
+                    onClick={() => setActivePage('simpson-camp')}
+                    className="px-6 py-3.5 rounded-xl bg-[#8cb0bf] hover:bg-[#a2c4d2] text-[#061326] font-bold text-xs sm:text-sm shadow-xl transition-all active:scale-95 flex items-center gap-2"
+                  >
+                    <span>View Full Tribute & Highlights</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+
+                  <a
+                    href="https://www.southerntennisfoundation.org/news/2025-lenny-simpson-njtl-leadership-camp-empowers-future-leaders-in-louisville"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-5 py-3.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-bold text-xs sm:text-sm border border-white/15 transition-all flex items-center gap-2"
+                  >
+                    <span>STF News Release</span>
+                    <ExternalLink className="w-3.5 h-3.5 text-[#8cb0bf]" />
+                  </a>
+                </div>
+              </div>
+
+              <div className="lg:col-span-5">
+                <div 
+                  onClick={() => setActivePage('simpson-camp')}
+                  className="rounded-2xl overflow-hidden border border-white/15 shadow-2xl relative group cursor-pointer aspect-video sm:aspect-[4/3]"
+                >
+                  <img 
+                    src="/images/lenny-simpson-camp.jpg" 
+                    alt="Lenny Simpson NJTL Leadership Camp in Louisville, KY" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#8cb0bf] block">
+                      Louisville, KY · Kentucky Horse Park & Central Park
+                    </span>
+                    <span className="text-xs text-white font-medium">
+                      27 Aspiring Youth Leaders from across USTA Southern
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
       </section>
 

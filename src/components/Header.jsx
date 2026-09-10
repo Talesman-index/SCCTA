@@ -29,6 +29,8 @@ export default function Header({ activePage, setActivePage, onOpenDonate, onOpen
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'programs', label: 'Programs' },
+    { id: 'lessons', label: 'Lessons' },
+    { id: 'simpson-camp', label: 'Leadership Camp' },
     { id: 'tournaments', label: 'Tournaments' },
     { id: 'impact', label: 'Testimonials' },
     { id: 'involved', label: 'Get Involved' },
@@ -80,16 +82,22 @@ export default function Header({ activePage, setActivePage, onOpenDonate, onOpen
             <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
               {navItems.filter(i => i.id !== 'home' && i.id !== 'contact').map((item) => {
                 const isActive = activePage === item.id;
+                const isCamp = item.id === 'simpson-camp';
                 return (
                   <button
                     key={item.id}
                     onClick={() => handleNavClick(item.id)}
-                    className={`text-xs font-semibold tracking-wide transition-colors duration-200 py-1 relative ${
+                    className={`text-xs font-semibold tracking-wide transition-colors duration-200 py-1 relative flex items-center gap-1.5 ${
                       isActive 
                         ? 'text-[#8cb0bf] font-bold' 
-                        : 'text-slate-200 hover:text-[#8cb0bf]'
+                        : isCamp
+                          ? 'text-amber-300/90 hover:text-amber-200'
+                          : 'text-slate-200 hover:text-[#8cb0bf]'
                     }`}
                   >
+                    {isCamp && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping mr-0.5" />
+                    )}
                     {item.label}
                     {isActive && (
                       <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#8cb0bf] rounded-full shadow-[0_0_8px_#8cb0bf]" />
@@ -101,6 +109,13 @@ export default function Header({ activePage, setActivePage, onOpenDonate, onOpen
 
             {/* Right Desktop CTA & Mobile Toggle */}
             <div className="flex items-center gap-2 sm:gap-3">
+              <button
+                onClick={() => handleNavClick('lessons')}
+                className="hidden lg:inline-flex px-3.5 py-2 rounded-xl bg-[#8cb0bf] hover:bg-[#a2c4d2] text-[#061326] font-bold text-xs transition-all shadow-md active:scale-95 whitespace-nowrap"
+              >
+                Book Lessons
+              </button>
+
               <button
                 onClick={() => handleNavClick('contact')}
                 className="hidden sm:inline-flex px-4 py-2 rounded-xl bg-white hover:bg-slate-100 text-[#061326] font-bold text-xs transition-all shadow-md active:scale-95 whitespace-nowrap"

@@ -193,6 +193,12 @@ export default function Footer({ setActivePage }) {
             <button onClick={() => handleNav('programs')} className="hover:text-[#8cb0bf] transition-colors py-1">
               Programs
             </button>
+            <button onClick={() => handleNav('lessons')} className="hover:text-[#8cb0bf] transition-colors py-1">
+              Lessons & Booking
+            </button>
+            <button onClick={() => handleNav('simpson-camp')} className="hover:text-amber-300 text-amber-300/90 font-bold transition-colors py-1">
+              Leadership Camp
+            </button>
             <button onClick={() => handleNav('tournaments')} className="hover:text-[#8cb0bf] transition-colors py-1">
               Tournaments
             </button>

@@ -6,7 +6,8 @@ import {
   Award, 
   ArrowRight, 
   GraduationCap,
-  Sparkles
+  Sparkles,
+  ExternalLink
 } from 'lucide-react';
 import { IMPACT_STORIES } from '../data/mockData';
 import TextRevealScroll from '../components/TextRevealScroll';
@@ -107,6 +108,68 @@ export default function OurImpact({ setActivePage, onSelectStory, onOpenDonate }
                 </div>
               </div>
 
+            </div>
+          </ScrollReveal>
+
+          {/* 2025 Lenny Simpson NJTL Leadership Camp Gratitude Card */}
+          <ScrollReveal className="mt-8 bg-gradient-to-r from-[#061326] to-[#0D243F] text-white rounded-3xl p-8 sm:p-12 border border-white/10 shadow-xl" delay={150}>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-8 space-y-4">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-400 text-slate-950 flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    Special Recognition & Gratitude
+                  </span>
+                  <span className="text-xs text-slate-300">
+                    Louisville, KY · June 2025
+                  </span>
+                </div>
+
+                <h3 className="text-2xl sm:text-3xl font-extrabold font-display text-white">
+                  2025 Lenny Simpson NJTL Leadership Camp
+                </h3>
+
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Celebrating twenty-seven young leaders across USTA Southern funded by the Southern Tennis Foundation. Special gratitude to Lenny Simpson, USTA Southern, and USTA Kentucky for building character, leadership, and athletic excellence.
+                </p>
+
+                <div className="pt-2 flex flex-wrap items-center gap-3">
+                  <button
+                    onClick={() => setActivePage('simpson-camp')}
+                    className="px-5 py-3 rounded-xl bg-[#8cb0bf] hover:bg-[#a2c4d2] text-[#061326] font-bold text-xs shadow-lg transition-all active:scale-95 flex items-center gap-2"
+                  >
+                    <span>View Full Camp Page & Honorees</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+
+                  <a
+                    href="https://www.southerntennisfoundation.org/news/2025-lenny-simpson-njtl-leadership-camp-empowers-future-leaders-in-louisville"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-3 rounded-xl bg-white/10 hover:bg-white/15 text-white font-bold text-xs border border-white/15 transition-all flex items-center gap-2"
+                  >
+                    <span>STF News</span>
+                    <ExternalLink className="w-3.5 h-3.5 text-[#8cb0bf]" />
+                  </a>
+                </div>
+              </div>
+
+              <div className="lg:col-span-4 flex justify-center">
+                <div 
+                  onClick={() => setActivePage('simpson-camp')}
+                  className="rounded-2xl overflow-hidden border border-white/15 shadow-xl w-full max-w-xs aspect-video sm:aspect-square group cursor-pointer relative"
+                >
+                  <img 
+                    src="/images/lenny-simpson-camp.jpg" 
+                    alt="Lenny Simpson Camp in Louisville, KY" 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-3 left-3 right-3 text-[11px] font-bold text-[#8cb0bf]">
+                    27 Aspiring NJTL Leaders
+                  </div>
+                </div>
+              </div>
             </div>
           </ScrollReveal>
         </div>

@@ -302,19 +302,26 @@ export default function Programs({ setActivePage, onOpenProgramFinder, onOpenDon
                     </div>
                   </div>
 
-                  <div className="pt-2 flex flex-wrap items-center gap-4">
+                  <div className="pt-2 flex flex-wrap items-center gap-3">
                     <button
                       onClick={onOpenProgramFinder}
                       className="px-6 py-3.5 rounded-xl bg-[#102A33] hover:bg-[#173B4A] text-white font-bold text-xs sm:text-sm transition-all shadow-md shadow-[#102A33]/20 active:scale-95"
                     >
-                      Check {currentStage.name} Availability
+                      Check Availability
+                    </button>
+
+                    <button
+                      onClick={() => setActivePage('lessons')}
+                      className="px-5 py-3.5 rounded-xl bg-[#8cb0bf] hover:bg-[#a2c4d2] text-[#061326] font-bold text-xs sm:text-sm transition-all shadow-md active:scale-95"
+                    >
+                      Book & Pay ($22)
                     </button>
 
                     <button
                       onClick={() => setActivePage('contact')}
-                      className="text-xs font-bold text-slate-600 hover:text-[#8cb0bf] py-2 transition-colors"
+                      className="text-xs font-bold text-slate-600 hover:text-[#8cb0bf] py-2 transition-colors ml-1"
                     >
-                      Ask Coach a Question →
+                      Ask Coach →
                     </button>
                   </div>
 
@@ -365,9 +372,9 @@ export default function Programs({ setActivePage, onOpenProgramFinder, onOpenDon
             <ScrollReveal className="lg:col-span-6 flex justify-center" direction="left" delay={150}>
               <div className="rounded-3xl overflow-hidden shadow-2xl border border-slate-200 w-full max-w-md h-80 sm:h-[420px] bg-slate-950">
                 <img 
-                  src="/images/sccta-clayton-clinic.png" 
-                  alt="SCCTA tournament and clinic players"
-                  className="w-full h-full object-cover opacity-90 object-[center_20%]"
+                  src="/images/sccta-team-celebration.jpg" 
+                  alt="SCCTA competitive team and community celebration"
+                  className="w-full h-full object-cover object-center"
                 />
               </div>
             </ScrollReveal>
