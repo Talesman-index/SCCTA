@@ -202,6 +202,9 @@ export default function Footer({ setActivePage }) {
             <button onClick={() => handleNav('tournaments')} className="hover:text-[#8cb0bf] transition-colors py-1">
               Tournaments
             </button>
+            <button onClick={() => handleNav('gallery')} className="hover:text-[#8cb0bf] transition-colors py-1">
+              Gallery
+            </button>
             <button onClick={() => handleNav('involved')} className="hover:text-[#8cb0bf] transition-colors py-1">
               Get Involved
             </button>
