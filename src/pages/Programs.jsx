@@ -536,11 +536,11 @@ export default function Programs({ setActivePage, onOpenProgramFinder, onOpenDon
             </ScrollReveal>
 
             <ScrollReveal className="lg:col-span-6 flex justify-center" direction="left" delay={150}>
-              <div className="rounded-3xl overflow-hidden shadow-2xl border border-slate-200 w-full max-w-md h-80 sm:h-[420px] bg-slate-950">
+              <div className="rounded-3xl overflow-hidden shadow-2xl border border-slate-200 w-full max-w-md h-80 sm:h-[440px] bg-slate-950">
                 <img 
-                  src="/images/sccta-team-celebration.jpg" 
-                  alt="SCCTA competitive team and community celebration"
-                  className="w-full h-full object-cover object-center"
+                  src="/images/junior-competitive-coaching.jpg" 
+                  alt="SCCTA junior competitive coaching session on court"
+                  className="w-full h-full object-cover object-[center_40%] hover:scale-105 transition-transform duration-700 ease-out"
                 />
               </div>
             </ScrollReveal>

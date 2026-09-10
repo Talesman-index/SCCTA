@@ -22,7 +22,8 @@ export default function Gallery() {
     { id: '15', src: '/images/tournament-winners-clubhouse.jpg' },
     { id: '16', src: '/images/sccta-the-mill-group.jpg' },
     { id: '17', src: '/images/sccta-scholarship-awards.jpg' },
-    { id: '18', src: '/images/sccta-clayton-clinic.png' }
+    { id: '18', src: '/images/sccta-clayton-clinic.png' },
+    { id: '19', src: '/images/junior-competitive-coaching.jpg' }
   ];
 
   // Keyboard navigation for Lightbox
