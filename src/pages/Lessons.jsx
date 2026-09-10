@@ -75,25 +75,6 @@ export default function Lessons({ setActivePage, onOpenDonate }) {
         'Open to all ages (Juniors & Adult Competitors)'
       ],
       cta: 'Book & Pay $40.00'
-    },
-    {
-      id: 'donation-square',
-      title: 'Make a donation using Square',
-      subtitle: 'Help SCCTA Grow & Sponsor Youth',
-      price: '20.00',
-      priceNum: 20,
-      period: 'suggested gift',
-      badge: '501(c)(3) Tax Deductible',
-      badgeColor: 'bg-emerald-500 text-white',
-      image: '/images/course-donation-square.jpg',
-      description: 'Directly support young athletes across Clayton County with racquets, court fees, tournament entry grants, and educational tutoring.',
-      features: [
-        'Sponsors junior gear, strings, and grips for underserved players',
-        'Funds academic tutoring & Arthur Ashe essay workshops',
-        '100% tax-deductible charitable community gift',
-        'Instant digital Square receipt emailed to you'
-      ],
-      cta: 'Donate $20.00 via Square'
     }
   ];
 
@@ -205,14 +186,14 @@ export default function Lessons({ setActivePage, onOpenDonate }) {
               Book & Pay Online
             </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold font-display tracking-tight text-slate-900">
-              Choose Your Lesson or Contribution
+              Choose Your Lesson Format
             </h2>
             <p className="text-slate-600 text-sm">
-              Instant registration and payment processed securely via Square.
+              Instant registration and lesson booking processed securely via Square.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
             {products.map((p, idx) => (
               <ScrollReveal 
                 key={p.id}
