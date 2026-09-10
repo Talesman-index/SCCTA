@@ -655,9 +655,9 @@ export default function Programs({ setActivePage, onOpenProgramFinder, onOpenDon
               <ScrollReveal className="lg:col-span-6 flex justify-center" direction="left" delay={150}>
                 <div className="rounded-3xl overflow-hidden shadow-2xl border border-slate-200 w-full max-w-md h-80 sm:h-[420px] bg-slate-950">
                   <img 
-                    src="/images/sccta-clayton-team.jpg" 
-                    alt="Community tennis clinic players" 
-                    className="w-full h-full object-cover opacity-95 object-[center_30%]"
+                    src="/images/sccta-team-celebration.jpg" 
+                    alt="SCCTA adult tennis players and community celebration" 
+                    className="w-full h-full object-cover opacity-95 object-center hover:scale-105 transition-transform duration-700 ease-out"
                   />
                 </div>
               </ScrollReveal>
