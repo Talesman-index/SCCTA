@@ -125,8 +125,8 @@ export const UPCOMING_TOURNAMENTS = [
     status: "REGISTRATIONS OPEN",
     statusType: "open",
     logo: "/logo.png",
-    image: "/images/tournament-winner-boy-trophy.jpg",
-    imageFocus: "center 12%",
+    image: "/images/poster-nextgen-l7-sep.jpg",
+    imageFocus: "center center",
     ustaLink: "https://playtennis.usta.com/tournaments",
     featured: true
   },
@@ -148,8 +148,8 @@ export const UPCOMING_TOURNAMENTS = [
     status: "REGISTRATIONS OPEN",
     statusType: "open",
     logo: "/logo.png",
-    image: "/images/tournament-winner-904-trophy.jpg",
-    imageFocus: "center 8%",
+    image: "/images/poster-nextgen-l7-oct.jpg",
+    imageFocus: "center center",
     ustaLink: "https://playtennis.usta.com/tournaments",
     featured: true
   },
@@ -171,8 +171,8 @@ export const UPCOMING_TOURNAMENTS = [
     status: "REGISTRATIONS OPEN",
     statusType: "open",
     logo: "/logo.png",
-    image: "/images/tournament-winners-medals.jpg",
-    imageFocus: "center 12%",
+    image: "/images/poster-hudlow-l6-oct.jpg",
+    imageFocus: "center center",
     ustaLink: "https://playtennis.usta.com/tournaments",
     featured: true
   },
@@ -194,8 +194,8 @@ export const UPCOMING_TOURNAMENTS = [
     status: "REGISTRATIONS OPEN",
     statusType: "open",
     logo: "/logo.png",
-    image: "/images/tournament-winners-clubhouse.jpg",
-    imageFocus: "center 22%",
+    image: "/images/poster-turkey-bowl-l6.jpg",
+    imageFocus: "center center",
     ustaLink: "https://playtennis.usta.com/tournaments",
     featured: true
   },
@@ -218,8 +218,8 @@ export const UPCOMING_TOURNAMENTS = [
     status: "REGISTRATIONS OPEN",
     statusType: "open",
     logo: "/logo.png",
-    image: "/images/tournament-winners-girls-medals.jpg",
-    imageFocus: "center 18%",
+    image: "/images/poster-adult-open-l5.jpg",
+    imageFocus: "center center",
     ustaLink: "https://playtennis.usta.com/tournaments",
     featured: false
   },
@@ -241,8 +241,8 @@ export const UPCOMING_TOURNAMENTS = [
     status: "REGISTRATIONS CLOSED",
     statusType: "upcoming",
     logo: "/logo.png",
-    image: "/images/tournament-winners-girls-trophies.jpg",
-    imageFocus: "center 20%",
+    image: "/images/poster-sam-kennedy-l6.jpg",
+    imageFocus: "center center",
     ustaLink: "https://playtennis.usta.com/tournaments",
     featured: false
   }

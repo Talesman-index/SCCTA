@@ -275,44 +275,46 @@ export default function Tournaments({ setActivePage, onOpenTournamentRegister })
                       key={t.id}
                       className="bg-white rounded-3xl border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden group"
                     >
-                      {/* Photo Header Banner (Direct Focus on Player Faces & Trophies) */}
-                      <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-900 shrink-0">
+                      {/* Visual Poster Banner */}
+                      <div 
+                        className="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-900 shrink-0 cursor-pointer"
+                        onClick={() => setSelectedTournament(t)}
+                      >
                         <img 
-                          src={t.image || '/images/tournament-winner-boy-trophy.jpg'} 
+                          src={t.image || '/images/poster-nextgen-l7-sep.jpg'} 
                           alt={t.title} 
-                          style={{ objectPosition: t.imageFocus || 'center 15%' }}
+                          style={{ objectPosition: t.imageFocus || 'center center' }}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" 
                         />
-                        {/* Vignette & Gradient Overlays */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40 pointer-events-none" />
-
-                        {/* Top-Left: Level Badge */}
-                        <div className="absolute top-3.5 left-3.5 z-10 px-3 py-1 rounded-md bg-black/60 backdrop-blur-md border border-white/20 text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-white shadow-sm">
-                          {t.level || 'USTA Tournament'}
-                        </div>
-
-                        {/* Top-Right: Registration Status Badge */}
-                        <div className="absolute top-3.5 right-3.5 z-10 px-3 py-1 rounded-md bg-black/60 backdrop-blur-md border border-white/20 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm flex items-center gap-1.5">
-                          <span className={`w-1.5 h-1.5 rounded-full ${
-                            t.status === 'REGISTRATIONS OPEN' 
-                              ? 'bg-emerald-400 animate-pulse' 
-                              : t.status === 'COMPLETED'
-                                ? 'bg-slate-400'
-                                : 'bg-amber-400'
-                          }`} />
-                          <span>{t.status}</span>
-                        </div>
-
-                        {/* Bottom-Left: Calendar Date Pill */}
-                        <div className="absolute bottom-3.5 left-3.5 z-10 inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-black/65 backdrop-blur-md border border-white/20 text-xs font-bold text-white shadow-sm">
-                          <Calendar className="w-3.5 h-3.5 text-[#8cb0bf]" />
-                          <span>{t.date}</span>
-                        </div>
                       </div>
 
                       {/* Card Body */}
                       <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
                         <div className="space-y-3.5">
+                          {/* Top Row: Date & Status */}
+                          <div className="flex items-center justify-between gap-2 flex-wrap">
+                            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0059a6]">
+                              <Calendar className="w-3.5 h-3.5" />
+                              <span>{t.date}</span>
+                            </div>
+                            <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${
+                              t.status === 'REGISTRATIONS OPEN'
+                                ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                                : t.status === 'COMPLETED'
+                                  ? 'bg-slate-100 text-slate-600 border border-slate-200'
+                                  : 'bg-amber-50 text-amber-700 border border-amber-200'
+                            }`}>
+                              <span className={`w-1.5 h-1.5 rounded-full ${
+                                t.status === 'REGISTRATIONS OPEN' 
+                                  ? 'bg-emerald-500 animate-pulse' 
+                                  : t.status === 'COMPLETED'
+                                    ? 'bg-slate-400'
+                                    : 'bg-amber-500'
+                              }`} />
+                              <span>{t.status}</span>
+                            </span>
+                          </div>
+
                           {/* Title */}
                           <h3 
                             onClick={() => setSelectedTournament(t)}
