@@ -140,25 +140,6 @@ export default function SimpsonCamp({ setActivePage, onOpenDonate, onOpenProgram
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
           
-          {/* Top Badges & Tagline */}
-          <div className="flex flex-wrap items-center gap-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-wider text-[#8cb0bf] shadow-lg">
-              <div className="w-5 h-5 rounded-full bg-white flex items-center justify-center p-0.5 shadow-sm">
-                <img src="/logo.png" alt="SCCTA" className="w-full h-full object-contain" />
-              </div>
-              <span>SCCTA Tribute & Gratitude</span>
-            </div>
-
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-300 text-xs font-bold tracking-wide">
-              <Sparkles className="w-3.5 h-3.5" />
-              2025 Lenny Simpson NJTL Leadership Camp
-            </span>
-
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-slate-300 text-xs font-medium">
-              <MapPin className="w-3.5 h-3.5 text-[#8cb0bf]" />
-              Louisville, Kentucky
-            </span>
-          </div>
 
           {/* Main Headline */}
           <div className="space-y-4 max-w-4xl">
