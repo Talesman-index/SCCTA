@@ -12,6 +12,7 @@ import Tournaments from './pages/Tournaments';
 import GetInvolved from './pages/GetInvolved';
 import Contact from './pages/Contact';
 import SimpsonCamp from './pages/SimpsonCamp';
+import Lessons from './pages/Lessons';
 
 export default function App() {
   const [activePage, setActivePage] = useState('home');
@@ -58,10 +59,17 @@ export default function App() {
           />
         )}
 
-        {(activePage === 'programs' || activePage === 'lessons' || activePage === 'cours' || activePage === 'coaching') && (
+        {activePage === 'programs' && (
           <Programs 
             setActivePage={handlePageChange}
             onOpenProgramFinder={() => setIsProgramFinderOpen(true)}
+            onOpenDonate={() => setIsDonateOpen(true)}
+          />
+        )}
+
+        {(activePage === 'lessons' || activePage === 'cours' || activePage === 'coaching') && (
+          <Lessons 
+            setActivePage={handlePageChange}
             onOpenDonate={() => setIsDonateOpen(true)}
           />
         )}

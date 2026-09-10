@@ -29,6 +29,7 @@ export default function Header({ activePage, setActivePage, onOpenDonate, onOpen
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About' },
     { id: 'programs', label: 'Programs' },
+    { id: 'lessons', label: 'Lessons' },
     { id: 'simpson-camp', label: 'Leadership Camp' },
     { id: 'tournaments', label: 'Tournaments' },
     { id: 'involved', label: 'Get Involved' },
